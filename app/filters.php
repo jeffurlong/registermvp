@@ -13,7 +13,75 @@
 
 App::before(function($request)
 {
-	//
+	if (Config::get('app.ssl') and ! Request::secure()) {
+        header('Location: https://'.Config::get('app.domain').Request::path());
+        exit;
+    }
+
+    if (Input::has('_token') and Session::token() != Input::get('_token')) {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
+
+    // If there's no subdomain, we're not at an org site so we're done. Everything after this
+    // applies only to org sites.
+    if ( ! Request::subdomain()) {
+        return null;
+    }
+
+
+    $org = DB::select('Select * from organization');
+    var_dump($org);
+
+    // If the org has already been stored in the session, we're done.
+    if (Session::has('org')) {
+        return null;
+    }
+
+    if ( ! in_array(Request::subdomain(), Config::get('app.subdomains')) ) {
+        App::abort(404);
+    }
+
+    // If we can't find the Org data, we have a problem. (Consider creating an admin alert)
+/*
+    if ( ! ($org = Organization::find())) {
+        return Response::error('404');
+    }
+*/
+
+    // Store the essential org data
+/*
+    Session::put('org', $org->to_array(array(
+         'id',
+         'name',
+        'email',
+        'phone',
+        'website',
+        'theme',
+        'template',
+        'event_label',
+        'event_series_label',
+        'event_category_label',
+        'event_menu_label',
+        'payment_processor'
+    )));
+*/
+    Session::put('org', array(
+        'id' => 1,
+        'name' => 'Demo',
+        'email' => 'demo@demo.com',
+        'phone' => '555-555-5555',
+        'website' => 'demo.com',
+        'theme' => null,
+        'template' => null,
+        'event_label' => 'Event',
+        'event_series_label' => 'Series',
+        'event_category_label' => 'Category',
+        'event_menu_label' => 'Events',
+        'payment_processor' => 'authnet',
+    ));
+
+    return null;
+
 });
 
 

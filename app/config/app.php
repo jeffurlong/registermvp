@@ -3,6 +3,10 @@
 return array(
     'domain' => 'mvpreg.com',
 
+    'ssl' => true,
+
+    'subdomains' => array('main', 'demo'),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
