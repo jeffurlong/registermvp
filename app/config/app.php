@@ -5,7 +5,7 @@ return array(
 
     'ssl' => true,
 
-    'subdomains' => array('main', 'demo'),
+    'subdomains' => array('www', 'demo'),
 
 	/*
 	|--------------------------------------------------------------------------

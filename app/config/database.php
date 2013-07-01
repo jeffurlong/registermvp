@@ -1,5 +1,5 @@
 <?php
-$slug = Request::subdomain() ?: 'main';
+$slug = Request::subdomain() ?: 'www';
 return array(
 
 	/*

@@ -1,12 +1,14 @@
 <?php
 
-class Org
+class Organization
 {
     public static function getSessionData()
     {
-        return (array) DB::table('organization')
-            ->select(
-                'id',
+        $result = array();
+
+        $data = DB::table('org')
+            ->select('*')
+            ->whereRaw("k IN (
                 'name',
                 'email',
                 'phone',
@@ -17,8 +19,13 @@ class Org
                 'event_series_label',
                 'event_category_label',
                 'event_menu_label',
-                'payment_processor'
-            )
-            ->first()
+                'payment_processor')")
+            ->get();
+
+        foreach($data as $row) {
+            $result[$row->k] = $row->v;
+        }
+
+        return $result;
     }
 }

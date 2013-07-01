@@ -39,23 +39,7 @@ App::before(function($request)
 
     // If we can't get the org data from the DB we have a problem.
     // TODO: Log and send an error
-    if ( ! $org =  (array) DB::table('organization')
-            ->select(
-                'id',
-                'name',
-                'email',
-                'phone',
-                'website',
-                'theme',
-                'template',
-                'event_label',
-                'event_series_label',
-                'event_category_label',
-                'event_menu_label',
-                'payment_processor'
-            )
-            ->first())
-    {
+    if ( ! $org =  Organization::getSessionData()) {
         App::abort(404);
     }
 
