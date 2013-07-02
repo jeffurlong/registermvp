@@ -3,7 +3,7 @@
 return array(
     'domain' => 'mvpreg.com',
 
-    'ssl' => true,
+    'secure' => true,
 
     'subdomains' => array('www', 'demo'),
 

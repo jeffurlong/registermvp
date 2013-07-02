@@ -1,6 +1,6 @@
 <?php
 return array(
     'domain' => 'registermvp.local',
-    'ssl' => false,
+    'secure' => false,
     'debug' => true,
 );

@@ -1,7 +1,7 @@
 <?php
-$slug = Request::subdomain() ?: 'www';
-return array(
+$slug = subdomain() ?: 'www';
 
+return array(
 	/*
 	|--------------------------------------------------------------------------
 	| PDO Fetch Style

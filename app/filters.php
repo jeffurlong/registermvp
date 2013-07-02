@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -10,10 +9,9 @@
 | application. Here you may also register your custom route filters.
 |
 */
-
 App::before(function($request)
 {
-	if (Config::get('app.ssl') and ! Request::secure()) {
+	if (Config::get('app.secure') and ! Request::secure()) {
         header('Location: https://'.Config::get('app.domain').Request::path());
         exit;
     }
@@ -23,7 +21,7 @@ App::before(function($request)
     }
 
     // If there's no subdomain, we're not at an org site so we're done.
-    if ( ! Request::subdomain()) {
+    if ( ! subdomain()) {
         return null;
     }
 
@@ -33,7 +31,7 @@ App::before(function($request)
     }
 
     // If the subdomain doesn't match one of our registered orgs, its a 404
-    if ( ! in_array(Request::subdomain(), Config::get('app.subdomains')) ) {
+    if ( ! in_array(subdomain(), Config::get('app.subdomains')) ) {
         App::abort(404);
     }
 
@@ -110,4 +108,14 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+Route::filter('org.setup', function() {
+
+    if ( ! Session::get('org.payment_processor')) {
+        die(Request::is('setup'));
+        return (Request::is('setup')) ? Redirect::to('org/setup') : Redirect::to('org/soon');
+    }
+
+
 });
