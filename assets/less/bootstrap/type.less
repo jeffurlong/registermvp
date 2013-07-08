@@ -1,0 +1,194 @@
+// == [ BODY TEXT ] ============================================================
+p {
+    margin: 0 0 (@line-height-computed / 2);
+}
+
+small {
+    font-size: 85%;
+}
+
+cite {
+    font-style: normal;
+}
+
+
+// == [ HEADINGS ] =============================================================
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+    line-height: @headings-line-height;
+}
+
+h1, h2, h3 {
+    margin-top: @line-height-computed;
+    margin-bottom: (@line-height-computed / 2);
+}
+
+h4, h5, h6 {
+    margin-top: (@line-height-computed / 2);
+    margin-bottom: (@line-height-computed / 2);
+}
+
+h1, .h1 {
+    font-size: ceil(@font-size-base * 2.75);
+} // ~44px
+
+h2, .h2 {
+    font-size: ceil(@font-size-base * 2.25);
+} // ~36px
+
+h3, .h3 {
+    font-size: ceil(@font-size-base * 1.75);
+} // ~28px
+
+h4, .h4 {
+    font-size: ceil(@font-size-base * 1.25);
+} // ~20px
+
+h5, .h5 {
+    font-size:  @font-size-base;
+}
+
+h6, .h6 {
+    font-size: ceil(@font-size-base * 0.875);
+} // ~12px
+
+
+// == [ LISTS ] ================================================================
+ul, ol {
+    margin-top: 0;
+    margin-bottom: (@line-height-computed / 2);
+}
+
+ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline {
+    .list-unstyled();
+    > li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+dl {
+    margin-bottom: @line-height-computed;
+}
+
+dt, dd {
+    line-height: @line-height-base;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: (@line-height-computed / 2);
+}
+
+.dl-horizontal {
+    dt {
+        float: left;
+        width: (@component-offset-horizontal - 20);
+        clear: left;
+        text-align: right;
+        .text-overflow();
+    }
+
+    dd {
+        .clearfix();
+        margin-left: @component-offset-horizontal;
+    }
+}
+
+// == [ QUOTES ] ===============================================================
+blockquote {
+    padding: (@line-height-computed / 2) @line-height-computed;
+    margin: 0 0 @line-height-computed;
+    border-left: 5px solid @gray-light;
+
+    p {
+        font-size: (@font-size-large);
+        font-weight: 300;
+        line-height: 1.25;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    small {
+        display: block;
+        line-height: @line-height-base;
+        color: @gray-light;
+        &:before {
+            content: '\2014 \00A0';
+        }
+    }
+
+
+    &.pull-right {
+        float: right;
+        padding-right: 15px;
+        padding-left: 0;
+        border-right: 5px solid @gray-lighter;
+        border-left: 0;
+        p, small {
+            text-align: right;
+        }
+        small {
+            &:before {
+                content: '';
+            }
+            &:after {
+                content: '\00A0 \2014';
+            }
+        }
+    }
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+}
+
+
+// == [ MISC ] =================================================================
+.text-muted {
+    color: @gray-light;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+hr {
+    margin: @line-height-computed 0;
+    border: 0;
+    border-top: 1px solid @gray-lighter;
+    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+}
+
+
+address {
+    display: block;
+    margin-bottom: @line-height-computed;
+    font-style: normal;
+    line-height: @line-height-base;
+}

@@ -1,0 +1,243 @@
+form {
+    margin: 0;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: @line-height-computed;
+    font-size: @font-size-xlarge;
+    line-height: inherit;
+    color: @gray-dark;
+    border: 0;
+    border-bottom: 1px solid @gray-lighter;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+// == [ CONTROLS ] =============================================================
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    display: block;
+    min-height: @input-height-base;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @gray;
+    vertical-align: middle;
+    background-color: @input-bg;
+    border: 2px solid @input-border;
+    border-radius: @input-border-radius;
+//    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+//    .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+    .transition(~"border-color ease-in-out .15s");
+    &:focus {
+        border-color: rgba(82,168,236,.8);
+        outline: 0;
+//        .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+    }
+
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        background-color: @input-bg-disabled;
+    }
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+
+input[type="search"] {
+    .box-sizing(border-box);
+}
+
+textarea {
+    height: auto;
+}
+
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9; /* IE8-9 */
+    line-height: normal;
+}
+
+select,
+input[type="file"] {
+    line-height: @input-height-base;
+}
+
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+select optgroup {
+    font-size: inherit;
+    font-style: inherit;
+    font-family: inherit;
+}
+
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    .tab-focus();
+}
+
+input[type="number"] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button  {
+        height: auto;
+    }
+}
+
+// == [ PLACEHOLDERS ] =========================================================
+input,
+textarea {
+    .placeholder();
+}
+
+
+// == [ CHECKBOXES & RADIOS ] ==================================================
+.radio,
+.checkbox {
+    display: block;
+    min-height: @line-height-computed; // clear the floating input if there is no label text
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    vertical-align: middle;
+    label {
+        display: inline;
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+    }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    float: left;
+    margin-left: -20px;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+    margin-top: -5px;
+}
+
+.radio-inline,
+.checkbox-inline {
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+// [ INPUT SIZES ] =============================================================
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    &.input-large {
+        min-height: @input-height-large;
+        padding: @padding-large-vertical @padding-large-horizontal;
+        font-size: @font-size-large;
+        border-radius: @border-radius-large;
+    }
+    &.input-small {
+        min-height: @input-height-small;
+        padding: @padding-small-vertical @padding-small-horizontal;
+        font-size: @font-size-small;
+        border-radius: @border-radius-small;
+    }
+}
+
+
+// == [ HELP TEXT ] ============================================================
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: lighten(@text-color, 25%);
+}
+
+// == [ ININE FORMS ] ==========================================================
+.form-inline {
+    input,
+    select,
+    textarea,
+    .radio,
+    .checkbox {
+        display: inline-block;
+    }
+    .radio,
+    .checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+

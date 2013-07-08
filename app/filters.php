@@ -109,13 +109,3 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
-
-Route::filter('org.setup', function() {
-
-    if ( ! Session::get('org.payment_processor')) {
-        die(Request::is('setup'));
-        return (Request::is('setup')) ? Redirect::to('org/setup') : Redirect::to('org/soon');
-    }
-
-
-});

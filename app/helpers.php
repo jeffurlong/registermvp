@@ -13,7 +13,9 @@
      */
     function subdomain($max = 2)
     {
-        $segments = explode('.', $_SERVER['SERVER_NAME']);
+        if (isset($_SERVER['SERVER_NAME'])) {
+            $segments = explode('.', $_SERVER['SERVER_NAME']);
 
-        return (count($segments) > $max and $segments[0] !== 'www') ? $segments[0] : null;
+            return (count($segments) > $max and $segments[0] !== 'www') ? $segments[0] : null;
+        }
     }
