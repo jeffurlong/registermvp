@@ -1,1 +1,44 @@
+@import '../../components/bootstrap/less/bootstrap.less';
+@font-size-base:    16px;
+@line-height-base:  1.5;
+@text-color:        #444;
+@brand-primary:     #96bf48;
+@link-color: #2980B9;
+@link-hover-color:      #3498DB;
+
+.mb {
+    margin-bottom: @line-height-computed/2;
+}
+
+body {
+    padding: 70px 0;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    border: 2px solid #BDC3C7;
+    .box-shadow(none);
+
+    &:focus {
+        border-color: @link-hover-color;
+        .box-shadow(none);
+        outline: none;
+      }
+}
+
+
 

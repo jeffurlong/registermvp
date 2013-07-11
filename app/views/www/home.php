@@ -9,7 +9,7 @@
     <label for="password">Password</label>
     <input class="required" id="password" name="password" placeholder="Password" type="password">
     <small class="help-block mb"><a href="/org/forgot">Forgot your password?</a></small>
-    <button class="btn btn-large btn-block" type="submit">Sign In</button>
+    <button class="btn btn-large btn-block btn-primary" type="submit">Sign In</button>
 </form>
 
 <div>Need an account? <a href="/org/signup">Sign Up Now.</a></div>
