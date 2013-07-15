@@ -1,4 +1,4 @@
-</div> <!-- Container -->
+
 <footer class="navbar navbar-fixed-bottom">
 
     <div class="container" style="width: auto;">

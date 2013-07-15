@@ -1,17 +1,29 @@
 @import '../../components/bootstrap/less/bootstrap.less';
+
 @font-size-base:    16px;
 @line-height-base:  1.5;
 @text-color:        #444;
-@brand-primary:     #96bf48;
-@link-color: #2980B9;
-@link-hover-color:      #3498DB;
+@brand-primary:     #02A7F0;//blue ;
+@brand-secondary:   #7ab122;//green //#70a200;//dark green//#8cb818;//light-green
+@link-color:        darken(@brand-primary, 5%);
+@link-hover-color:  @brand-primary;
+
+@input-border-color: #DDD;
+@input-focus-border-color: #74B9EF;
+
+@logo-url:     '/img/logo-block-dark.png';
+@logo-size: 90px;
 
 .mb {
     margin-bottom: @line-height-computed/2;
 }
 
+.btn-secondary {
+  .btn-pseudo-states(@btn-primary-color, @brand-secondary, @brand-secondary);
+}
+
 body {
-    padding: 70px 0;
+    padding: 90px 0 70px 0;
 }
 
 select,
@@ -30,15 +42,62 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-    border: 2px solid #BDC3C7;
+    border: 3px solid @input-border-color;
     .box-shadow(none);
 
     &:focus {
-        border-color: @link-hover-color;
+        border-color: @input-focus-border-color;
         .box-shadow(none);
         outline: none;
       }
 }
+
+.navbar-inverse {
+    background: #000;
+
+    .navbar-brand {
+        .hide-text();
+        .square(@logo-size);
+        background: url(@logo-url) 0 0 no-repeat;
+    }
+
+    .navbar-nav {
+        margin-top: 22px;
+
+        &>li>a {
+            color: @brand-primary;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    background: url(/img/hero-basketball-star.jpg) top center no-repeat;
+    background-position: 0 -240px;
+    .background-size(cover);
+    height: 460px;
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.15);
+    }
+    .container {
+        position: relative;
+        z-index: 200;
+        padding-top: 120px;
+        color: #fff;
+        text-shadow: 0 1px 1px #000;
+    }
+    .btn-large{
+        width: 400px;
+        border-radius: 0;
+    }
+}
+
 
 
 
