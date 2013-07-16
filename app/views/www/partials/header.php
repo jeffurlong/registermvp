@@ -8,6 +8,20 @@
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style>
+    .show-grid {
+  margin-bottom: 15px;
+}
+.show-grid [class^="col-"] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  /* Todo: reconcile these */
+  background-color: rgba(185,74,72,.15);
+  border: 1px solid rgba(185,74,72,.2);
+}
+</style>
 </head>
 <body>
 
