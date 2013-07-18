@@ -1,14 +1,14 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600);
 @import '../../components/bootstrap/less/bootstrap.less';
 
-@font-family-base: 'Lato', @font-family-sans-serif;
+@font-family-base: 'Raleway', @font-family-sans-serif;
 @font-size-base:    16px;
 @line-height-base:  1.5;
 @text-color:        @gray-dark;
-@brand-primary:     #02A7F0;//blue ;
-@brand-secondary:   #7ab122;//green //#70a200;//dark green//#8cb818;//light-green
-@link-color:        darken(@brand-primary, 5%);
-@link-hover-color:  @brand-primary;
+@brand-primary:     #7ab122;//green
+@brand-secondary:   #02A7F0;//blue ;//#70a200;//dark green//#8cb818;//light-green
+@link-color:        darken(@brand-secondary, 5%);
+@link-hover-color:  @brand-secondary;
 
 @input-border-color: #DDD;
 @input-focus-border-color: #74B9EF;
@@ -74,11 +74,10 @@ input[type="color"] {
 
 .hero {
     position: relative;
-    background: url(/img/hero-basketball-star.jpg) top center no-repeat;
-    background-position: 0 -240px;
+    background: url(/img/hero-basketball-star.jpg) center center no-repeat;
     .background-size(cover);
     height: 460px;
-    .mask {
+    /*.mask {
         position: absolute;
         top: 0;
         left: 0;
@@ -86,7 +85,7 @@ input[type="color"] {
         width: 100%;
         z-index: 100;
         background: rgba(0, 0, 0, 0.15);
-    }
+    }*/
     .container {
         position: relative;
         z-index: 200;
@@ -104,7 +103,6 @@ input[type="color"] {
     padding: (@line-height-computed * 2) 0;
     h2 {
         margin-top: 0;
-        color: @brand-secondary;
         font-weight: 300;
     }
     p {
