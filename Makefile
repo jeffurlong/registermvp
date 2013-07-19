@@ -1,2 +1,2 @@
 css:
-	lessc -yui-compress  assets/less/main.less public_html/css/main.min.css
+	lessc -yui-compress  assets/less/www.less public_html/css/www.min.css

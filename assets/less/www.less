@@ -1,9 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600);
 @import '../../components/bootstrap/less/bootstrap.less';
 
+// == [ VARIABLES ] ============================================================
 @font-family-base: 'Raleway', @font-family-sans-serif;
 @font-size-base:    16px;
 @line-height-base:  1.5;
+
 @text-color:        @gray-dark;
 @brand-primary:     #7ab122;//green
 @brand-secondary:   #02A7F0;//blue ;//#70a200;//dark green//#8cb818;//light-green
@@ -16,18 +18,12 @@
 @logo-url:     '/img/logo-block-dark.png';
 @logo-size: 90px;
 
-.mb {
-    margin-bottom: @line-height-computed/2;
-}
-
-.btn-secondary {
-  .btn-pseudo-states(@btn-primary-color, @brand-secondary, @brand-secondary);
-}
-
+// == [ SCAFFOLDING ] ==========================================================
 body {
-    padding: 90px 0 70px 0;
+    padding: 90px 0 0 0;
 }
 
+// == [ FORMS ] ================================================================
 select,
 textarea,
 input[type="text"],
@@ -46,7 +42,6 @@ input[type="tel"],
 input[type="color"] {
     border: 3px solid @input-border-color;
     .box-shadow(none);
-
     &:focus {
         border-color: @input-focus-border-color;
         .box-shadow(none);
@@ -54,19 +49,27 @@ input[type="color"] {
       }
 }
 
-.navbar-inverse {
-    background: #000;
+// == [ BUTTONS ] ==============================================================
+.btn-secondary {
+  .btn-pseudo-states(@btn-primary-color, @brand-secondary, @brand-secondary);
+}
 
+// == [ UTLILITIES ] ===========================================================
+.mb {
+    margin-bottom: @line-height-computed/2;
+}
+
+// == [ SPECIFIC ] =============================================================
+.navbar-inverse {
+    background: #111;
     .navbar-brand {
         .hide-text();
         .square(@logo-size);
         background: url(@logo-url) 0 0 no-repeat;
     }
-
     .navbar-nav {
         margin-top: 22px;
-
-        &>li>a {
+        .sign-up {
             color: @brand-primary;
         }
     }
@@ -77,15 +80,6 @@ input[type="color"] {
     background: url(/img/hero-basketball-star.jpg) center center no-repeat;
     .background-size(cover);
     height: 460px;
-    /*.mask {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 100;
-        background: rgba(0, 0, 0, 0.15);
-    }*/
     .container {
         position: relative;
         z-index: 200;
@@ -115,6 +109,9 @@ input[type="color"] {
     }
 }
 
-
+footer {
+    padding: @line-height-computed 0;
+    font-size: @font-size-small;
+}
 
 

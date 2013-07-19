@@ -1,12 +1,12 @@
+<div class="container"><hr /></div>
 
-<footer class="navbar navbar-fixed-bottom">
-
-    <div class="container" style="width: auto;">
-         <p class="navbar-text">
-        Content &copy; 2013  <a href="http://www.demo.tld">Tualatin Youth Basketball</a>. All rights reserved.
-        <br />Online Event Registration Software &copy; 2013 <a href="http://mvpreg.com">MVP Registration</a>. All rights reserved.
-    </p>
+<footer>
+    <div class="container text-center text-muted">
+        <ul class="list-inline">
+            <li><a class="btn-link" href="/">Home</a>
+            </li><li><a class="btn-link" href="/legal">Legal</a>
+            </li><li>&copy; <?php echo date('Y'); ?> MVP Registration, LLC
+            </li></ul>
     </div>
 </footer>
-
 </body>
