@@ -20,9 +20,9 @@ class OrgController extends BaseController
         ));
     }
 
-    public function getSignin()
+    public function getLogin()
     {
-        die('signin');
+        return View::make('org.login');
     }
 
     public function getSetup()

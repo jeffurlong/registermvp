@@ -2,15 +2,14 @@
 View::share('_title', 'MVP Registration | Refreshingly simple online registration');
 View::share('_description', 'Stop erroring');
 
-Route::controller('org', 'OrgController');
+if ( Session::has('org')) {
+    View::share('_org', Session::get('org'));
+}
 
+// == [ WWW ] ==================================================================
 Route::get('/', function()
 {
-    if ( ! subdomain()) {
-        return View::make('www.home');
-    }
-
-    return Redirect::to('org');
+    return subdomain() ?  Redirect::to('org') : View::make('www.home');
 });
 
 Route::get('legal', function()
@@ -18,7 +17,11 @@ Route::get('legal', function()
     die('www legal');
 });
 
-Route::group(array('prefix' => 'admin'), function()
+// == [ ORG ] ==================================================================
+Route::controller('org', 'OrgController');
+
+// == [ ADMIN ] ================================================================
+Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 {
     Route::get('/', function()
     {
@@ -33,7 +36,8 @@ Route::group(array('prefix' => 'admin'), function()
     Route::controller('event', 'AdminEventController');
 });
 
- Route::group(array('prefix' => 'member'), function()
+// == [ MEMBER ] ==================================================================
+Route::group(array('prefix' => 'member', 'before'=>'auth'), function()
 {
     Route::get('/', function()
     {

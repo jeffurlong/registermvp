@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600);
+@import '../../components/bootstrap/less/bootstrap.less';
+
+// == [ VARIABLES ] ============================================================
+@font-family-base: 'Raleway', @font-family-sans-serif;
+@font-size-base:    16px;
+@line-height-base:  1.5;
+
+@text-color:        @gray-dark;
+@brand-primary:     #7ab122;//green
+@brand-secondary:   #02A7F0;//blue ;//#70a200;//dark green//#8cb818;//light-green
+@link-color:        darken(@brand-secondary, 5%);
+@link-hover-color:  @brand-secondary;
+
+@input-border-color: #DDD;
+@input-focus-border-color: #74B9EF;
+
+
+// == [ SCAFFOLDING ] ==========================================================
+body {
+    padding: 90px 0 0 0;
+}
+
+footer {
+    padding: @line-height-computed 0;
+    font-size: @font-size-small;
+}
+
+// == [ TYPE ] =================================================================
+.page-header {
+    padding: 0;
+    border-bottom: none;
+    margin: 0 0 @line-height-computed;
+    text-align: center;
+}
+
+// == [ FORMS ] ================================================================
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    border: 3px solid @input-border-color;
+    .box-shadow(none);
+    border-radius: 0;
+    &:focus {
+        border-color: @input-focus-border-color;
+        .box-shadow(none);
+        outline: none;
+      }
+}
+
+// == [ BUTTONS ] ==============================================================
+.btn-secondary {
+  .btn-pseudo-states(@btn-primary-color, @brand-secondary, @brand-secondary);
+}
+
+.btn-large {
+    border-radius: 0;
+}
+
+// == [ UTLILITIES ] ===========================================================
+.mb {
+    margin-bottom: @line-height-computed/2;
+}
+
+.mbx {
+    margin-bottom: @line-height-computed;
+}

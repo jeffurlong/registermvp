@@ -66,7 +66,13 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+    if ( ! subdomain()) {
+        App::abort(404);
+    }
+
+	if (Auth::guest()) {
+        return Redirect::guest('org/login');
+    }
 });
 
 

@@ -1,3 +1,4 @@
-<?php
-echo __FILE__;
+<?php include 'partials/header.php'; ?>
+<h1>Home</h1>
+<?php include 'partials/footer.php'; ?>
 
