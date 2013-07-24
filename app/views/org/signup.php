@@ -1,17 +1,17 @@
 <?php include 'partials/header.php'; ?>
 
 
-<h1 class="page-header text-center">Log in to your account</h1>
+<h1 class="page-header text-center">Sign up for your FREE account</h1>
 
 <div class="row">
 
-    <div class="col-lg-6 col-offset-3">
+    <div class="col-lg-8 col-offset-2">
 
         <form class="placeholders mbx" method="post">
 
             <label for="email">Email Address</label>
             <input class="required email" id="email" name="email" placeholder="Email Address"
-                type="text" value="<?php echo $email; ?>">
+                type="text" >
 
             <label for="password">Password</label>
             <input class="required" id="password" name="password" placeholder="Password"

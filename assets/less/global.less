@@ -7,14 +7,11 @@
 @line-height-base:  1.5;
 
 @text-color:        @gray-dark;
-@brand-primary:     #7ab122;//green
-@brand-secondary:   #02A7F0;//blue ;//#70a200;//dark green//#8cb818;//light-green
-@link-color:        darken(@brand-secondary, 5%);
-@link-hover-color:  @brand-secondary;
+@brand-primary:     #02A7F0; //blue
+@brand-secondary:   #7ab122; //green ;//#70a200;//dark green//#8cb818;//light-green
 
 @input-border-color: #DDD;
 @input-focus-border-color: #74B9EF;
-
 
 // == [ SCAFFOLDING ] ==========================================================
 body {
@@ -28,10 +25,8 @@ footer {
 
 // == [ TYPE ] =================================================================
 .page-header {
-    padding: 0;
+    padding-bottom: @line-height-computed/2;
     border-bottom: none;
-    margin: 0 0 @line-height-computed;
-    text-align: center;
 }
 
 // == [ FORMS ] ================================================================
@@ -53,12 +48,17 @@ input[type="tel"],
 input[type="color"] {
     border: 3px solid @input-border-color;
     .box-shadow(none);
-    border-radius: 0;
+    /* border-radius: 0; */
+    margin-bottom: @line-height-computed / 2;
     &:focus {
         border-color: @input-focus-border-color;
         .box-shadow(none);
         outline: none;
       }
+}
+
+.placeholders label {
+    display: none;
 }
 
 // == [ BUTTONS ] ==============================================================
@@ -67,14 +67,15 @@ input[type="color"] {
 }
 
 .btn-large {
-    border-radius: 0;
+    /* border-radius: 0; */
 }
 
 // == [ UTLILITIES ] ===========================================================
 .mb {
-    margin-bottom: @line-height-computed/2;
+    margin-bottom: @line-height-computed;
 }
 
 .mbx {
-    margin-bottom: @line-height-computed;
+    margin-bottom: @line-height-computed * 2;
 }
+

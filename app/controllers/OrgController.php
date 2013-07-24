@@ -22,7 +22,7 @@ class OrgController extends BaseController
 
     public function getLogin()
     {
-        return View::make('org.login');
+        return View::make('org.login', array('email' => Input::get('email')));
     }
 
     public function getSetup()
@@ -32,7 +32,7 @@ class OrgController extends BaseController
 
     public function getSignup()
     {
-        die('signup');
+        return View::make('org.signup');
     }
 
     public function getForgot()
