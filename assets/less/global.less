@@ -2,16 +2,20 @@
 @import '../../components/bootstrap/less/bootstrap.less';
 
 // == [ VARIABLES ] ============================================================
-@font-family-base: 'Raleway', @font-family-sans-serif;
-@font-size-base:    16px;
-@line-height-base:  1.5;
+@font-family-base:          'Raleway', @font-family-sans-serif;
+@font-size-base:            16px;
+@line-height-base:          1.5;
 
-@text-color:        @gray-dark;
-@brand-primary:     #02A7F0; //blue
-@brand-secondary:   #7ab122; //green ;//#70a200;//dark green//#8cb818;//light-green
+@text-color:                @gray-dark;
+@brand-primary:             #02A7F0; //blue
+@brand-secondary:           #7ab122; //green ;//#70a200;//dark green//#8cb818;//light-green
 
-@input-border-color: #DDD;
-@input-focus-border-color: #74B9EF;
+@input-border-color:        #DDD;
+@input-focus-border-color:  #74B9EF;
+
+@invalid-color:             #E74C3C;
+
+@link-hover-color:          lighten(@link-color, 15%);
 
 // == [ SCAFFOLDING ] ==========================================================
 body {
@@ -21,6 +25,12 @@ body {
 footer {
     padding: @line-height-computed 0;
     font-size: @font-size-small;
+    a {
+        color: @gray-light;
+        &:hover {
+            color: @gray-dark;
+        }
+    }
 }
 
 // == [ TYPE ] =================================================================
@@ -55,9 +65,19 @@ input[type="color"] {
         .box-shadow(none);
         outline: none;
       }
+    &.invalid, &:invalid {
+        border-color: @invalid-color;
+        background-color: lighten(@invalid-color, 40);
+    }
 }
 
-.placeholders label {
+small.invalid {
+    color: @invalid-color;
+    display: block;
+    margin: (@line-height-computed / -2) 3px (@line-height-computed / 2);
+}
+
+html.placeholder form.placeholders label {
     display: none;
 }
 
@@ -77,5 +97,9 @@ input[type="color"] {
 
 .mbx {
     margin-bottom: @line-height-computed * 2;
+}
+
+.hider {
+    display: none;
 }
 

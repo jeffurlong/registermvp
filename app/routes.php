@@ -14,11 +14,48 @@ Route::get('/', function()
 
 Route::get('legal', function()
 {
-    die('www legal');
+    return View::make('www.legal');
 });
 
+
 // == [ ORG ] ==================================================================
-Route::controller('org', 'OrgController');
+Route::group(array('prefix' => 'org', 'before' => 'org'), function()
+{
+    Route::get('/', function()
+    {
+        $template = Session::get('org.template') ?: 'org.home';
+
+        $about =    DB::table('org')->select('v')->whereK('description')
+                        ->first()->v;
+
+        return View::make($template, array(
+            'about'     => nl2br($about),
+            'events'    => array()
+        ));
+    });
+
+    Route::get('login', function()
+    {
+        return View::make('org.login', array('email' => Input::get('email')));
+    });
+
+    Route::post('login', function()
+    {
+        if (Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
+        {
+            return Redirect::intended('dashboard');
+        }
+
+        return Redirect::to('org/login')->with('email', Input::get('email'));
+    });
+
+    Route::get('signup', function()
+    {
+        return View::make('org.signup');
+    });
+
+});
+
 
 // == [ ADMIN ] ================================================================
 Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()

@@ -8,9 +8,7 @@
 <?php if ($_org['theme']): ?>
     <link href="/css/custom/<?php echo $_org['theme']; ?>" rel="stylesheet">
 <?php endif; ?>
-<!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+ <script src="/js/modernizr.custom.min.js"></script>
 </head>
 <body>
 

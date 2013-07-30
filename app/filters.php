@@ -25,6 +25,7 @@ App::before(function($request)
         return null;
     }
 
+
     // If the org has already been stored in the session, we're done.
     if (Session::has('org')) {
         return null;
@@ -114,4 +115,12 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+
+Route::filter('org', function()
+{
+    if ( ! Session::get('org.payment_processor')) {
+        die('soon');
+    }
 });

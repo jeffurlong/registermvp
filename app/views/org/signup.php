@@ -1,35 +1,51 @@
 <?php include 'partials/header.php'; ?>
 
 
-<h1 class="page-header text-center">Sign up for your FREE account</h1>
+<h1 class="page-header text-center">Create your account</h1>
 
 <div class="row">
 
     <div class="col-lg-8 col-offset-2">
 
         <form class="placeholders mbx" method="post">
-
-            <label for="email">Email Address</label>
-            <input class="required email" id="email" name="email" placeholder="Email Address"
-                type="text" >
-
-            <label for="password">Password</label>
-            <input class="required" id="password" name="password" placeholder="Password"
-                type="password">
-
             <div class="row">
-                <div class="col-lg-5">
-                    <a class="link-btn btn-large btn-block text-muted" href="/org/forgot">
-                        <small>Forgot your password?</small>
-                    </a>
-                 </div>
-
-                <div class="col-lg-7">
-                    <button class="btn btn-block btn-large btn-primary" type="submit">
-                        Log In
-                    </button>
+                <div class="col-lg-6">
+                    <label for="first_name">First Name</label>
+                    <input class="required" id="first_name" name="first_name"
+                        placeholder="First Name" type="text">
+                </div>
+                <div class="col-lg-6">
+                    <label for="last_name">Last Name</label>
+                    <input class="required" id="last_name" name="last_name"
+                        placeholder="Last Name" type="text">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <label for="email">Email</label>
+                    <input class="email required" id="email" name="email"
+                        placeholder="Email" type="email">
+                </div>
+                <div class="col-lg-6">
+                    <label for="phone">Phone #</label>
+                    <input class="required" id="phone" name="phone" placeholder="Phone #"
+                        type="tel">
+                </div>
+            </div>
+
+            <label for="password">Password</label>
+            <input class="required" data-mvp-role="confirm-input"
+                data-mvp-target="#confirm" id="password" minlength="8" name="password"
+                placeholder="Password" type="password">
+
+            <div class="hider" id="confirm">
+                <label for="confirm_password">Confirm Your Password</label>
+                <input class="required" equalto="#password" id="confirm_password"
+                    name="confirm_password" placeholder="Confirm Your Password"
+                    type="password">
+            </div>
+
+            <button class="btn btn-block btn-large btn-primary" type="submit">Sign Up</button>
 
             <?php echo Form::token(); ?>
 
@@ -38,7 +54,7 @@
         <hr class="mb" />
 
         <p class="lead text-center">
-            <span class="text-muted">Don't have an account?</span> <a href="/org/signup">Sign Up</a>
+            <span class="text-muted">Already have an account?</span> <a href="/org/login">Log In</a>
         </p>
     </div>
 </div>

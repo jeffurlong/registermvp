@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "normalize-css": "latest",
-        "font-awesome": "latest"
+        "font-awesome": "latest",
+        "modernizr" : "latest"
     }
 }
