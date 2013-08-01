@@ -36,7 +36,7 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
 
     Route::get('login', function()
     {
-        return View::make('org.login', array('email' => Input::get('email')));
+        return View::make('org.login', array('email' => Input::old('email'), 'message' => Session::get('message')));
     });
 
     Route::post('login', function()
@@ -46,7 +46,7 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
             return Redirect::intended('dashboard');
         }
 
-        return Redirect::to('org/login')->with('email', Input::get('email'));
+        return Redirect::to('org/login')->with('message','Invalid')->withInput();
     });
 
     Route::get('signup', function()
