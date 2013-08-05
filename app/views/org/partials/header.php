@@ -24,7 +24,7 @@
 
 <div class="container">
 
-<?php if($message): ?>
+<?php if(isset($message)): ?>
     <div class="alert">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <?php echo $message; ?>
