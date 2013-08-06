@@ -1,4 +1,5 @@
 <?php
+
 $slug = subdomain() ?: 'www';
 
 return array(

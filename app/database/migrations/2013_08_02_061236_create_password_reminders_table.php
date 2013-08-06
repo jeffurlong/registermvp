@@ -11,7 +11,7 @@ class CreatePasswordRemindersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::connection('root')->create('password_reminders', function($t)
+		Schema::create('password_reminders', function($t)
 		{
 			$t->string('email');
 			$t->string('token');
@@ -26,7 +26,9 @@ class CreatePasswordRemindersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('password_reminders');
+		if (Schema::has_table('password_reminders')) {
+			Schema::drop('password_reminders');
+		}
 	}
 
 }

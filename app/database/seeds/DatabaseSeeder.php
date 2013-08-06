@@ -1,4 +1,5 @@
 <?php
+// use Illuminate\Hashing\BcryptHasher;
 
 class DatabaseSeeder extends Seeder {
 
@@ -13,5 +14,69 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 	}
+
+	class OrgTableSeeder extends Seeder {
+
+	    public function run()
+	    {
+	        DB::table('org')->delete();
+
+	        Organization::create(array(
+				'k' => 'name',
+				'v'	=> 'Demo Sports League',
+			));
+
+
+	        Organization::create(array(
+				'k' => 'slug',
+				'v'	=> 'demo',
+			));
+
+			Organization::create(array(
+				'k' => 'payment_processor',
+				'v'	=> 'authnet',
+			));
+
+	    }
+
+	}
+
+	class UserTableSeeder extends Seeder {
+
+	    public function run()
+	    {
+	        DB::table('users')->delete();
+
+	        User::create(array(
+				'id' 		=> 1,
+				'person_id'	=> 1,
+				'role_id'	=> 60,
+				'username'	=> 'admin@demo.com',
+				'password'	=> Hash::make('admindemo')
+			));
+	    }
+
+	}
+
+	class PersonTableSeeder extends Seeder {
+
+	    public function run()
+	    {
+	        DB::table('persons')->delete();
+
+	        Person::create(array(
+				'id' 		=> 1,
+				'master_id'	=> 1,
+				'first_name' => 'Demo',
+				'last_name'	=> 'Admin',
+				'email'	=> 'admin@demo.com',
+				'phone' => '555-555-5555',
+				'gender' => 'M'
+			));
+	    }
+
+	}
+
+
 
 }

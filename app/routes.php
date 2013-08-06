@@ -25,8 +25,8 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
     {
         $template = Session::get('org.template') ?: 'org.home';
 
-        $about =    DB::table('org')->select('v')->whereK('description')
-                        ->first()->v;
+        $about =    '';//DB::table('org')->select('v')->whereK('description')
+                        //->first()->v;
 
         return View::make($template, array(
             'about'     => nl2br($about),

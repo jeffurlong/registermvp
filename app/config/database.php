@@ -52,6 +52,7 @@ return array(
 			'database'  => 'mvpreg_'.$slug,
 			'username'  => 'mvpreg_dbu',
 			'password'  => 'Ka+8b4d2,M',
+
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

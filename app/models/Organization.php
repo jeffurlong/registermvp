@@ -1,6 +1,6 @@
 <?php
 
-class Organization
+class Organization extends Eloquent
 {
     public static function getSessionData()
     {

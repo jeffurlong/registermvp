@@ -11,7 +11,7 @@ class CreateOrgTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::connection('root')->create('org', function(Blueprint $table)
+		Schema::create('org', function(Blueprint $table)
 		{
 			$table->string('k')->unique();
 			$table->text('v')->nullable();
@@ -25,7 +25,7 @@ class CreateOrgTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users');
+		Schema::drop('org');
 	}
 
 }
