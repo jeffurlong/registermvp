@@ -2,6 +2,8 @@
 
 class Organization extends Eloquent
 {
+    protected $table = 'org';
+    public $timestamps = false;
     public static function getSessionData()
     {
         $result = array();

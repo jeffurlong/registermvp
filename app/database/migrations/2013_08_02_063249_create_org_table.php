@@ -25,7 +25,9 @@ class CreateOrgTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('org');
+		if (Schema::hasTable('org')) {
+			Schema::drop('org');
+		}
 	}
 
 }
