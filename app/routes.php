@@ -43,10 +43,10 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
     {
         if (Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
         {
-            return Redirect::intended('dashboard');
+            return Redirect::intended('admin');
         }
 
-        return Redirect::to('org/login')->with('message','Invalid')->withInput();
+        return Redirect::to('admin/login')->with('message','Invalid')->withInput();
     });
 
     Route::get('signup', function()
@@ -62,7 +62,12 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 {
     Route::get('/', function()
     {
-        die('admin index');
+        return Redirect::to('admin/dashboard');
+    });
+
+    Route::get('dashboard', function()
+    {
+        return View::make('admin.dashboard');
     });
 
     Route::get('my-account', function()

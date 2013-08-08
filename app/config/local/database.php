@@ -3,9 +3,9 @@
 $slug = subdomain() ?: 'www';
 
 return array(
-
+    'default' => 'default',
     'connections' => array(
-        'default' => 'default',
+
 
 
         'default' => array(

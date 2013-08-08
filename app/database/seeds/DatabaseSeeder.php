@@ -34,6 +34,16 @@ class OrgTableSeeder extends Seeder {
 			'v'	=> 'demo',
 		));
 
+        Organization::create(array(
+            'k' => 'theme',
+            'v' => '',
+        ));
+
+        Organization::create(array(
+            'k' => 'website',
+            'v' => 'http://demo.com',
+        ));
+
 		Organization::create(array(
 			'k' => 'payment_processor',
 			'v'	=> 'authnet',

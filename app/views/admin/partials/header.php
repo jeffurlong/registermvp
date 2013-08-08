@@ -4,11 +4,8 @@
 <meta charset="utf-8">
 <title><?php echo $_title; ?></title>
 <meta name="description" content="<?php echo $_description; ?>">
-<link href="/css/org.min.css" rel="stylesheet">
-<?php if (isset($_org['theme'])): ?>
-    <link href="/css/custom/<?php echo $_org['theme']; ?>" rel="stylesheet">
-<?php endif; ?>
- <script src="/js/modernizr.custom.min.js"></script>
+<link href="/css/admin.min.css" rel="stylesheet">
+<script src="/js/modernizr.custom.min.js"></script>
 </head>
 <body>
 
@@ -16,8 +13,8 @@
     <div class="container">
         <a class="navbar-brand" href="/"><?php echo $_org['name']; ?></a>
         <ul class="nav navbar-nav pull-right">
-            <li><a href="/org/login">Log In</a></li>
-            <li><a href="/org/signup">Sign up</a></li>
+            <li><a href="mailto:support@mvpreg.com">Help &amp; Support</a></li>
+            <li><a href="#">Your Account</a></li>
         </ul>
     </div>
 </nav>

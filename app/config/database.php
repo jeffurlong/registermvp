@@ -50,6 +50,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'mvpreg_'.$slug,
+			//'database'  => 'registermvp_dev_'.$slug,
 			'username'  => 'mvpreg_dbu',
 			'password'  => 'Ka+8b4d2,M',
 
