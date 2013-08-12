@@ -19,4 +19,6 @@ return array(
 
 	"token"    => "This password reset token is invalid.",
 
+	"success" 	=> "We sent you an email with a link to reset your password",
+
 );

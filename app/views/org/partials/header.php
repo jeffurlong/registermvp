@@ -24,9 +24,19 @@
 
 <div class="container">
 
-<?php if(isset($message)): ?>
-    <div class="alert">
+<?php if(Session::has('error')): ?>
+    <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php echo $message; ?>
+        <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.error'); ?>
+    </div>
+<?php elseif(Session::has('success')): ?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.success'); ?>
+    </div>
+<?php elseif(Session::has('message')): ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <?php echo Session::get('message'); ?>
     </div>
 <?php endif; ?>

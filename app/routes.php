@@ -46,12 +46,33 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
             return Redirect::intended('admin');
         }
 
-        return Redirect::to('admin/login')->with('message','Invalid')->withInput();
+        return Redirect::to('org/login')->with('message','Invalid')->withInput();
+    });
+
+    Route::get('forgot', function()
+    {
+        if ( Session::has('success')) {
+            return Redirect::to('org/logout')->with('reset', true);
+        }
+
+        return View::make('org.forgot');
+    });
+
+
+    Route::post('forgot', function()
+    {
+        return Password::remind(array('username' => Input::get('email')));
     });
 
     Route::get('signup', function()
     {
         return View::make('org.signup');
+    });
+
+    Route::get('logout', function()
+    {
+        Auth::logout();
+        return View::make('org.logout');
     });
 
 });
