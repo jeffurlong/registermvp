@@ -100,7 +100,7 @@ return array(
 		'Illuminate\Html\HtmlServiceProvider',
 		'Illuminate\Foundation\Providers\KeyGeneratorServiceProvider',
 		'Illuminate\Log\LogServiceProvider',
-		'Illuminate\Mail\MailServiceProvider',
+		//'Illuminate\Mail\MailServiceProvider',
 		'Illuminate\Foundation\Providers\MaintenanceServiceProvider',
 		'Illuminate\Database\MigrationServiceProvider',
 		'Illuminate\Foundation\Providers\OptimizeServiceProvider',
@@ -118,6 +118,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Jeffurlong\Mandrill\MandrillServiceProvider',
 
 	),
 
@@ -167,7 +168,7 @@ return array(
 		'Input'           => 'Illuminate\Support\Facades\Input',
 		'Lang'            => 'Illuminate\Support\Facades\Lang',
 		'Log'             => 'Illuminate\Support\Facades\Log',
-		'Mail'            => 'Illuminate\Support\Facades\Mail',
+		//'Mail'            => 'Illuminate\Support\Facades\Mail',
 		'Paginator'       => 'Illuminate\Support\Facades\Paginator',
 		'Password'        => 'Illuminate\Support\Facades\Password',
 		'Queue'           => 'Illuminate\Support\Facades\Queue',
@@ -183,6 +184,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Mail'		=> 'Jeffurlong\Mandrill\Facades\Mandrill',
 
 	),
 

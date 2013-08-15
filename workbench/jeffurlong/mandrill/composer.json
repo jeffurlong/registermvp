@@ -1,0 +1,23 @@
+{
+    "name": "jeffurlong/mandrill",
+    "description": "",
+    "authors": [
+        {
+            "name": "Jef Furlong",
+            "email": "jef.furlong@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Jeffurlong\\Mandrill": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
