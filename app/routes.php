@@ -61,7 +61,10 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
 
     Route::post('forgot', function()
     {
-        return Password::remind(array('username' => Input::get('email')));
+        return Password::remind(array('username' => Input::get('email')), function ($message, $user)
+        {
+            $message->subject('Password reminder');
+        });
     });
 
     Route::get('signup', function()

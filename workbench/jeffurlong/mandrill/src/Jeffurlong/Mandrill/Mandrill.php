@@ -44,10 +44,29 @@ class Mandrill extends Mailer {
         // to creating view based emails that are able to receive arrays of data.
         $this->addContent($message, $view, $plain, $data);
 
-        $message = $message->getSwiftMessage();
+        $payload = $this->buildMandrillData($message);
 
-        return $this->sendMandrillMessage($message);
+        //$message = $message->getSwiftMessage();
+
+        return $this->sendMandrillMessage($payload);
     }
+
+    protected function buildMandrillData($message)
+    {
+        $data = array(
+            'key' => Config::get('mail.password'),
+            'message' => array(
+                'html' => $message->getBody(),
+                'auto_text' => true,
+                'subject' => $message->getSubject(),
+                'from_email' => $message->getFrom(),
+                'to' => $message->getTo(),
+            ),
+        );
+
+        return $data;
+    }
+
 
     /**
      * Send a Swift Message instance.
