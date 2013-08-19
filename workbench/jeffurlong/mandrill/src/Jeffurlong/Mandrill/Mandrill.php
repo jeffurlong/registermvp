@@ -15,9 +15,12 @@ use Illuminate\Support\SerializableClosure;
 
 class Mandrill extends Mailer {
 
+    public $ch;
+
     public function __construct(Environment $views)
     {
         $this->views = $views;
+        $this->ch = curl_init();
     }
 
     /**
@@ -44,32 +47,57 @@ class Mandrill extends Mailer {
         // to creating view based emails that are able to receive arrays of data.
         $this->addContent($message, $view, $plain, $data);
 
-        $payload = $this->buildMandrillData($message);
+        $mandrill_data = $this->buildMandrillData($message);
 
         //$message = $message->getSwiftMessage();
 
-        return $this->sendMandrillMessage($payload);
+        return $this->sendMandrillMessage($mandrill_data);
     }
 
     protected function buildMandrillData($message)
     {
         $data = array(
-            'key' => Config::get('mail.password'),
-            'message' => array(
-                'html' => $message->getBody(),
-                'auto_text' => true,
-                'subject' => $message->getSubject(),
-                'from_email' => $message->getFrom(),
-                'to' => $message->getTo(),
+            'key'       => Config::get('mail.password'),
+            'message'   => array(
+                'html'          => $message->getBody(),
+                'auto_text'     => true,
+                'subject'       => $message->getSubject(),
+                'from_email'    => $this->parseFromEmail($message->getFrom()),
+                'to'            => $this->parseTo($message->getTo()),
             ),
         );
+
+        if ($from_name = $this->parseFromName($message->getFrom()))
+        {
+            $data['from_name'] = $from_name;
+        }
 
         return $data;
     }
 
+    protected function parseFromEmail($from)
+    {
+        return (is_array($from)) ? key($from) : $from;
+    }
+
+    protected static function parseFromName($from)
+    {
+        return (is_array($from)) ? $from[key($from)] : null;
+    }
+
+    protected static function parseTo($to)
+    {
+        $return = array();
+
+        foreach($to as $key => $value) {
+          $return[] = (is_string($key)) ? array('email' => $key, 'name' => $value) : array('email' => $value);
+        }
+
+        return $return;
+    }
 
     /**
-     * Send a Swift Message instance.
+     * Send a Mandrill Message.
      *
      * @param  Swift_Message  $message
      * @return void
@@ -78,7 +106,7 @@ class Mandrill extends Mailer {
     {
         if ( ! $this->pretending)
         {
-            return $this->_send($message);
+            return $this->callMandrill('messages/send.json', $message);
         }
         elseif (isset($this->logger))
         {
@@ -86,43 +114,49 @@ class Mandrill extends Mailer {
         }
     }
 
+    /*
 
-    protected function _send($message)
+     */
+    protected function callMandrill($request, $data)
     {
-        var_dump($message);
-        die();
+        $ch = $this->ch;
 
-        $data['key'] = Config::get('mail.password');
-
-        $data['message'] = $message;
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, self::_get_api_url().'messages/send.json');
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch,    CURLOPT_URL,               Config::get('mail.host').$request);
+        curl_setopt($ch,    CURLOPT_POSTFIELDS,        json_encode($data));
+        curl_setopt($ch,    CURLOPT_HTTPHEADER,        array('Content-Type: application/json'));
+        curl_setopt($ch,    CURLOPT_SSL_VERIFYHOST,    2);
+        curl_setopt($ch,    CURLOPT_TIMEOUT,           30);
+        curl_setopt($ch,    CURLOPT_POST,              true);
+        curl_setopt($ch,    CURLOPT_RETURNTRANSFER,    true);
+        curl_setopt($ch,    CURLOPT_SSL_VERIFYPEER,    true);
 
         $response = curl_exec($ch);
 
-        if (curl_errno($ch)) {
-        curl_close($ch);
-        throw new \Exception('Mandrill error: Curl error');
-        }
+        $info = curl_getinfo($ch);
 
-        curl_close($ch);
+        if (curl_error($ch))
+        {
+            throw new \RuntimeException("Mandrill error: [curl] " . curl_error($ch));
+        }
 
         $result = json_decode($response);
 
-        if (isset($result->status) and $result->status === 'error') {
-        throw new \Exception('Mandrill error: '.$result->message);
+        if ($result === null)
+        {
+            throw new \RuntimeException('Mandrill error: Unable to decode response.');
+        }
+
+        if (floor($info['http_code'] / 100) >= 4)
+        {
+            throw new \RuntimeException('Mandrill error: '.json_encode($result));
         }
 
         return true;
+    }
+
+    public function __destruct()
+    {
+        curl_close($this->ch);
     }
 
 }
