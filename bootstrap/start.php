@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('iMacDaddy', 'Jef\'s iMac'),
+	'local' => array('iMacDaddy', 'ORW-JEFREYF-M47'),
 
 ));
 
