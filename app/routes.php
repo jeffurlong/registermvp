@@ -43,7 +43,11 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
     {
         if (Auth::attempt(array('username' => Input::get('email'), 'password' => Input::get('password'))))
         {
-            return Redirect::intended('admin');
+            if (Auth::user()->role_id >= 50) {
+                return Redirect::intended('admin');
+            }
+
+            return Redirect::intended('member');
         }
 
         return Redirect::to('org/login')->with('message','Invalid')->withInput();
@@ -64,6 +68,32 @@ Route::group(array('prefix' => 'org', 'before' => 'org'), function()
         return Password::remind(array('username' => Input::get('email')), function ($message, $user)
         {
             $message->subject('Password reminder');
+        });
+    });
+
+    Route::get('reset/{token}', function($token)
+    {
+        return View::make('org.reset')->with('token', $token);
+    });
+
+    Route::post('reset/{token}', function()
+    {
+        $credentials = array('username' => Input::get('email'));
+
+        return Password::reset($credentials, function($user, $password)
+        {
+            $user->password = Hash::make($password);
+
+            $user->save();
+
+            Auth::login($user);
+
+
+            if (Auth::user()->role_id >= 50) {
+                return Redirect::to('admin');
+            }
+
+            return Redirect::to('member');
         });
     });
 

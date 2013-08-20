@@ -5,7 +5,7 @@
 <title><?php echo $_title; ?></title>
 <meta name="description" content="<?php echo $_description; ?>">
 <link href="/css/org.min.css" rel="stylesheet">
-<?php if (isset($_org['theme'])): ?>
+<?php if ($_org['theme']): ?>
     <link href="/css/custom/<?php echo $_org['theme']; ?>" rel="stylesheet">
 <?php endif; ?>
  <script src="/js/modernizr.custom.min.js"></script>

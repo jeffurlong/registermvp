@@ -2,10 +2,9 @@
 
 
 <div class="row">
-    <div class="col-lg-5 col-offset-3">
-<h1 class="page-header text-center mn">Forgot your password?</h1>
-<p class="lead">No problem! Enter your email address below, and we'll send you instructions on how to reset it.</p>
-
+    <div class="col-lg-6 col-offset-3">
+        <h1 class="page-header text-center mn">Forgot your password?</h1>
+        <p class="lead">No problem! Enter your email address below, and we'll send you instructions on how to reset it.</p>
 
         <form class="placeholders mbx" method="post">
 
