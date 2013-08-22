@@ -1,9 +1,11 @@
 <?php
 
-class Organization extends Eloquent
+class Org extends Eloquent
 {
-    protected $table = 'org';
+    public $table = "org";
+
     public $timestamps = false;
+
     public static function getSessionData()
     {
         $result = array();

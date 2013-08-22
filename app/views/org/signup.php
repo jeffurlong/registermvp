@@ -5,7 +5,7 @@
 
 <div class="row">
 
-    <div class="col-lg-8 col-offset-2">
+    <div class="col-lg-6 col-offset-3">
 
         <form class="placeholders mbx" method="post">
             <div class="row">

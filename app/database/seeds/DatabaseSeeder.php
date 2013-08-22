@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('OrgTableSeeder');
 		$this->call('PersonTableSeeder');
 		$this->call('UserTableSeeder');
+        $this->call('PageTableSeeder');
 	}
 }
 
@@ -23,28 +24,28 @@ class OrgTableSeeder extends Seeder {
     {
         DB::table('org')->delete();
 
-        Organization::create(array(
+        Org::create(array(
 			'k' => 'name',
 			'v'	=> 'Demo Sports League',
 		));
 
 
-        Organization::create(array(
+        Org::create(array(
 			'k' => 'slug',
 			'v'	=> 'demo',
 		));
 
-        Organization::create(array(
+        Org::create(array(
             'k' => 'theme',
             'v' => '',
         ));
 
-        Organization::create(array(
+        Org::create(array(
             'k' => 'website',
             'v' => 'http://demo.com',
         ));
 
-		Organization::create(array(
+		Org::create(array(
 			'k' => 'payment_processor',
 			'v'	=> 'authnet',
 		));
@@ -82,9 +83,24 @@ class UserTableSeeder extends Seeder {
 			'id' 		=> 1,
 			'person_id'	=> 1,
 			'role_id'	=> 60,
-			'username'	=> 'admin@demo.com',
+			'username'	=> 'jef@mvpreg.com',
 			'password'	=> Hash::make('admindemo')
 		));
+    }
+
+}
+
+class PageTableSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('pages')->delete();
+
+        Page::create(array(
+            'id'        => 1,
+            'name'  => 'home',
+            'content'  => '<h1>Home</h1>'
+        ));
     }
 
 }

@@ -38,7 +38,7 @@ App::before(function($request)
 
     // If we can't get the org data from the DB we have a problem.
     // TODO: Log and send an error
-    if ( ! $org =  Organization::getSessionData()) {
+    if ( ! $org =  Org::getSessionData()) {
         App::abort(404);
     }
 

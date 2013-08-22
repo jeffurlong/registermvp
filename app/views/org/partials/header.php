@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title><?php echo $_title; ?></title>
-<meta name="description" content="<?php echo $_description; ?>">
-<link href="/css/org.min.css" rel="stylesheet">
-<?php if ($_org['theme']): ?>
-    <link href="/css/custom/<?php echo $_org['theme']; ?>" rel="stylesheet">
-<?php endif; ?>
- <script src="/js/modernizr.custom.min.js"></script>
+    <meta charset="utf-8">
+
+    <title><?php echo $_title; ?></title>
+    <meta name="description" content="<?php echo $_description; ?>">
+
+    <link href="/css/org.min.css" rel="stylesheet">
+    <?php if ($_org['theme']): ?>
+        <link href="/css/custom/<?php echo $_org['theme']; ?>" rel="stylesheet">
+    <?php endif; ?>
+
+    <script src="/js/modernizr.custom.min.js"></script>
 </head>
 <body>
 
@@ -25,18 +28,24 @@
 <div class="container">
 
 <?php if(Session::has('error')): ?>
+
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.error'); ?>
     </div>
+
 <?php elseif(Session::has('success')): ?>
+
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.success'); ?>
     </div>
+
 <?php elseif(Session::has('message')): ?>
+
     <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <?php echo Session::get('message'); ?>
     </div>
+
 <?php endif; ?>

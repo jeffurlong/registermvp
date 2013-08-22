@@ -1,4 +1,4 @@
 <?php include 'partials/header.php'; ?>
-<h1>Home</h1>
+<?php echo $content; ?>
 <?php include 'partials/footer.php'; ?>
 
