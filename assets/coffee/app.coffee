@@ -16,3 +16,6 @@ $('form').not('.bypass').each ->
 # == [ FORM ][ CONFIRM INPUT ] =================================================
 $('[data-mvp-role="confirm-input"]').on 'focus', ->
     $($(@).attr('data-mvp-target') or $(@).attr('href')).slideDown()
+
+# == [ ALERTS ] ================================================================
+$('.alert-danger').animate top: $('.navbar-fixed-top').height()

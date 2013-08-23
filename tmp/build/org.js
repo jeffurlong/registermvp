@@ -1231,7 +1231,7 @@ $.format = $.validator.format;
 }(jQuery));
 /* ========================================================================
  * Bootstrap: transition.js v3.0.0
- * http://twitter.github.com/bootstrap/javascript.html#transitions
+ * http://twbs.github.com/bootstrap/javascript.html#transitions
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
  *
@@ -1271,6 +1271,15 @@ $.format = $.validator.format;
     }
   }
 
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false, $el = this
+    $(this).one($.support.transition.end, function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
   $(function () {
     $.support.transition = transitionEnd()
   })
@@ -1278,7 +1287,7 @@ $.format = $.validator.format;
 }(window.jQuery);
 /* ========================================================================
  * Bootstrap: alert.js v3.0.0
- * http://twitter.github.com/bootstrap/javascript.html#alerts
+ * http://twbs.github.com/bootstrap/javascript.html#alerts
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
  *
@@ -1334,7 +1343,9 @@ $.format = $.validator.format;
     }
 
     $.support.transition && $parent.hasClass('fade') ?
-      $parent.on($.support.transition.end, removeElement) :
+      $parent
+        .one($.support.transition.end, removeElement)
+        .emulateTransitionEnd(150) :
       removeElement()
   }
 
@@ -1374,7 +1385,7 @@ $.format = $.validator.format;
 }(window.jQuery);
 /* ========================================================================
  * Bootstrap: button.js v3.0.0
- * http://twitter.github.com/bootstrap/javascript.html#buttons
+ * http://twbs.github.com/bootstrap/javascript.html#buttons
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
  *
@@ -1427,10 +1438,13 @@ $.format = $.validator.format;
   }
 
   Button.prototype.toggle = function () {
-    var $parent = this.$element.closest('[data-toggle="buttons-radio"]')
+    var $parent = this.$element.closest('[data-toggle="buttons"]')
 
-    if ($parent) {
-      $parent.find('.active').removeClass('active')
+    if ($parent.length) {
+      var $input = this.$element.find('input')
+        .prop('checked', !this.$element.hasClass('active'))
+        .trigger('change')
+      if ($input.prop('type') === 'radio') $parent.find('.active').removeClass('active')
     }
 
     this.$element.toggleClass('active')
@@ -1445,7 +1459,7 @@ $.format = $.validator.format;
   $.fn.button = function (option) {
     return this.each(function () {
       var $this   = $(this)
-      var data    = $this.data('button')
+      var data    = $this.data('bs.button')
       var options = typeof option == 'object' && option
 
       if (!data) $this.data('bs.button', (data = new Button(this, options)))
@@ -1474,6 +1488,7 @@ $.format = $.validator.format;
     var $btn = $(e.target)
     if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
     $btn.button('toggle')
+    e.preventDefault()
   })
 
 }(window.jQuery);
@@ -1499,6 +1514,10 @@ $.format = $.validator.format;
 
   $('[data-mvp-role="confirm-input"]').on('focus', function() {
     return $($(this).attr('data-mvp-target') || $(this).attr('href')).slideDown();
+  });
+
+  $('.alert-danger').animate({
+    top: $('.navbar-fixed-top').height()
   });
 
 }).call(this);

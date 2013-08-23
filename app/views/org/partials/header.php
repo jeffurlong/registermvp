@@ -31,7 +31,7 @@
 
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.error'); ?>
+        <span class="glyphicon glyphicon-exclamation-sign"></span> <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.error'); ?>
     </div>
 
 <?php elseif(Session::has('success')): ?>

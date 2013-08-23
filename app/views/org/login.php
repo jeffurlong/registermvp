@@ -5,16 +5,16 @@
 
 <div class="row">
 
-    <div class="col-lg-6 col-offset-3">
+    <div class="col-lg-6 col-lg-offset-3">
 
-        <form class="placeholders mbx" method="post">
-
+        <form class=" mbx" method="post">
+            <div class="form-group">
             <label for="email">Email Address</label>
-            <input class="required email" id="email" name="email" placeholder="Email Address"
+            <input class="form-control required email" id="email" name="email" placeholder="Email Address"
                 type="email" value="<?php echo $email; ?>">
-
+</div>
             <label for="password">Password</label>
-            <input class="required" id="password" name="password" placeholder="Password"
+            <input class="form-control required" id="password" name="password" placeholder="Password"
                 type="password">
 
             <div class="row">

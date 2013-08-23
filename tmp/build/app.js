@@ -22,4 +22,8 @@
     return $($(this).attr('data-mvp-target') || $(this).attr('href')).slideDown();
   });
 
+  $('.alert-danger').animate({
+    top: $('.navbar-fixed-top').height()
+  });
+
 }).call(this);

@@ -2,6 +2,7 @@
     "name":  "MVPReg",
     "version": "0.0.1",
     "dependencies": {
+        "twitter": "latest",
         "normalize-css": "latest",
         "font-awesome": "latest",
         "modernizr" : "latest"
