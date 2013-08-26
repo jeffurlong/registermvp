@@ -3,6 +3,7 @@
 
 // == [ VARIABLES ] ============================================================
 @font-family-base:          'Raleway', @font-family-sans-serif;
+
 @font-size-base:            16px;
 @font-size-xlarge:          ceil(@font-size-base * 1.5); // ~24px
 @font-size-huge:            ceil(@font-size-base * 2); // ~32px
@@ -18,6 +19,7 @@
 @invalid-color:             #E74C3C;
 
 @link-hover-color:          lighten(@link-color, 15%);
+/**/
 
 // == [ SCAFFOLDING ] ==========================================================
 body {
@@ -34,7 +36,7 @@ footer {
         }
     }
 }
-
+/**/
 // == [ TYPE ] =================================================================
 .page-header {
     padding-bottom: @line-height-computed/2;
@@ -42,28 +44,13 @@ footer {
     + .lead {
         margin-top: @line-height-computed * -1;
     }
-}
+}/**/
 
 // == [ FORMS ] ================================================================
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
+
+.form-control {
     border: 3px solid @input-border-color;
     .box-shadow(none);
-    /* border-radius: 0; */
     margin-bottom: @line-height-computed / 2;
     &:focus {
         border-color: @input-focus-border-color;
@@ -82,17 +69,18 @@ small.invalid {
     margin: (@line-height-computed / -2) 3px (@line-height-computed / 2);
 }
 
-html.placeholder form.placeholders label {
-    display: none;
+html.placeholder form.placeholders {
+    label {
+        .sr-only;
+    }
+    .form-control {
+        margin-bottom: 15px;
+    }
 }
 
 // == [ BUTTONS ] ==============================================================
 .btn-secondary {
   .button-variant(@btn-primary-color, @brand-secondary, @brand-secondary);
-}
-
-.btn-large {
-    /* border-radius: 0; */
 }
 
 // == [ UTLILITIES ] ===========================================================
@@ -107,4 +95,5 @@ html.placeholder form.placeholders label {
 .hider {
     display: none;
 }
+
 

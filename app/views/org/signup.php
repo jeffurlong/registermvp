@@ -5,47 +5,48 @@
 
 <div class="row">
 
-    <div class="col-lg-6 col-offset-3">
+    <div class="col-lg-6 col-lg-offset-3">
 
         <form class="placeholders mbx" method="post">
             <div class="row">
                 <div class="col-lg-6">
-                    <label for="first_name">First Name</label>
-                    <input class="required" id="first_name" name="first_name"
-                        placeholder="First Name" type="text">
+                        <label for="first_name">First Name</label>
+                        <input class="form-control required" id="first_name" name="first_name"
+                            placeholder="First Name" type="text" />
+
                 </div>
                 <div class="col-lg-6">
-                    <label for="last_name">Last Name</label>
-                    <input class="required" id="last_name" name="last_name"
-                        placeholder="Last Name" type="text">
+                        <label for="last_name">Last Name</label>
+                        <input class="form-control required" id="last_name" name="last_name"
+                            placeholder="Last Name" type="text" />
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <label for="email">Email</label>
-                    <input class="email required" id="email" name="email"
-                        placeholder="Email" type="email">
+                    <input class="form-control email required" id="email" name="email"
+                        placeholder="Email" type="email" />
                 </div>
                 <div class="col-lg-6">
                     <label for="phone">Phone #</label>
-                    <input class="required" id="phone" name="phone" placeholder="Phone #"
-                        type="tel">
+                    <input class="form-control equired" id="phone" name="phone"
+                        placeholder="Phone #" type="tel" />
                 </div>
             </div>
 
             <label for="password">Password</label>
-            <input class="required" data-mvp-role="confirm-input"
+            <input class="form-control required" data-mvp-role="confirm-input"
                 data-mvp-target="#confirm" id="password" minlength="8" name="password"
-                placeholder="Password" type="password">
+                placeholder="Password" type="password" />
 
             <div class="hider" id="confirm">
                 <label for="confirm_password">Confirm Your Password</label>
-                <input class="required" equalto="#password" id="confirm_password"
-                    name="confirm_password" placeholder="Confirm Your Password"
-                    type="password">
+                <input class="form-control required" equalto="#password" id="confirm_password"
+                    name="confirm_password" placeholder="Confirm Your Password" type="password" />
             </div>
 
-            <button class="btn btn-block btn-large btn-primary" type="submit">Sign Up</button>
+            <button class="btn btn-block btn-lg btn-primary" type="submit">Sign Up</button>
 
             <?php echo Form::token(); ?>
 

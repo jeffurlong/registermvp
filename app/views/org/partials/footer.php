@@ -1,7 +1,7 @@
 
 </div>
 
-<footer class="navbar navbar-fixed-bottom navbar-footer">
+<footer class="navbar navbar-fixed-bottom">
 
         <div class="container text-center text-muted">
             <hr />
