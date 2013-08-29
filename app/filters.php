@@ -72,7 +72,7 @@ Route::filter('auth', function()
     }
 
 	if (Auth::guest()) {
-        return Redirect::guest('org/login');
+        return Redirect::guest('account/login');
     }
 });
 

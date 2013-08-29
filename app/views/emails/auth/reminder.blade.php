@@ -10,7 +10,7 @@
         made this request, please follow the instructions below.</p>
 
         <p>Click the link below to reset your password. The link is valid for one hour.</p>
-        <p>{{ URL::to('org/reset', array($token)) }}</p>
+        <p>{{ URL::to('account/reset', array($token)) }}</p>
 
         <p>If you did not request to reset your password, please disregard this email.</p>
         <p>Thanks,<br />MVP Registration</p>

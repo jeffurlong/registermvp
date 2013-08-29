@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <a class="link-forgot" href="/org/forgot">Forgot your password?</a>
+                    <a class="link-forgot" href="/account/forgot">Forgot your password?</a>
                  </div>
 
                 <div class="col-lg-8">
@@ -35,7 +35,7 @@
         <hr class="mb" />
 
         <p class="lead text-center">
-            <span class="text-muted">Don't have an account?</span> <a href="/org/signup">Sign Up</a>
+            <span class="text-muted">Don't have an account?</span> <a href="/account/signup">Sign Up</a>
         </p>
     </div>
 </div>

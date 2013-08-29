@@ -2,7 +2,7 @@
 
 Route::get('/', function()
 {
-    return subdomain() ?  Redirect::to('org') : View::make('www.home');
+    return View::make('www.home');
 });
 
 Route::get('legal', function()

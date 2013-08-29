@@ -21,7 +21,7 @@
         <hr class="mb" />
 
         <p class="lead text-center">
-            <span class="text-muted">Don't have an account?</span> <a href="/org/signup">Sign Up</a>
+            <span class="text-muted">Don't have an account?</span> <a href="/account/signup">Sign Up</a>
         </p>
 
     </div>

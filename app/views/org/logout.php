@@ -13,7 +13,7 @@
 
     <?php endif; ?>
 
-    <p class="lead"><a href="/org/login">Log back in</a></p>
+    <p class="lead"><a href="/account/login">Log back in</a></p>
 
 </div>
 

@@ -29,7 +29,7 @@ class MandrillServiceProvider extends ServiceProvider {
 	public function register()
 	{
 
-		$this->app['mailer'] = $this->app->share(function($app)
+		$this->app['mandrill'] = $this->app->share(function($app)
 		{
 		    $mandrill = new Mandrill($app['view']);
 
@@ -59,7 +59,7 @@ class MandrillServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('mailer');
+		return array('mandrill');
 	}
 
 }

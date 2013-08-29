@@ -56,8 +56,25 @@ return array(
 
 	'reminder' => array(
 
-		'email' => 'emails.auth.reminder', 'table' => 'password_reminders',
+		'email' => 'emails.auth.reminder',
+		'table' => 'password_reminders',
 
 	),
+
+	'signup' => array(
+
+		'email' => 'emails.auth.signup',
+		'subject' => 'Welcome to MVP'
+
+	),
+
+	'role'    => array(
+
+	    'super'   => 100,
+	    'owner'   => 60,
+	    'admin'   => 50,
+	    'member'  => 1,
+
+  	),
 
 );

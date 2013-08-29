@@ -19,8 +19,8 @@
     <div class="container">
         <a class="navbar-brand" href="/"><?php echo $_org['name']; ?></a>
         <ul class="nav navbar-nav pull-right">
-            <li><a href="/org/login">Log In</a></li>
-            <li><a href="/org/signup">Sign up</a></li>
+            <li><a href="/account/login">Log In</a></li>
+            <li><a href="/account/signup">Sign up</a></li>
         </ul>
     </div>
 </nav>

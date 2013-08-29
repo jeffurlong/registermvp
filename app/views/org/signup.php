@@ -55,7 +55,7 @@
         <hr class="mb" />
 
         <p class="lead text-center">
-            <span class="text-muted">Already have an account?</span> <a href="/org/login">Log In</a>
+            <span class="text-muted">Already have an account?</span> <a href="/account/login">Log In</a>
         </p>
     </div>
 </div>

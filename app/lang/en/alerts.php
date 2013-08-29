@@ -8,4 +8,6 @@ return array(
 
     'invalid_login' => 'Please check your email and password and try again.',
 
+    'signup_duplicate' => 'That email is already registered. <a href="/account/forgot">Forgot your password?</a>',
+
 );

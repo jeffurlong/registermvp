@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'https://mandrillapp.com/api/1.0/',
+	'host' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'jef@mvpreg.com',
 
 	/*
 	|--------------------------------------------------------------------------
