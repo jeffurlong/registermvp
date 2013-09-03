@@ -7,5 +7,4 @@ Route::group(array('prefix' => 'member', 'before'=>'auth'), function()
         die('member index');
     });
 
-    Route::controller('event', 'MemberEventController');
 });

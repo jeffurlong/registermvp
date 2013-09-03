@@ -1,6 +1,7 @@
 css:
 	lessc -yui-compress  assets/less/www.less public_html/css/www.min.css
 	lessc -yui-compress  assets/less/org.less public_html/css/org.min.css
+	lessc -yui-compress  assets/less/admin.less public_html/css/admin.min.css
 
 js:
 	coffee -j tmp/build/app.js -c assets/coffee/app.coffee
@@ -13,4 +14,14 @@ js:
 		components/twitter/js/button.js \
 		tmp/build/app.js \
 		> tmp/build/org.js
+
 	uglifyjs -nc tmp/build/org.js > public_html/js/org.min.js
+
+		cat assets/js/jquery.validate.js \
+		components/twitter/js/transition.js \
+		components/twitter/js/alert.js \
+		components/twitter/js/button.js \
+		tmp/build/app.js \
+		> tmp/build/admin.js
+
+	uglifyjs -nc tmp/build/admin.js > public_html/js/admin.min.js

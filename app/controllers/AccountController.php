@@ -4,6 +4,7 @@ class AccountController extends BaseController
 {
     /**
      * Get the Signup view
+     *
      * @return View
      */
     public function getSignup()
@@ -12,8 +13,10 @@ class AccountController extends BaseController
     }
 
     /**
-     * [postSignup description]
-     * @return [type] [description]
+     * Create the new User and Person records, send the welcome email, and log
+     * the new user in
+     *
+     * @return Redirect
      */
     public function postSignup()
     {
@@ -26,30 +29,11 @@ class AccountController extends BaseController
 
         try
         {
-            $password = Input::get('password');
+            $person = $this->createPerson(Input::except(array('password', 'confirm_password', '_token')));
 
-            $data = Input::except(array('password', 'confirm_password', '_token'));
+            $user = $this->createUser($person, Input::get('password'), Config::get('auth.role.member'));
 
-            $person = Person::create($data);
-
-            $user = new User;
-            $user->username = $person->email;
-            $user->password = Hash::make($password);
-            $user->person_id = $person->id;
-            $user->role_id = Config::get('auth.role.member');
-            $user->save();
-
-            $params = array(
-                'org' => Session::get('org.name'),
-                'url' => Request::server('SERVER_NAME'),
-                'email' => $person->email,
-            );
-
-            Mail::send(Config::get('auth.signup.email'), $params, function($m)  use ($person, $params)
-            {
-                $m->to($person->email, $person->first_name.' '.$person->last_name)
-                    ->subject($params['org'].' Account');
-            });
+            $this->sendSignupEmail($person);
         }
         catch(\Exception $e)
         {
@@ -71,11 +55,21 @@ class AccountController extends BaseController
         return Redirect::to('member');
     }
 
+    /**
+     * Get the login view
+     *
+     * @return View
+     */
     public function getLogin()
     {
         return View::make('org.login', array('email' => Input::old('email')));
     }
 
+    /**
+     * Verify login is valid and rediret to appropriate app
+     *
+     * @return Redirect
+     */
     public function postLogin()
     {
         if ( ! $this->loginIsValid())
@@ -94,6 +88,11 @@ class AccountController extends BaseController
         return Redirect::intended('member');
     }
 
+    /**
+     * Get forgot password view
+     *
+     * @return Redirect|View
+     */
     public function getForgot()
     {
         if ( Session::has('success'))
@@ -104,6 +103,11 @@ class AccountController extends BaseController
         return View::make('org.forgot');
     }
 
+    /**
+     * Send password reminder
+     *
+     * @return Redirect
+     */
     public function postForgot()
     {
         return Password::remind(
@@ -115,11 +119,23 @@ class AccountController extends BaseController
         );
     }
 
+    /**
+     * Get the reset password view
+     *
+     * @param  string $token
+     * @return View
+     */
     public function getReset($token)
     {
         return View::make('org.reset')->with('token', $token);
     }
 
+    /**
+     * Reset user's password and log them in to appropriate app
+     *
+     * @param  string $token
+     * @return Redirect
+     */
     public function postReset($token)
     {
         $data = array('username' => Input::get('email'));
@@ -141,6 +157,11 @@ class AccountController extends BaseController
         });
     }
 
+    /**
+     * Log user out
+     *
+     * @return View
+     */
     public function getLogout()
     {
         Auth::logout();
@@ -148,11 +169,22 @@ class AccountController extends BaseController
         return View::make('org.logout');
     }
 
+    /**
+     * Determine if a user record already exists for given email
+     *
+     * @param  string $email
+     * @return bool
+     */
     protected function userExists($email)
     {
         return (User::where('username', $email)->first() !== null);
     }
 
+    /**
+     * Determine if user credentials are valid
+     *
+     * @return bool
+     */
     protected function loginIsValid()
     {
         $data = array('username' => Input::get('email'), 'password' => Input::get('password'));
@@ -160,17 +192,73 @@ class AccountController extends BaseController
         return Auth::attempt($data);
     }
 
+    /**
+     * Determine if user is an admin
+     *
+     * @return bool
+     */
     protected function userIsAdmin()
     {
         return Auth::user()->role_id >= 50;
     }
 
-    public static function signup($data, $user, $person)
+    /**
+     * Create a new Person record
+     *
+     * @param  array $data
+     * @return Person
+     */
+    protected function createPerson($data)
     {
-        if (User::where('username', $data['email'])->first() !== null)
-        {
-            return false;
-        }
+        return Person::create($data);
     }
+
+    /**
+     * Create a new User record
+     *
+     * @param   Person  $person
+     * @param   string  $password
+     * @param   int     $role     Role id
+     * @return  User
+     */
+    protected function createUser($person, $password, $role)
+    {
+        $user = new User;
+
+        $user->username = $person->email;
+        $user->password = Hash::make($password);
+        $user->person_id = $person->id;
+        $user->role_id = $role;
+
+        $user->save();
+
+        return $user;
+    }
+
+    /**
+     * Send signup email
+     *
+     * @param  Person $person
+     * @return void
+     */
+    protected function sendSignupEmail($person)
+    {
+        $params = array(
+            'org' => Session::get('org.name'),
+            'url' => Request::server('SERVER_NAME'),
+            'email' => $person->email,
+        );
+
+        Mail::send(
+            Config::get('auth.signup.email'),
+            $params,
+            function($m)  use ($person, $params)
+            {
+                $m->to($person->email, $person->first_name.' '.$person->last_name)
+                    ->subject($params['org'].' Account');
+            }
+        );
+    }
+
 
 }
