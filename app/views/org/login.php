@@ -5,7 +5,7 @@
 
 <div class="row">
 
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-md-6 col-md-offset-3">
 
         <form class="placeholders mbx" method="post">
             <div class="form-group">
@@ -19,11 +19,11 @@
                     placeholder="Password" type="password" />
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-5">
                     <a class="link-forgot" href="/account/forgot">Forgot your password?</a>
                  </div>
 
-                <div class="col-lg-8">
+                <div class="col-md-7">
                     <button class="btn btn-block btn-lg btn-primary" type="submit">Log In</button>
                 </div>
             </div>

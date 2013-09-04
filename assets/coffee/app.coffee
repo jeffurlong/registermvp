@@ -19,3 +19,6 @@ $('[data-mvp-role="confirm-input"]').on 'focus', ->
 
 # == [ ALERTS ] ================================================================
 $('.alert-danger').animate top: $('.navbar-fixed-top').height()
+
+$('[data-href]').on 'click', ->
+    window.location = $(@).attr('data-href');

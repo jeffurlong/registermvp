@@ -1,7 +1,7 @@
 <?php include 'partials/header.php'; ?>
 
 <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-md-6 col-md-offset-3">
 
         <h1 class="page-header text-center">Reset Your Password</h1>
 

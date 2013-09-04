@@ -15,7 +15,7 @@
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container full-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
 </nav>
 
 
-<div class="container">
+<div class="container full-container">
 
 <?php if(Session::has('error')): ?>
 
@@ -61,9 +61,8 @@
 
 <nav class="sidebar">
     <ul class="nav">
-        <li></li>
         <li><span class="sidebar-text">YOUR BUSINESS</span></li>
-        <li class="mb">
+        <li>
             <a href="/admin/dashboard">
                 <span class="glyphicon glyphicon-dashboard"></span> Dashboard
             </a>

@@ -1,5 +1,8 @@
 @import 'global.less';
 
+@font-size-base:            16px;
+@line-height-base:          1.5;
+
 body {
     padding: 130px 0;
 }
@@ -36,6 +39,11 @@ body {
 
 .page-header {
     margin-top: 0;
+    padding-bottom: @line-height-computed/2;
+    border-bottom: none;
+    + .lead {
+        margin-top: @line-height-computed * -1;
+    }
 }
 
 .link-forgot {

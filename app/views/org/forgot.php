@@ -2,7 +2,7 @@
 
 
 <div class="row">
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-md-6 col-md-offset-3">
         <h1 class="page-header text-center mn">Forgot your password?</h1>
         <p class="lead">No problem! Enter your email address below, and we'll send you instructions on how to reset it.</p>
 

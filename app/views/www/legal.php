@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-offset-2">
+        <div class="col-md-8 col-offset-2">
             <h2 class="page-header">Privacy Policy</h2>
 
             <p>Your privacy is very important to us. Accordingly, we have

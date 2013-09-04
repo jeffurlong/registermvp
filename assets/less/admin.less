@@ -7,9 +7,27 @@ html, body {
     border: 0;
 }
 
-.container {
-    height: 100%;
+.full-container {
     position: relative;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-fixed-top {
+    height: 60px;
+    .container {
+        margin-top: 5px;
+    }
+}
+
+.navbar-brand  {
+    margin-left: 0 !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0 !important;
 }
 
 .sidebar {
@@ -20,8 +38,7 @@ html, body {
     background: #F2F7FA;
     overflow: hidden;
     width: 180px;
-    font-size: @font-size-small;
-    padding: 10px 0 0;
+
     .nav > li > a {
         padding: 10px 5px 10px 20px;
         color: #042333;
@@ -32,23 +49,48 @@ html, body {
 
     }
     .sidebar-text {
-        padding: 10px 0 0 20px;
+        display: inline-block;
+        padding: 20px 0 0 20px;
         color: #AAB6BD;
     }
 }
 
-
 .content {
-    padding: 60px 0 0 200px;
+    padding: 60px 0 0 180px;
     width: 100%;
     height: 100%;
+    min-width: 995px;
 }
 
-.navbar-fixed-top {
+.page-header {
+    position: relative;
     height: 60px;
-    .container {
-        margin-top: 5px;
+    margin: 0 0 @line-height-computed;
+    padding: 0 0 0 20px;
+    .page-header-title {
+        position: absolute;
+        bottom: 12px;
+        font-size: @font-size-xlarge;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 695px;
+        .text-overflow();
+    }
+    .page-header-tools {
+        position: absolute;
+        bottom: 12px;
+        right: 20px;
     }
 }
+
+.page-body {
+    padding: 0 20px;
+}
+
+.th-updated-at {
+    width: 120px;
+}
+
 
 

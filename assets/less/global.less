@@ -1,13 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,600);
-@import '../../components/twitter/less/bootstrap.less';
+@import '/components/twitter/less/bootstrap.less';
 
 // == [ VARIABLES ] ============================================================
 @font-family-base:          'Raleway', @font-family-sans-serif;
 
-@font-size-base:            16px;
+// @font-size-base:            16px;
+// @line-height-base:          1.5;
+
 @font-size-xlarge:          ceil(@font-size-base * 1.5); // ~24px
 @font-size-huge:            ceil(@font-size-base * 2); // ~32px
-@line-height-base:          1.5;
+
 
 @text-color:                @gray-dark;
 @brand-primary:             #02A7F0; //blue
@@ -19,6 +21,8 @@
 @invalid-color:             #E74C3C;
 
 @link-hover-color:          lighten(@link-color, 15%);
+
+@table-bg-hover:            #F5FBFF;
 /**/
 
 // == [ SCAFFOLDING ] ==========================================================
@@ -38,13 +42,7 @@ footer {
 }
 /**/
 // == [ TYPE ] =================================================================
-.page-header {
-    padding-bottom: @line-height-computed/2;
-    border-bottom: none;
-    + .lead {
-        margin-top: @line-height-computed * -1;
-    }
-}/**/
+
 
 // == [ FORMS ] ================================================================
 
@@ -85,6 +83,11 @@ html.placeholder form.placeholders {
   .button-variant(@btn-primary-color, @brand-secondary, @brand-secondary);
 }
 
+.btn, .btn-lg, .btn-sm, .btn-xs {
+    border-radius: 0;
+}
+
+
 // == [ UTLILITIES ] ===========================================================
 .mb {
     margin-bottom: @line-height-computed;
@@ -98,4 +101,7 @@ html.placeholder form.placeholders {
     display: none;
 }
 
+.pointer {
+    cursor: pointer;
+}
 

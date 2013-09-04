@@ -5,17 +5,17 @@
 
 <div class="row">
 
-    <div class="col-lg-6 col-lg-offset-3">
+    <div class="col-md-6 col-md-offset-3">
 
         <form class="placeholders mbx" method="post">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                         <label for="first_name">First Name</label>
                         <input class="form-control required" id="first_name" name="first_name"
                             placeholder="First Name" type="text" />
 
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                         <label for="last_name">Last Name</label>
                         <input class="form-control required" id="last_name" name="last_name"
                             placeholder="Last Name" type="text" />
@@ -23,12 +23,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <label for="email">Email</label>
                     <input class="form-control email required" id="email" name="email"
                         placeholder="Email" type="email" />
                 </div>
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <label for="phone">Phone #</label>
                     <input class="form-control equired" id="phone" name="phone"
                         placeholder="Phone #" type="tel" />

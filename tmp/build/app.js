@@ -26,4 +26,8 @@
     top: $('.navbar-fixed-top').height()
   });
 
+  $('[data-href]').on('click', function() {
+    return window.location = $(this).attr('data-href');
+  });
+
 }).call(this);
