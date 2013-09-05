@@ -13,9 +13,25 @@
      */
     function subdomain($max = 2)
     {
-        if (isset($_SERVER['SERVER_NAME'])) {
+        if (isset($_SERVER['SERVER_NAME']))
+        {
             $segments = explode('.', $_SERVER['SERVER_NAME']);
 
             return (count($segments) > $max and $segments[0] !== 'www') ? $segments[0] : null;
         }
+
+        throw new \Exception('SERVER_NAME not set');
+    }
+
+    function getPageTemplateName()
+    {
+
+        if (isset($_SERVER['REQUEST_URI']))
+        {
+            $a = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+
+            return implode('_', $a);
+        }
+
+        throw new \Exception('REQUEST_URI not set');
     }

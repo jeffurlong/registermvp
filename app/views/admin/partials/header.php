@@ -12,10 +12,10 @@
         <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body class="<?php echo $_template; ?>">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container full-container">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -34,7 +34,7 @@
 </nav>
 
 
-<div class="container full-container">
+<div class="container page-container">
 
 <?php if(Session::has('error')): ?>
 
@@ -58,7 +58,6 @@
     </div>
 
 <?php endif; ?>
-
 <nav class="sidebar">
     <ul class="nav">
         <li><span class="sidebar-text">YOUR BUSINESS</span></li>
@@ -76,6 +75,5 @@
     </ul>
 
 </nav>
-
 <div class="content">
 

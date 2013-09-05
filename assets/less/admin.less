@@ -1,18 +1,12 @@
 @import 'global.less';
 
+@body-bg: #6D8393;
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     border: 0;
-}
-
-.full-container {
-    position: relative;
-    height: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .navbar-fixed-top {
@@ -30,12 +24,17 @@ html, body {
     margin-right: 0 !important;
 }
 
+.page-container {
+    position: relative;
+    height: 100%;
+}
+
 .sidebar {
     position: fixed;
     top: 60px;
     bottom: 0px;
-    border-right: 1px solid #DDE2EB;
-    background: #F2F7FA;
+    border-right: 1px solid #CDEEEB;
+    background: #DDEEFB;
     overflow: hidden;
     width: 180px;
 
@@ -44,7 +43,7 @@ html, body {
         color: #042333;
         &:hover {
             color: #042333;
-            background-color: #DFEAF0;
+            background-color: #CAE8FB;
         }
 
     }
@@ -56,6 +55,7 @@ html, body {
 }
 
 .content {
+    background: #FFF;
     padding: 60px 0 0 180px;
     width: 100%;
     height: 100%;
