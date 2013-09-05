@@ -22,3 +22,8 @@ $('.alert-danger').animate top: $('.navbar-fixed-top').height()
 
 $('[data-href]').on 'click', ->
     window.location = $(@).attr('data-href');
+
+$('[data-href]').on 'click', ->
+    window.location = $(@).attr('data-href');
+
+$('[data-toggle="tooltip"]').tooltip()

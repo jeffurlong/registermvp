@@ -3,8 +3,12 @@
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-file"></i> Pages
     </h1>
-   <div class="page-header-tools">
-        <a class="btn btn-sm btn-secondary" href="/admin/page/new">New Page</a>
+
+    <div class="page-header-tools">
+         <a class="btn btn-trans" data-toggle="tooltip" title="New Page"
+            href="/admin/page/new">
+            <i class="glyphicon glyphicon-plus"></i>
+        </a>
     </div>
 </div>
 

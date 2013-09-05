@@ -21,6 +21,11 @@ js:
 		components/twitter/js/transition.js \
 		components/twitter/js/alert.js \
 		components/twitter/js/button.js \
+		components/twitter/js/collapse.js \
+        components/twitter/js/dropdown.js \
+        components/twitter/js/modal.js \
+        components/twitter/js/tooltip.js \
+        components/twitter/js/popover.js \
 		tmp/build/app.js \
 		> tmp/build/admin.js
 

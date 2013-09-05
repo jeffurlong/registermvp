@@ -30,4 +30,10 @@
     return window.location = $(this).attr('data-href');
   });
 
+  $('[data-href]').on('click', function() {
+    return window.location = $(this).attr('data-href');
+  });
+
+  $('[data-toggle="tooltip"]').tooltip();
+
 }).call(this);
