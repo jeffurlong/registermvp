@@ -2,5 +2,4 @@
 
 class Page extends Eloquent
 {
-
 }

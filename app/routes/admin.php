@@ -12,11 +12,9 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
         return View::make('admin.dashboard');
     });
 
-    Route::get('pages', function()
-    {
-        return View::make('admin.pages', array(
-            'pages' => Page::orderBy('updated_at', 'desc')->get()
-        ));
-    });
+
+    Route::get('pages', 'PagesController@index');
+
+    Route::get('pages/{id}/edit', 'PagesController@edit');
 
 });

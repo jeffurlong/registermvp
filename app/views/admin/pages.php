@@ -22,7 +22,7 @@
         </thead>
         <tbody>
             <?php foreach ($pages as $page): ?>
-                <tr class="pointer" data-href="/admin/pages/edit/<?php echo $page->id; ?>">
+                <tr class="pointer" data-href="/admin/pages/<?php echo $page->id; ?>/edit">
                     <td>
                         <div class="text-large"><b><?php echo $page->name; ?></b></div>
                         <div class="text-small text-muted"><?php echo substr(strip_tags($page->content), 0, 150); ?>...</div>

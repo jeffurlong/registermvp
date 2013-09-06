@@ -54,6 +54,18 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::error(function(RuntimeException $e)
+{
+    var_dump($e);
+    die();
+});
+
+App::error(function(ModelNotFoundException $e)
+{
+    var_dump($e);
+    die();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
