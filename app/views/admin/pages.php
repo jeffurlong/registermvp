@@ -16,7 +16,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Title</ht>
+                <th>Page</ht>
                 <th class="th-updated-at">Updated</th>
             </tr>
         </thead>

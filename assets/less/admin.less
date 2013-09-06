@@ -24,22 +24,25 @@ a {
     background: transparent;
     border-color: @link-color;
     color: @link-color;
-    border-radius: 50%;
     &:hover, &:focus {
         border-color: @link-hover-color;
         background-color: @link-hover-color;
         color: #fff;
-
     }
+}
+
+.wysihtml-toolbar {
+    padding: 6px 6px 3px;
+    background-color: @input-border-color;
+    // border: 1px solid @gray-lighter;
+}
+
+.form-control  {
+    border-radius: 0;
 }
 
 .tooltip-inner  {
     padding: 10px;
-}
-
-.full-container {
-    width: 100%;
-    max-width: 100%;
 }
 
 .navbar {
@@ -49,6 +52,8 @@ a {
     .container {
         margin: 5px 0 0;
         padding: 0;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -64,6 +69,8 @@ a {
     height: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .sidebar {
@@ -73,13 +80,11 @@ a {
     border-right: 1px solid #CDEEEB;
     background: #DDEEFB;
     overflow: hidden;
-    width: 180px;
+    width: 200px;
 
     .nav > li > a {
         padding: 10px 5px 10px 20px;
-        // color: #042333;
         &:hover {
-            // color: #042333;
             background-color: #CAE8FB;
         }
 
@@ -93,43 +98,39 @@ a {
 
 .content {
     background: #FFF;
-    padding: 60px 0 0 180px;
-    min-width: 940px;
+    padding: 60px 0 0 200px;
+    min-width: 920px;
     height: 100%;
 }
 
 .page-header {
-    .clearfix();
-    position: absolute;
-    top: 60px;
-    left: 180px;
-    right: 0;
+    position: relative;
     height: 60px;
     margin: 0;
     padding: 0 0 0 20px;
     border-color: #BAD0DF;
     .page-header-title, .page-header-tools {
-        float: left;
-        line-height: 60px;
+        position: absolute;
+        bottom: 12px;
     }
     .page-header-title {
-        display: inline-block;
+        margin: 0;
+        line-height: 34px;
+        height: 34px;
+        // display: inline-block;
         font-size: @font-size-xlarge;
-        margin: 0 20px 0 0;
+        // margin: 0 20px 0 0;
         padding: 0;
         max-width: 600px;
         .text-overflow();
     }
-    /*.page-header-tools {
-        position: absolute;
-        bottom: 12px;
+    .page-header-tools {
         right: 20px;
-    }*/
+    }
 }
 
 .page-body {
-    padding: 0 20px;
-    margin-top:84px;
+    padding: 20px;
 }
 
 .th-updated-at {
