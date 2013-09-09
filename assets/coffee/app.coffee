@@ -35,4 +35,4 @@ $(".wysihtml").wysihtml5
     html: true
     link: true
     image: true
-    color: true
+    color: false

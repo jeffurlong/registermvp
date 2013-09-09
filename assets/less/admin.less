@@ -1,9 +1,11 @@
 @import 'global.less';
 @import 'bootstrap-wysihtml5-0.0.2.less';
-@import 'jquery.growl.less';
+// @import 'jquery.growl.less';
 
+// == [ VARIABLES ] ============================================================
 @link-hover-color:       darken(@link-color, 15%);
 
+// == [ SCAFFOLDING ] ==========================================================
 html, body {
     height: 100%;
     margin: 0;
@@ -18,10 +20,12 @@ a {
     }
 }
 
+// == [ TABLES ] ===============================================================
 .table thead>tr>th {
     border: 0;
 }
 
+// == [ BUTTONS ] ==============================================================
 .btn-trans {
     background: transparent;
     border-color: @link-color;
@@ -33,20 +37,18 @@ a {
     }
 }
 
-.wysihtml-toolbar {
-    padding: 6px 6px 3px;
-    background-color: @input-border-color;
-    // border: 1px solid @gray-lighter;
-}
+// == [ FORMS ] ================================================================
 
 .form-control  {
     border-radius: 0;
 }
 
+// == [ TOOLTIPS ] =============================================================
 .tooltip-inner  {
     padding: 10px;
 }
 
+// == [ NAVBARS ] ==============================================================
 .navbar {
     background-color: #F5F5F5;
     border-color: #BAD0DF;
@@ -67,6 +69,54 @@ a {
     margin-right: 0 !important;
 }
 
+// == [ WYSIHTML5 ] =============================================================
+.wysihtml-toolbar {
+    padding: 6px 6px 3px;
+    background-color: @input-border-color;
+}
+
+// == [ GROWLER ] ==============================================================
+#growls {
+    z-index: 1060;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.growl {
+    position: relative;
+    .opacity(0.8);
+    .transition(all .2s ease-in-out);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background: #000;
+
+    &.growl-incoming, &.growl-outgoing {
+        .opacity(0);
+    }
+}
+
+.growl-close {
+    cursor: pointer;
+    float: right;
+    font-size: @font-size-huge;
+    line-height: 1;
+}
+
+.growl-title {
+    font-size: @font-size-huge;
+    vertical-align: top;
+}
+
+.growl-message {
+    font-size: @font-size-xlarge
+}
+
+
+// == [ APP ] ==================================================================
 .page-container {
     height: 100%;
     margin: 0;

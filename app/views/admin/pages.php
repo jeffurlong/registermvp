@@ -25,7 +25,7 @@
                 <tr class="pointer" data-href="/admin/pages/<?php echo $page->id; ?>/edit">
                     <td>
                         <div class="text-large"><b><?php echo $page->name; ?></b></div>
-                        <div class="text-small text-muted"><?php echo substr(strip_tags($page->content), 0, 150); ?>...</div>
+                        <div class="text-small text-muted"><?php echo $page->preview; ?></div>
                     </td>
                     <td><?php echo $page->updated_at->toFormattedDateString(); ?></td>
                 </tr>

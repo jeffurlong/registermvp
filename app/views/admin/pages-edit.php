@@ -8,7 +8,7 @@
     </h1>
 
     <div class="page-header-tools pull-right">
-        <button class="btn btn-primary" data-toggle="tooltip" title="Preview Page"
+        <button class="btn btn-trans" data-toggle="tooltip" title="Preview Page"
             data-act="page-preview">
             <i class="glyphicon glyphicon-eye-open"></i> Preview
         </button>
@@ -32,7 +32,7 @@
         <textarea class="form-control wysihtml" id="wysihtml" name="content" rows="15">
             <?php echo $page->content; ?>
         </textarea>
-
+         <input name="page_id" id="page_id" type="hidden" value="<?php echo $page->id; ?>" />
         <input name="_method" type="hidden" value="PUT" />
 
         <button class="pull-right btn btn-secondary" type="submit">

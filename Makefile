@@ -4,10 +4,12 @@ css:
 	lessc -yui-compress  assets/less/admin.less public_html/css/admin.min.css
 
 js:
+	# == [ COMPILE ] ===============================================================================
 	coffee -j tmp/build/app.js -c assets/coffee/app.coffee
+	coffee -j tmp/build/app.admin.js -c assets/coffee/admin.coffee
 
-	uglifyjs -nc components/modernizr/modernizr.js > public_html/js/modernizr.min.js
 
+	# == [ ORG ] ===================================================================================
 	cat assets/js/jquery.validate.js \
 		components/twitter/js/transition.js \
 		components/twitter/js/alert.js \
@@ -17,6 +19,7 @@ js:
 
 	uglifyjs -nc tmp/build/org.js > public_html/js/org.min.js
 
+	# == [ ADMIN ] =================================================================================
 	cat assets/js/jquery.validate.js \
 		components/twitter/js/transition.js \
 		components/twitter/js/alert.js \
@@ -26,10 +29,15 @@ js:
         components/twitter/js/modal.js \
         components/twitter/js/tooltip.js \
         components/twitter/js/popover.js \
-        components/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.js \
+        assets/js/bootstrap-wysihtml5-0.0.2.fork.js \
         components/growl/javascripts/jquery.growl.js \
 		tmp/build/app.js \
+		tmp/build/app.admin.js \
 		> tmp/build/admin.js
+
 	uglifyjs -nc tmp/build/admin.js > public_html/js/admin.min.js
+
+	# == [ MODERNIZR ] =============================================================================
+	uglifyjs -nc components/modernizr/modernizr.js > public_html/js/modernizr.min.js
 
 

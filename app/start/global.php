@@ -1,4 +1,6 @@
 <?php
+
+
 require app_path().'/helpers.php';
 
 /*
@@ -56,14 +58,12 @@ App::error(function(Exception $exception, $code)
 
 App::error(function(RuntimeException $e)
 {
-    var_dump($e);
-    die();
+    return Response::view('error.500', array(), 404);
 });
 
-App::error(function(ModelNotFoundException $e)
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $e)
 {
-    var_dump($e);
-    die();
+    return Response::view('error.404', array(), 404);
 });
 
 /*

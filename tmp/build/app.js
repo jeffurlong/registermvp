@@ -39,7 +39,7 @@
     html: true,
     link: true,
     image: true,
-    color: true
+    color: false
   });
 
 }).call(this);
