@@ -30,10 +30,16 @@
     return window.location = $(this).attr('data-href');
   });
 
-  $('[data-href]').on('click', function() {
-    return window.location = $(this).attr('data-href');
-  });
-
   $('[data-toggle="tooltip"]').tooltip();
+
+  $(".wysihtml").wysihtml5({
+    "font-styles": true,
+    emphasis: true,
+    lists: true,
+    html: true,
+    link: true,
+    image: true,
+    color: true
+  });
 
 }).call(this);

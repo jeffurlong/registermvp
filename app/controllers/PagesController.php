@@ -12,4 +12,13 @@ class PagesController extends BaseController
     {
         return View::make('admin.pages-edit', array('page' => Page::find($id)));
     }
+
+    public function update($id)
+    {
+        $data = Input::only('name', 'content');
+
+        $result = (Page::find($id)->save($data)) ? 'success' : 'error';
+
+        return Response::json(array('result' => $result));
+    }
 }

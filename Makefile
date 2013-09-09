@@ -26,12 +26,10 @@ js:
         components/twitter/js/modal.js \
         components/twitter/js/tooltip.js \
         components/twitter/js/popover.js \
+        components/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.js \
+        components/growl/javascripts/jquery.growl.js \
 		tmp/build/app.js \
 		> tmp/build/admin.js
 	uglifyjs -nc tmp/build/admin.js > public_html/js/admin.min.js
 
-	cat components/wysihtml5/parser_rules/advanced.js \
-		components/wysihtml5/dist/wysihtml5-0.3.0.js \
-		> tmp/build/wysihtml5.js
-	uglifyjs -nc tmp/build/wysihtml5.js > public_html/js/wysihtml5.min.js
 

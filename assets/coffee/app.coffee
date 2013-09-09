@@ -20,10 +20,19 @@ $('[data-mvp-role="confirm-input"]').on 'focus', ->
 # == [ ALERTS ] ================================================================
 $('.alert-danger').animate top: $('.navbar-fixed-top').height()
 
+# == [ DATA-HREF ] =============================================================
 $('[data-href]').on 'click', ->
     window.location = $(@).attr('data-href');
 
-$('[data-href]').on 'click', ->
-    window.location = $(@).attr('data-href');
-
+# == [ TOOLTIPS ] ==============================================================
 $('[data-toggle="tooltip"]').tooltip()
+
+# == [ WYSIHTML5 ] =============================================================
+$(".wysihtml").wysihtml5
+    "font-styles": true
+    emphasis: true
+    lists: true
+    html: true
+    link: true
+    image: true
+    color: true

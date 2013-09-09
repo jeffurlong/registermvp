@@ -17,4 +17,6 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 
     Route::get('pages/{id}/edit', 'PagesController@edit');
 
+    Route::put('pages/{id}/edit', 'PagesController@update');
+
 });
