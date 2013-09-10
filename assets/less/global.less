@@ -13,7 +13,16 @@
 
 @text-color:                @gray-dark;
 @brand-primary:             #02A7F0; //blue
-@brand-secondary:           #7ab122; //green ;//#70a200;//dark green//#8cb818;//light-green
+
+@brand-success:         #7ab122;//green ;//#70a200;//dark green//#8cb818;//light-green
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+@brand-info:            #5bc0de;
+
+@btn-default-bg:            #F5F5F5;
+// @btn-default-color:          @link-color;
+// @btn-default-border:         @link-color;
+
 
 @input-border-color:        @gray-lighter; //#DDD;
 @input-focus-border-color:  #74B9EF;
@@ -83,9 +92,18 @@ html.placeholder form.placeholders {
 }
 
 // == [ BUTTONS ] ==============================================================
-.btn-secondary {
-  .button-variant(@btn-primary-color, @brand-secondary, @brand-secondary);
-}
+
+// .btn-secondary {
+//   .button-variant(@btn-primary-color, @brand-secondary, @brand-secondary);
+// }
+
+// .btn-default {
+//     &:hover, &:focus {
+//         border-color: @link-hover-color;
+//         background-color: @link-hover-color;
+//         color: #fff;
+//     }
+// }
 
 .btn, .btn-lg, .btn-sm, .btn-xs {
     border-radius: 0;

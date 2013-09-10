@@ -11,12 +11,26 @@ class PagesController extends BaseController
             $page->preview = substr(strip_tags(str_replace ('>', '> ', $page->content)), 0, 150).'...';
         }
 
-        return View::make('admin.pages', array('pages' => $pages));
+        return View::make('admin.pages-index', array('pages' => $pages));
+    }
+
+    public function create()
+    {
+        return View::make('admin.pages-form', array('page' => new Page));
+    }
+
+    public function store()
+    {
+        $page = new Page(Input::only('name', 'content'));
+
+        $result = ($page->save()) ? 'success' : 'error';
+
+        return Response::json(array('result' => $result));
     }
 
     public function edit($id)
     {
-        return View::make('admin.pages-edit', array('page' => Page::findOrFail($id)));
+        return View::make('admin.pages-form', array('page' => Page::findOrFail($id)));
     }
 
     public function update($id)

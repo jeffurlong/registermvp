@@ -56,10 +56,10 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
-App::error(function(RuntimeException $e)
-{
-    return Response::view('error.500', array(), 404);
-});
+// App::error(function(RuntimeException $e)
+// {
+//     return Response::view('error.500', array(), 404);
+// });
 
 App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $e)
 {

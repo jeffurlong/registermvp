@@ -1,12 +1,13 @@
 <?php include 'partials/header.php'; ?>
+
 <div class="page-header">
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-file"></i> Pages
     </h1>
 
     <div class="page-header-tools">
-         <a class="btn btn-trans" data-toggle="tooltip" title="New Page"
-            href="/admin/page/new">
+         <a class="btn btn-default" data-toggle="tooltip" title="New Page"
+            href="/admin/pages/create">
             <i class="glyphicon glyphicon-plus"></i>
         </a>
     </div>

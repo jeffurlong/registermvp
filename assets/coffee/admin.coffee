@@ -1,4 +1,7 @@
-    $('#pages-edit-form').validate
+    $('[data-mvp-act="submit"]').on 'click', (e) ->
+        $($(@).attr('data-target')).submit()
+
+    $('#pages-form').validate
         ignoreTitle: true,
         errorElement: 'small'
         errorClass: 'invalid'
@@ -7,19 +10,24 @@
             err.insertAfter ele
         submitHandler: (form) ->
             $(form).find('[type="submit"]').attr 'disabled', true
-            submitPageEditForm(form)
+            submitPagesForm(form)
             return false
 
-    submitPageEditForm = (form) ->
+    submitPagesForm = (form) ->
+        exists = $(form).find('[name="_method"]').val() is 'PUT'
+        url = (if (exists) then "/admin/pages/" + $("#page_id").val() + "/edit" else "/admin/pages/create")
         $.post(
-            '/admin/pages/'+$('#page_id').val()+'/edit'
+            url
             $(form).serialize()
             (data) ->
                 $(form).find('[type="submit"]').removeAttr 'disabled'
                 if data.result is 'success'
-                    $.growl
-                        title: "OK"
-                        message: "Your page has been saved"
+                    if exists
+                        $.growl
+                            title: "Your page has been saved"
+                            message: ""
+                    else
+                        window.location.href = "/admin/pages?message=Your-page-has-been-saved"
                 else
                     $.growl
                         title: "Oops"
