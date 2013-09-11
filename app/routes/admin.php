@@ -23,4 +23,6 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 
     Route::put('pages/{id}/edit', 'PagesController@update');
 
+    Route::delete('pages/{id}', 'PagesController@destroy');
+
 });

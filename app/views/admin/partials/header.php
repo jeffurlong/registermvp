@@ -14,6 +14,16 @@
 </head>
 <body class="<?php echo $_template; ?>">
 
+<?php if(Session::has('message')): ?>
+    <div id="flash-message">
+        <div id="growls">
+            <div class="growl growl-default growl-medium">
+                <div class="growl-title"><?php echo Session::get('message'); ?></div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <nav class="navbar navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -36,28 +46,7 @@
 
 <div class="container page-container">
 
-<?php if(Session::has('error')): ?>
 
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <span class="glyphicon glyphicon-exclamation-sign"></span> <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.error'); ?>
-    </div>
-
-<?php elseif(Session::has('success')): ?>
-
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php echo Lang::get(Session::has('reason') ? Session::get('reason') : 'alerts.success'); ?>
-    </div>
-
-<?php elseif(Session::has('message')): ?>
-
-    <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <?php echo Session::get('message'); ?>
-    </div>
-
-<?php endif; ?>
 <nav class="sidebar">
     <ul class="nav">
         <li><span class="sidebar-text">YOUR BUSINESS</span></li>

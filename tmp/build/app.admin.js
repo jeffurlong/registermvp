@@ -2,7 +2,11 @@
 (function() {
   var submitPagesForm;
 
-  $('[data-mvp-act="submit"]').on('click', function(e) {
+  $('#flash-message').fadeIn(500).delay(3000).fadeOut(500, function() {
+    return $(this).remove();
+  });
+
+  $('[data-act="submit"]').on('click', function(e) {
     return $($(this).attr('data-target')).submit();
   });
 
@@ -34,7 +38,7 @@
             message: ""
           });
         } else {
-          return window.location.href = "/admin/pages?message=Your-page-has-been-saved";
+          return window.location.href = "/admin/pages";
         }
       } else {
         return $.growl({
@@ -44,5 +48,21 @@
       }
     }, 'json');
   };
+
+  $('[data-act="delete-page"]').on('click', function(e) {
+    return $.post("/admin/pages/" + $("#page_id").val(), {
+      _method: "DELETE"
+    }, (function(data) {
+      $('#delete-page-modal').modal('hide');
+      if (data.result === 'success') {
+        return window.location.href = "/admin/pages";
+      } else {
+        return $.growl({
+          title: "Oops",
+          message: "An error has occured"
+        });
+      }
+    }), 'json');
+  });
 
 }).call(this);

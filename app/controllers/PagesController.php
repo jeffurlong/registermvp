@@ -21,9 +21,16 @@ class PagesController extends BaseController
 
     public function store()
     {
+        $result = 'error';
+
         $page = new Page(Input::only('name', 'content'));
 
-        $result = ($page->save()) ? 'success' : 'error';
+        if ($page->save())
+        {
+            $result = 'success';
+
+            Session::flash('message', 'Your page has been saved');
+        }
 
         return Response::json(array('result' => $result));
     }
@@ -38,6 +45,21 @@ class PagesController extends BaseController
         $page = Page::find(Input::get('page_id'))->fill(Input::only('name', 'content'));
 
         $result = ($page->save()) ? 'success' : 'error';
+
+        return Response::json(array('result' => $result));
+    }
+
+    public function destroy($id)
+    {
+        $result = 'error';
+
+        $page = Page::findOrFail($id);
+        if ($page->delete())
+        {
+            $result = 'success';
+
+            Session::flash('message', 'Your page has been deleted');
+        }
 
         return Response::json(array('result' => $result));
     }

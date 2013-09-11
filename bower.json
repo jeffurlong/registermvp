@@ -5,6 +5,7 @@
         "twitter": "latest",
         "bootstrap-wysihtml5": "latest",
         "modernizr" : "latest",
-        "growl" : "latest"
+        "growl" : "latest",
+        "bootstrap-switch": "latest"
     }
 }

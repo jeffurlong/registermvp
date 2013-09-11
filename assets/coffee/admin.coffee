@@ -1,4 +1,7 @@
-    $('[data-mvp-act="submit"]').on 'click', (e) ->
+    $('#flash-message').fadeIn(500).delay(3000).fadeOut 500, ->
+        $(@).remove()
+
+    $('[data-act="submit"]').on 'click', (e) ->
         $($(@).attr('data-target')).submit()
 
     $('#pages-form').validate
@@ -27,10 +30,23 @@
                             title: "Your page has been saved"
                             message: ""
                     else
-                        window.location.href = "/admin/pages?message=Your-page-has-been-saved"
+                        window.location.href = "/admin/pages"
                 else
                     $.growl
                         title: "Oops"
                         message: "An error has occured"
             'json'
         )
+
+    $('[data-act="delete-page"]').on 'click', (e) ->
+        $.post "/admin/pages/" + $("#page_id").val(),
+            _method : "DELETE"
+        , ((data) ->
+            $('#delete-page-modal').modal 'hide'
+            if data.result is 'success'
+                window.location.href = "/admin/pages"
+            else
+                $.growl
+                    title: "Oops"
+                    message: "An error has occured"
+        ), 'json'

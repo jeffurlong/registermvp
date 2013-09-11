@@ -6,7 +6,7 @@
         var tpl = {
             "font-styles":
                 "<li class='dropdown'>" +
-                  "<a class='btn btn-default dropdown-toggle' data-toggle='dropdown' href='#'>" +
+                  "<a tabindex='-1' class='btn btn-default dropdown-toggle' data-toggle='dropdown' href='#'>" +
                   "<i class='glyphicon glyphicon-font'></i><b class='caret'></b>" +
                   "</a>" +
                   "<ul class='dropdown-menu'>" +
@@ -20,8 +20,8 @@
             "emphasis":
                 "<li>" +
                   "<div class='btn-group'>" +
-                    "<a class='btn btn-default' data-wysihtml5-command='bold' title='CTRL+B'><i class='glyphicon glyphicon-bold'></i></a>" +
-                    "<a class='btn btn-default' data-wysihtml5-command='italic' title='CTRL+I'><i class='glyphicon glyphicon-italic'></i></a>" +
+                    "<a tabindex='-1' class='btn btn-default' data-wysihtml5-command='bold' title='CTRL+B'><i class='glyphicon glyphicon-bold'></i></a>" +
+                    "<a tabindex='-1' class='btn btn-default' data-wysihtml5-command='italic' title='CTRL+I'><i class='glyphicon glyphicon-italic'></i></a>" +
                     // "<a class='btn btn-default' data-wysihtml5-command='underline' title='CTRL+U'>" + locale.emphasis.underline + "</a>" +
                   "</div>" +
                 "</li>",
@@ -29,8 +29,8 @@
             "lists":
                 "<li>" +
                   "<div class='btn-group'>" +
-                    "<a class='btn btn-default' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "'><i class='glyphicon glyphicon-list'></i></a>" +
-                    "<a class='btn btn-default' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "'><i class='glyphicon glyphicon-th-list'></i></a>" +
+                    "<a  tabindex='-1' class='btn btn-default' data-wysihtml5-command='insertUnorderedList' title='" + locale.lists.unordered + "'><i class='glyphicon glyphicon-list'></i></a>" +
+                    "<a tabindex='-1'  class='btn btn-default' data-wysihtml5-command='insertOrderedList' title='" + locale.lists.ordered + "'><i class='glyphicon glyphicon-th-list'></i></a>" +
                     // "<a class='btn btn-default' data-wysihtml5-command='Outdent' title='" + locale.lists.outdent + "'><i class='glyphicon glyphicon-indent-right'></i></a>" +
                     // "<a class='btn btn-default' data-wysihtml5-command='Indent' title='" + locale.lists.indent + "'><i class='glyphicon glyphicon-indent-left'></i></a>" +
                   "</div>" +
@@ -53,7 +53,7 @@
                     "</div>" +
                     "</div></div>" +
                   "</div>" +
-                  "<a class='btn btn-default' data-wysihtml5-command='createLink' title='" + locale.link.insert + "'><i class='glyphicon glyphicon-link'></i></a>" +
+                  "<a tabindex='-1'  class='btn btn-default' data-wysihtml5-command='createLink' title='" + locale.link.insert + "'><i class='glyphicon glyphicon-link'></i></a>" +
                 "</li>",
 
             "image":
@@ -73,19 +73,19 @@
                     "</div>" +
                     "</div></div>" +
                   "</div>" +
-                  "<a class='btn btn-default' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "'><i class='glyphicon glyphicon-picture'></i></a>" +
+                  "<a tabindex='-1'  class='btn btn-default' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "'><i class='glyphicon glyphicon-picture'></i></a>" +
                 "</li>",
 
             "html":
                 "<li class='pull-right'>" +
                   "<div class='btn-group'>" +
-                    "<a class='btn btn-default' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'><i class='glyphicon glyphicon-edit'></i></a>" +
+                    "<a tabindex='-1'  class='btn btn-default' data-wysihtml5-action='change_view' title='" + locale.html.edit + "'><i class='glyphicon glyphicon-edit'></i></a>" +
                   "</div>" +
                 "</li>",
 
             "color":
                 "<li class='dropdown'>" +
-                  "<a class='btn btn-default dropdown-toggle' data-toggle='dropdown' href='#'>" +
+                  "<a tabindex='-1'  class='btn btn-default dropdown-toggle' data-toggle='dropdown' href='#'>" +
                     "<span class='current-color'>" + locale.colours.black + "</span>&nbsp;<b class='caret'></b>" +
                   "</a>" +
                   "<ul class='dropdown-menu'>" +
