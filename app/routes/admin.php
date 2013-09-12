@@ -35,7 +35,7 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
             $org[$row->k] = $row->v;
         }
 
-        return View::make('admin.settings.general', array('org' => $org));
+        return View::make('admin.settings.general', array('org' => $org, 'states' => form_states()));
     });
 
 });

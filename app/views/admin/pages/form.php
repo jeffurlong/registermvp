@@ -52,7 +52,7 @@
         <textarea class="form-control wysihtml" id="wysihtml" name="content" rows="15" >
             <?php echo $page->content; ?>
         </textarea>
-         <input name="page_id" id="page_id" type="hidden" value="<?php echo $page->id; ?>" />
+        <input name="page_id" id="page_id" type="hidden" value="<?php echo $page->id; ?>" />
         <input name="_method" type="hidden" value="<?php echo ($page->exists) ? 'PUT' : 'POST'; ?>" />
         <div class="control-group">
             <?php if ($page->exists): ?>
