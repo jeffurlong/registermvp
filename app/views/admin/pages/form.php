@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'; ?>
+<?php include __DIR__.'/../partials/header.php'; ?>
 
 <div class="page-header">
 
@@ -33,16 +33,16 @@
         <div class="row">
             <div class="col-md-10">
                 <label class="control-label" for="name">Title</label>
-                <input autofocus class="form-control" id="name" name="name"
+                <input class="form-control required" id="name" name="name"
                     placeholder="e.g. Contact, About us, FAQs, etc." type="text"
                     value="<?php echo $page->name; ?>" />
             </div>
             <div class="col-md-2">
                 <div class="pull-right">
-                    <label class="control-label" for="visibility">Visibility</label>
+                    <label class="control-label" for="visible">Visibility</label>
                     <div>
                         <div class="make-switch switch-large" data-on="success" data-off="danger">
-                            <input type="checkbox" checked="checked" id="visibility" name="visible" value="1" />
+                            <input type="checkbox" checked="checked" id="visible" name="visible" value="1" />
                         </div>
                     </div>
                 </div>
@@ -95,6 +95,7 @@
         </div>
     </div>
 <?php endif; ?>
+
 <script src="/js/wysihtml5-0.3.0.min.js"></script>
 
-<?php include 'partials/footer.php'; ?>
+<?php include __DIR__.'/../partials/footer.php'; ?>

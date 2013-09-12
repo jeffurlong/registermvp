@@ -6,24 +6,21 @@ class PagesController extends BaseController
     {
         $pages = Page::orderBy('updated_at', 'desc')->get();
 
-        foreach ($pages as $page)
-        {
-            $page->preview = substr(strip_tags(str_replace ('>', '> ', $page->content)), 0, 150).'...';
-        }
-
-        return View::make('admin.pages-index', array('pages' => $pages));
+        return View::make('admin.pages.index', array('pages' => $pages));
     }
 
     public function create()
     {
-        return View::make('admin.pages-form', array('page' => new Page));
+        return View::make('admin.pages.form', array('page' => new Page));
     }
 
     public function store()
     {
         $result = 'error';
 
-        $page = new Page(Input::only('name', 'content'));
+        $page = new Page(Input::only('name', 'content', 'visible'));
+
+        $page = $this->addMetaData($page);
 
         if ($page->save())
         {
@@ -37,12 +34,14 @@ class PagesController extends BaseController
 
     public function edit($id)
     {
-        return View::make('admin.pages-form', array('page' => Page::findOrFail($id)));
+        return View::make('admin.pages.form', array('page' => Page::findOrFail($id)));
     }
 
     public function update($id)
     {
-        $page = Page::find(Input::get('page_id'))->fill(Input::only('name', 'content'));
+        $page = Page::find(Input::get('page_id'))->fill(Input::only('name', 'content', 'visible'));
+
+        $page = $this->addMetaData($page);
 
         $result = ($page->save()) ? 'success' : 'error';
 
@@ -54,6 +53,7 @@ class PagesController extends BaseController
         $result = 'error';
 
         $page = Page::findOrFail($id);
+
         if ($page->delete())
         {
             $result = 'success';
@@ -62,5 +62,14 @@ class PagesController extends BaseController
         }
 
         return Response::json(array('result' => $result));
+    }
+
+    protected function addMetaData($page)
+    {
+        $page->slug = strtolower(str_replace(" ", "-", preg_replace("/[^A-Za-z0-9 ]/", '', $page->name)));
+
+        $page->description = substr(strip_tags(str_replace ('>', '> ', $page->content)), 0, 147).'...';
+
+        return $page;
     }
 }

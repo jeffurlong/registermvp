@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#home"><?php echo $_org['name']; ?></a>
+            <a class="navbar-brand" href="/admin/"><?php echo $_org['name']; ?></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -59,6 +59,12 @@
         <li>
             <a href="/admin/pages">
                 <i class="glyphicon glyphicon-file"></i> Pages
+            </a>
+        </li>
+        <li><span class="sidebar-text">YOUR SETTINGS</span></li>
+        <li>
+            <a href="/admin/settings/general">
+                <i class="glyphicon glyphicon-cog"></i> Settings
             </a>
         </li>
     </ul>

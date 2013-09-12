@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'; ?>
+<?php include __DIR__.'/../partials/header.php'; ?>
 
 <div class="page-header">
     <h1 class="page-header-title">
@@ -26,7 +26,7 @@
                 <tr class="pointer" data-href="/admin/pages/<?php echo $page->id; ?>/edit">
                     <td>
                         <div class="text-large"><b><?php echo $page->name; ?></b></div>
-                        <div class="text-small text-muted"><?php echo $page->preview; ?></div>
+                        <div class="text-small text-muted"><?php echo $page->description; ?></div>
                     </td>
                     <td><?php echo $page->updated_at->toFormattedDateString(); ?></td>
                 </tr>
@@ -35,4 +35,4 @@
     </table>
 </div>
 
-<?php include 'partials/footer.php'; ?>
+<?php include __DIR__.'/../partials/footer.php'; ?>

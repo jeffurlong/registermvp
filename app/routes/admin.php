@@ -12,7 +12,7 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
         return View::make('admin.dashboard');
     });
 
-
+    // == [ PAGES ] ============================================================
     Route::get('pages', 'PagesController@index');
 
     Route::get('pages/create', 'PagesController@create');
@@ -24,5 +24,18 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
     Route::put('pages/{id}/edit', 'PagesController@update');
 
     Route::delete('pages/{id}', 'PagesController@destroy');
+
+    // == [ SETTINGS ] =========================================================
+    Route::get('settings/general', function()
+    {
+        $data = Org::all();
+
+        foreach($data as $row)
+        {
+            $org[$row->k] = $row->v;
+        }
+
+        return View::make('admin.settings.general', array('org' => $org));
+    });
 
 });

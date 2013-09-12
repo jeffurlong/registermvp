@@ -1,6 +1,6 @@
 @import 'global.less';
 @import 'bootstrap-wysihtml5-0.0.2.less';
-@import '/components/bootstrap-switch/static/less/bootstrap-switch.less';
+@import 'bootstrap-switch.custom.less';
 // @import 'jquery.growl.less';
 
 // == [ VARIABLES ] ============================================================
@@ -142,7 +142,9 @@ a {
 
     .nav > li > a {
         padding: 10px 5px 10px 20px;
+        color: @gray-dark;
         &:hover {
+            color: @gray-darker;
             background-color: #CAE8FB;
         }
 
@@ -150,10 +152,9 @@ a {
     .sidebar-text {
         display: inline-block;
         padding: 20px 0 0 20px;
-        color: @gray;
+        color: #9DBECB;
     }
 }
-
 .content {
     background: #FFF;
     padding: 60px 0 0 200px;
