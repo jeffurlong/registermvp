@@ -20,7 +20,7 @@
             return (count($segments) > $max and $segments[0] !== 'www') ? $segments[0] : null;
         }
 
-        throw new \Exception('SERVER_NAME not set');
+       // throw new \Exception('SERVER_NAME not set');
     }
 
     function getPageTemplateName()
@@ -33,7 +33,7 @@
             return implode('_', $a);
         }
 
-        throw new \Exception('REQUEST_URI not set');
+        //throw new \Exception('REQUEST_URI not set');
     }
 
     function form_states()

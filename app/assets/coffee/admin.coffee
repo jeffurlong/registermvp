@@ -94,3 +94,18 @@
                         message: ""
             'json'
         )
+
+    $(".delete-notification-toggle").on 'click', (e) ->
+        $('#confirm-delete-btn').attr 'data-target', $(@).attr('data-notification')
+        $("#delete-notification-modal").modal()
+        # $.post "/admin/pages/" + $("#page_id").val(),
+        #     _method : "DELETE"
+        # , ((data) ->
+        #     $('#delete-page-modal').modal 'hide'
+        #     if data.result is 'success'
+        #         window.location.href = "/admin/pages"
+        #     else
+        #         $.growl
+        #             title: "An error has occured"
+        #             message: ""
+        # ), 'json'

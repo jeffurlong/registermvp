@@ -2,7 +2,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration {
+class CreateSubscriptionsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,13 +11,11 @@ class CreatePagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pages', function(Blueprint $table)
+		Schema::create('subscriptions', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->string('name');
-			$table->text('content')->nullable();
-			$table->string('slug');
-			$table->string('description');
+			$table->string('type');
+			$table->string('address');
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -30,7 +28,7 @@ class CreatePagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pages');
+		Schema::drop('subscriptions');
 	}
 
 }

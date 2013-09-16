@@ -116,4 +116,9 @@
     }, 'json');
   };
 
+  $(".delete-notification-toggle").on('click', function(e) {
+    $('#confirm-delete-btn').attr('data-target', $(this).attr('data-notification'));
+    return $("#delete-notification-modal").modal();
+  });
+
 }).call(this);
