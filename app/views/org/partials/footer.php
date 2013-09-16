@@ -7,8 +7,7 @@
             <hr />
             <ul class="list-inline">
             <li>
-                Content &copy; <?php echo date('Y'); ?>
-                <a href="<?php echo $_org['website']; ?>"><?php echo $_org['name']; ?></a>.
+                Content &copy; <?php echo date('Y').' '.$_org['name']; ?>.
             </li>
             <li>
                 Online Event Registration Software &copy; <?php echo date('Y'); ?>

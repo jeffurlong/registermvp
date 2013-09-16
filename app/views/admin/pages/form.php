@@ -54,6 +54,7 @@
         </textarea>
         <input name="page_id" id="page_id" type="hidden" value="<?php echo $page->id; ?>" />
         <input name="_method" type="hidden" value="<?php echo ($page->exists) ? 'PUT' : 'POST'; ?>" />
+        <?php echo Form::token(); ?>
         <div class="control-group">
             <?php if ($page->exists): ?>
                 <button class="pull-left btn btn-default" type="button" data-toggle="modal"

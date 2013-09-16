@@ -1,8 +1,25 @@
     $('#flash-message').fadeIn(500).delay(3000).fadeOut 500, ->
         $(@).remove()
 
+    $('#flash-error').fadeIn(500).on 'click', (e) ->
+        $(@).fadeOut 500, ->
+            $(@).remove()
+
     $('[data-act="submit"]').on 'click', (e) ->
         $($(@).attr('data-target')).submit()
+
+    $('[data-act="deactivate-payment-processor"]').on 'click', (e) ->
+        $.post '/admin/settings/payments/json',
+            _method:'PUT'
+            payment_processor:''
+            (data) ->
+                if data.result is 'success'
+                    window.location.href = '/admin/settings/payments'
+                else
+                    $.growl
+                        title: "An error has occured"
+                        message: ""
+            'json'
 
     $('#pages-form').validate
         ignoreTitle: true,
@@ -47,6 +64,33 @@
                 window.location.href = "/admin/pages"
             else
                 $.growl
-                    title: "Oops"
-                    message: "An error has occured"
+                    title: "An error has occured"
+                    message: ""
         ), 'json'
+
+    $('#add-notification-form').validate
+        ignoreTitle: true,
+        errorElement: 'small'
+        errorClass: 'invalid'
+        ignore: '[type="hidden"], .hide'
+        errorPlacement:  (err, ele) ->
+            err.insertAfter ele
+        submitHandler: (form) ->
+            $(form).find('[type="submit"]').attr 'disabled', true
+            submitAddNotificationForm(form)
+            return false
+
+    submitAddNotificationForm = (form) ->
+        $.post(
+            '/admin/settings/notifications/create'
+            $(form).serialize()
+            (data) ->
+                $('#add-notification-modal').modal 'hide'
+                if data.result is 'success'
+                    window.location.href = "/admin/settings/notifications"
+                else
+                    $.growl
+                        title: "An error has occured"
+                        message: ""
+            'json'
+        )

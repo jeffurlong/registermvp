@@ -1,35 +1,73 @@
 <?php
 
-class Org extends Eloquent
+class Org
 {
-    public $table = "org";
+    /**
+     * Get all key value pairs in the table
+     * @return array
+     */
+    public static function all()
+    {
+        $data = array();
 
-    public $timestamps = false;
+        $rows = DB::table('org')->get();
 
+        foreach($rows as $row)
+        {
+            $data[$row->k] = $row->v;
+        }
+
+        return $data;
+    }
+
+    public static function update($data)
+    {
+        foreach($data as $key => $val)
+        {
+            DB::table('org')->where('k', $key)->update(array('v' => $val));
+        }
+    }
+
+    /**
+     * Get the key value pairs necessary for the session data
+     * @return array
+     */
     public static function getSessionData()
     {
-        $result = array();
+        $data = array();
 
-        $data = DB::table('org')
+        $rows = DB::table('org')
             ->select('*')
             ->whereRaw("k IN (
                 'name',
-                'email',
-                'phone',
-                'website',
                 'theme',
-                'template',
-                'event_label',
-                'event_series_label',
-                'event_category_label',
-                'event_menu_label',
+                'slug',
                 'payment_processor')")
             ->get();
 
-        foreach($data as $row) {
-            $result[$row->k] = $row->v;
+        foreach($rows as $row)
+        {
+            $data[$row->k] = $row->v;
         }
 
-        return $result;
+        return $data;
     }
+
+    public static function getAuthnetCredentials()
+    {
+        $data = array();
+
+        $rows = DB::table('org')
+            ->select('*')
+            ->whereRaw("k IN ('authnet_api_login', 'authnet_transaction_key')")
+            ->get();
+
+        foreach($rows as $row)
+        {
+            $data[$row->k] = $row->v;
+        }
+
+        return $data;
+    }
+
 }

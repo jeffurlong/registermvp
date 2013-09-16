@@ -43,11 +43,6 @@ a {
 }
 
 // == [ FORMS ] ================================================================
-
-.form-control  {
-    border-radius: 0;
-}
-
 .has-switch span.switch-large, .has-switch label.switch-large {
     padding-bottom: 11px;
     padding-top: 12px;
@@ -69,10 +64,19 @@ a {
         width: 100%;
         max-width: 100%;
     }
+    a {
+        color: @text-color;
+        &:hover, &:focus {
+            color: darken(@text-color, 25%);
+        }
+    }
 }
 
 .navbar-brand  {
     margin-left: 0 !important;
+    &:hover, &:focus {
+        background-color: @gray-lighter;
+    }
 }
 
 .navbar-nav.navbar-right:last-child {
@@ -107,13 +111,25 @@ a {
     &.growl-incoming, &.growl-outgoing {
         .opacity(0);
     }
+
+
+}
+
+.growl-error {
+    background: @brand-danger;
 }
 
 .growl-close {
-    cursor: pointer;
-    float: right;
+    position: absolute;
+    right: 10px;
+    top: 0;
     font-size: @font-size-huge;
-    line-height: 1;
+    color: #FFF;
+    .opacity(0.8);
+    &:hover, &:focus {
+        color: #FFF;
+        .opacity(1);
+    }
 }
 
 .growl-title {
@@ -171,7 +187,9 @@ a {
     height: 60px;
     margin: 0;
     padding: 0 0 0 20px;
-    border-color: #BAD0DF;
+    // border-color: #BAD0DF;
+    border-color: @gray-lighter;
+
     .page-header-title, .page-header-tools {
         position: absolute;
         bottom: 12px;
@@ -196,9 +214,44 @@ a {
     padding: 20px;
 }
 
+.page-body-narrow {
+    width: 50%;
+}
+
 .th-updated-at {
     width: 120px;
 }
+
+.stripe-payments-well, .authorizenet-payments-well {
+    padding-left: 200px;
+}
+
+.stripe-payments-well {
+    background: @well-bg url(/img/stripe-logo.png) no-repeat 20px 40px;
+}
+
+.authorizenet-payments-well {
+    background: @well-bg url(/img/authorizenet-logo.png) no-repeat 20px 40px;
+}
+
+.authorizenet-payments-panel, .stripe-payments-panel {
+    border: 1px solid @panel-default-border;
+    > .panel-body {
+        padding-left: 200px;
+    }
+    .panel-footer {
+        background: #FAFAFA;
+    }
+}
+
+.authorizenet-payments-panel > .panel-body {
+    background: #FFF url(/img/authorizenet-logo.png) no-repeat 20px 40px;
+}
+
+.stripe-payments-panel > .panel-body {
+    background: #FFF url(/img/stripe-logo.png) no-repeat 20px 40px;
+}
+
 
 
 

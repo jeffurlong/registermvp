@@ -14,11 +14,21 @@
 </head>
 <body class="<?php echo $_template; ?>">
 
-<?php if(Session::has('message')): ?>
+<?php if(Session::has('error')): ?>
+    <div id="flash-error">
+        <div id="growls">
+            <div class="growl growl-error">
+                <div class="growl-title"><?php echo Session::get('error'); ?></div>
+                <button class="close growl-close">&times;</button>
+            </div>
+        </div>
+    </div>
+<?php elseif(Session::has('message')): ?>
     <div id="flash-message">
         <div id="growls">
-            <div class="growl growl-default growl-medium">
+            <div class="growl">
                 <div class="growl-title"><?php echo Session::get('message'); ?></div>
+                <button class="close growl-close">&times;</button>
             </div>
         </div>
     </div>
@@ -64,7 +74,17 @@
         <li><span class="sidebar-text">YOUR SETTINGS</span></li>
         <li>
             <a href="/admin/settings/general">
-                <i class="glyphicon glyphicon-cog"></i> Settings
+                <i class="glyphicon glyphicon-cog"></i> General
+            </a>
+        </li>
+        <li>
+            <a href="/admin/settings/payments">
+                <i class="glyphicon glyphicon-credit-card"></i> Payments
+            </a>
+        </li>
+        <li>
+            <a href="/admin/settings/notifications">
+                <i class="glyphicon glyphicon-send"></i> Notifications
             </a>
         </li>
     </ul>

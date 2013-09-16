@@ -12,22 +12,19 @@
 
 
 @text-color:                @gray-dark;
-@brand-primary:             #02A7F0; //blue
 
-@brand-success:         #7ab122;//green ;//#70a200;//dark green//#8cb818;//light-green
-@brand-warning:         #F1C403; //#f0ad4e;
-@brand-danger:          #E74C3C; //#d9534f;
-@brand-info:            #3498DB; //#5bc0de;
+@brand-primary:             #02A7F0; //blue
+@brand-success:             #7ab122;//green ;//#70a200;//dark green//#8cb818;//light-green
+@brand-warning:             #F1C403; //#f0ad4e;
+@brand-danger:              #E74C3C; //#d9534f;
+@brand-info:                #3498DB; //#5bc0de;
 
 @btn-default-bg:            #F5F5F5;
-// @btn-default-color:          @link-color;
-// @btn-default-border:         @link-color;
-
 
 @input-border-color:        @gray-lighter; //#DDD;
 @input-focus-border-color:  #74B9EF;
 
-@invalid-color:             #E74C3C;
+@invalid-color:             @brand-danger;
 
 @link-hover-color:          lighten(@link-color, 15%);
 
@@ -36,7 +33,6 @@
 @border-radius-base:             0px;
 @border-radius-large:            0px;
 @border-radius-small:            0px;
-/**/
 
 // == [ SCAFFOLDING ] ==========================================================
 body {
@@ -63,7 +59,7 @@ footer {
     border: 3px solid @input-border-color;
     .box-shadow(none);
     margin-bottom: @line-height-computed / 2;
-    height: auto;
+    height: 44px;
     padding: 9px 12px;
     &:focus {
         border-color: @input-focus-border-color;
@@ -99,22 +95,18 @@ html.placeholder form.placeholders {
 .form-group-actions {
     border-top: 3px dotted @input-border-color;
     padding-top: @line-height-computed;
+    margin-top: @line-height-computed;
+}
+
+label .required {
+  font-size: @font-size-small;
+  font-weight: 200;
+  font-style: italic;
+  color: @gray-light;
+  vertical-align: top;
 }
 
 // == [ BUTTONS ] ==============================================================
-
-// .btn-secondary {
-//   .button-variant(@btn-primary-color, @brand-secondary, @brand-secondary);
-// }
-
-// .btn-default {
-//     &:hover, &:focus {
-//         border-color: @link-hover-color;
-//         background-color: @link-hover-color;
-//         color: #fff;
-//     }
-// }
-
 .btn, .btn-lg, .btn-sm, .btn-xs {
     border-radius: 0;
 }
@@ -124,6 +116,19 @@ html.placeholder form.placeholders {
     font-weight: bold;
 }
 
+.btn-link {
+    padding: 6px 0;
+}
+
+// == [ PANELS ] ===============================================================
+.panel-title {
+    font-size: @font-size-xlarge;
+}
+
+// == [ TABLES ] ===============================================================
+.button-cell {
+    width: 100px;
+}
 
 // == [ UTLILITIES ] ===========================================================
 .mb {
@@ -132,6 +137,10 @@ html.placeholder form.placeholders {
 
 .mbx {
     margin-bottom: @line-height-computed * 2;
+}
+
+.mt {
+    margin-top: @line-height-computed;
 }
 
 .hider {
