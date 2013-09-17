@@ -117,8 +117,24 @@
   };
 
   $(".delete-notification-toggle").on('click', function(e) {
-    $('#confirm-delete-btn').attr('data-target', $(this).attr('data-notification'));
+    $('[data-act="delete-order-notification"]').attr('data-target', $(this).attr('data-notification'));
     return $("#delete-notification-modal").modal();
+  });
+
+  $('[data-act="delete-order-notification"]').on('click', function(e) {
+    return $.post("/admin/settings/notifications/" + $(this).attr('data-target'), {
+      _method: "DELETE"
+    }, (function(data) {
+      $("#delete-notification-modal").modal('hide');
+      if (data.result === 'success') {
+        return window.location.href = "/admin/settings/notifications";
+      } else {
+        return $.growl({
+          title: "An error has occured",
+          message: ""
+        });
+      }
+    }), 'json');
   });
 
 }).call(this);

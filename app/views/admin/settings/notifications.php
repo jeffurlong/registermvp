@@ -54,8 +54,52 @@
                 Add Order Notification
             </button>
         </div>
-</div>
+    </div>
 
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Email Templates</h2>
+            <h3 class="panel-subtitle">
+                These emails are sent out automatically. You can edit the content of each one.
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Template</th>
+                        <th>Description</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Order confirmation</td>
+                        <td>Sent to the customer when an order is placed</td>
+                        <td class="button-cell">
+                            <button class="btn btn-default edit-email-toggle"
+                                data-target="#edit-email-modal">
+                                <i class="glyphicon glyphicon-pencil"></i> Edit
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Order notification</td>
+                        <td>Sent to email addresses added to order notifications</td>
+                        <td class="button-cell">
+                            <button class="btn btn-default edit-email-toggle"
+                                data-target="#edit-email-modal">
+                                <i class="glyphicon glyphicon-pencil"></i> Edit
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
 
 <div class="modal fade" id="add-notification-modal">
     <div class="modal-dialog">
@@ -100,7 +144,8 @@
                 <button type="button" class="btn pull-left btn-default" data-dismiss="modal">
                     Cancel
                 </button>
-                <button id="confirm-delete-btn" type="button" class="btn btn-danger" data-target="" data-act="delete-order-notification">
+                <button type="button" class="btn btn-danger" data-act="delete-order-notification"
+                    data-target="" value="1">
                     <i class="glyphicon glyphicon-trash"></i> Delete Notification
                 </button>
             </div>

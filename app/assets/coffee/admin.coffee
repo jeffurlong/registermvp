@@ -96,16 +96,20 @@
         )
 
     $(".delete-notification-toggle").on 'click', (e) ->
-        $('#confirm-delete-btn').attr 'data-target', $(@).attr('data-notification')
+        $('[data-act="delete-order-notification"]').attr 'data-target', $(@).attr('data-notification')
         $("#delete-notification-modal").modal()
-        # $.post "/admin/pages/" + $("#page_id").val(),
-        #     _method : "DELETE"
-        # , ((data) ->
-        #     $('#delete-page-modal').modal 'hide'
-        #     if data.result is 'success'
-        #         window.location.href = "/admin/pages"
-        #     else
-        #         $.growl
-        #             title: "An error has occured"
-        #             message: ""
-        # ), 'json'
+
+    $('[data-act="delete-order-notification"]').on 'click', (e) ->
+        $.post "/admin/settings/notifications/" + $(@).attr('data-target'),
+            _method : "DELETE"
+            , ((data) ->
+                $("#delete-notification-modal").modal 'hide'
+                if data.result is 'success'
+                    window.location.href = "/admin/settings/notifications"
+                else
+                    $.growl
+                        title: "An error has occured"
+                        message: ""
+            ), 'json'
+
+

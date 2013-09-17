@@ -91,8 +91,6 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
         return View::make('admin.settings.notifications', array('subscriptions' => Subscription::where('type', 'order')->get()));
     });
 
-
-
     Route::post('settings/notifications/create', function()
     {
         $result = 'error';
@@ -108,6 +106,20 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
         return Response::json(array('result' => $result));
     });
 
+    Route::delete('settings/notifications/{id}', function($id)
+    {
+        $result = 'error';
 
+        $sub = Subscription::find($id);
+
+        if ($sub->delete())
+        {
+            $result = 'success';
+
+            Session::flash('message', 'Your notification has been deleted');
+        }
+
+        return Response::json(array('result' => $result));
+    });
 
 });
