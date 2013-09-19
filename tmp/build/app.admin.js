@@ -17,8 +17,8 @@
   });
 
   $('[data-act="deactivate-payment-processor"]').on('click', function(e) {
-    return $.post('/admin/settings/payments/json', {
-      _method: 'PUT',
+    return $.post('/admin/settings/payments', {
+      _method: 'DELETE',
       payment_processor: ''
     }, function(data) {
       if (data.result === 'success') {

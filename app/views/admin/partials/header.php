@@ -87,6 +87,11 @@
                 <i class="glyphicon glyphicon-send"></i> Notifications
             </a>
         </li>
+         <li>
+            <a href="/admin/settings/account">
+                <i class="glyphicon glyphicon-lock"></i> Account
+            </a>
+        </li>
     </ul>
 
 </nav>

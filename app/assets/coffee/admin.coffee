@@ -9,8 +9,8 @@
         $($(@).attr('data-target')).submit()
 
     $('[data-act="deactivate-payment-processor"]').on 'click', (e) ->
-        $.post '/admin/settings/payments/json',
-            _method:'PUT'
+        $.post '/admin/settings/payments',
+            _method:'DELETE'
             payment_processor:''
             (data) ->
                 if data.result is 'success'
