@@ -8,7 +8,9 @@
     </h1>
 
     <div class="page-header-tools pull-right">
-        <?php if ( ! $page->exists): ?>
+        <?php if ($page->exists): ?>
+            <a class="btn btn-default" data-toggle="modal" href="#delete-page-modal"><i class="glyphicon glyphicon-trash"></i></a>
+        <?php else: ?>
             <a href="/admin/pages" class="btn btn-default" data-toggle="tooltip" title="Cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
             </a>
@@ -19,7 +21,7 @@
             <i class="glyphicon glyphicon-search"></i>
         </button>
 
-       <button class="btn btn-default" data-toggle="tooltip" title="Save Page"
+       <button class="btn btn-primary" data-toggle="tooltip" title="Save Page"
             data-act="submit" data-target="#pages-form">
             <i class="glyphicon glyphicon-ok"></i>
         </button>
@@ -55,17 +57,17 @@
         <input name="page_id" id="page_id" type="hidden" value="<?php echo $page->id; ?>" />
         <input name="_method" type="hidden" value="<?php echo ($page->exists) ? 'PUT' : 'POST'; ?>" />
         <?php echo Form::token(); ?>
-        <div class="control-group">
-            <?php if ($page->exists): ?>
-                <button class="pull-left btn btn-default" type="button" data-toggle="modal"
-                    data-target="#delete-page-modal">
-                    <i class="glyphicon glyphicon-trash"></i> Delete Page
-                </button>
-            <?php endif; ?>
+        <div class="form-group form-group-actions">
 
-            <button class="pull-right btn btn-success" type="submit">
+
+            <button class="btn-wide btn btn-lg btn-xl btn-primary" type="submit">
                 <i class="glyphicon glyphicon-ok"></i> Save Page
             </button>
+        </div>
+        <div>
+            <?php if ($page->exists): ?>
+
+            <?php endif; ?>
         </div>
     </form>
 

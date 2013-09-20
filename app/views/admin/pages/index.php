@@ -6,15 +6,15 @@
     </h1>
 
     <div class="page-header-tools">
-         <a class="btn btn-default" data-toggle="tooltip" title="New Page"
-            href="/admin/pages/create">
+         <a class="btn btn-primary" data-toggle="tooltip" title="New Page"
+            href="/admin/pages/new">
             <i class="glyphicon glyphicon-plus"></i>
         </a>
     </div>
 </div>
 
 <div class="page-body">
-    <table class="table table-hover">
+    <table class="table table-hoover">
         <thead>
             <tr>
                 <th>Page</ht>
@@ -23,10 +23,14 @@
         </thead>
         <tbody>
             <?php foreach ($pages as $page): ?>
-                <tr class="pointer" data-href="/admin/pages/<?php echo $page->id; ?>/edit">
+                <tr >
                     <td>
-                        <div class="text-large"><b><?php echo $page->name; ?></b></div>
-                        <div class="text-small text-muted"><?php echo $page->description; ?></div>
+                        <div>
+                            <a class="text-lg u" href="/admin/pages/edit/<?php echo $page->id; ?>">
+                                <?php echo $page->name; ?>
+                            </a>
+                        </div>
+                        <div class="text-muted"><?php echo $page->description; ?></div>
                     </td>
                     <td><?php echo $page->updated_at->toFormattedDateString(); ?></td>
                 </tr>

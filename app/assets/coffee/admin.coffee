@@ -35,7 +35,7 @@
 
     submitPagesForm = (form) ->
         exists = $(form).find('[name="_method"]').val() is 'PUT'
-        url = (if (exists) then "/admin/pages/" + $("#page_id").val() + "/edit" else "/admin/pages/create")
+        url = (if (exists) then "/admin/pages/edit/" + $("#page_id").val() else "/admin/pages/new")
         $.post(
             url
             $(form).serialize()
@@ -56,7 +56,7 @@
         )
 
     $('[data-act="delete-page"]').on 'click', (e) ->
-        $.post "/admin/pages/" + $("#page_id").val(),
+        $.post "/admin/pages/delete" + $("#page_id").val(),
             _method : "DELETE"
         , ((data) ->
             $('#delete-page-modal').modal 'hide'

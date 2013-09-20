@@ -4,10 +4,10 @@ css:
 	lessc -yui-compress  app/assets/less/admin.less public_html/css/admin.min.css
 
 js:
+	rm -Rf public_html/js/* tmp/build/*
 	# == [ COMPILE ] ==================================================
 	coffee -j tmp/build/app.js -c app/assets/coffee/app.coffee
 	coffee -j tmp/build/app.admin.js -c app/assets/coffee/admin.coffee
-
 
 	# == [ ORG ] ======================================================
 	cat app/assets/js/jquery.validate.js \
@@ -38,7 +38,10 @@ js:
 
 	uglifyjs -nc tmp/build/admin.js > public_html/js/admin.min.js
 
+	# == [ wysihtml5 ] ================================================
+	cp components/wysihtml5/dist/wysihtml5-0.3.0.min.js public_html/js/wysihtml5-0.3.0.min.js
+
 	# == [ MODERNIZR ] ================================================
-	uglifyjs -nc components/modernizr/modernizr.js > public_html/js/modernizr.min.js
+	cp app/assets/js/modernizr.custom.min.js public_html/js/modernizr.custom.min.js
 
 

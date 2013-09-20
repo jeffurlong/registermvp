@@ -6,7 +6,7 @@
     </h1>
 </div>
 
-<div class="page-body page-body-narrow container">
+<div class="page-body container">
 
     <?php if ($_org['payment_processor'] === 'stripe'): ?>
 
@@ -86,11 +86,11 @@
                             <?php echo Form::token(); ?>
 
                             <div class="form-group form-group-actions">
-                                <button class="pull-left btn btn-danger" type="button"
+                                <button class="pull-left btn btn-default" type="button"
                                     data-act="deactivate-payment-processor">
                                     <i class="glyphicon glyphicon-remove"></i> Deactivate
                                 </button>
-                                <button class="pull-right btn btn-success" type="submit">
+                                <button class="pull-right btn btn-primary" type="submit">
                                     <i class="glyphicon glyphicon-ok"></i> Save Changes
                                 </button>
                             </div>
@@ -155,7 +155,7 @@
                                 data-toggle="collapse" data-target="#authnet-panel">
                                 <i class="glyphicon glyphicon-cancel"></i> Cancel
                             </button>
-                            <button class="pull-right btn btn-success" type="submit">
+                            <button class="pull-right btn btn-primary" type="submit">
                                 <i class="glyphicon glyphicon-ok"></i> Save
                             </button>
                         </div>

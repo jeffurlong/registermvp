@@ -18,7 +18,7 @@ class Person extends Eloquent
 
     public function user()
     {
-        $this->hasOne('User');
+        return $this->hasOne('user');
     }
 
     public static function insertGetId(array $values, $sequence = null)

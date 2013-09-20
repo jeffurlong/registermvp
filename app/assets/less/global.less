@@ -49,9 +49,26 @@ footer {
         }
     }
 }
-/**/
-// == [ TYPE ] =================================================================
 
+// == [ TYPE ] =================================================================
+.text-lg {
+    font-size: @font-size-large;
+}
+
+.text-sm {
+    font-size: @font-size-small;
+}
+
+.text-xl {
+    font-size: @font-size-xlarge;
+}
+
+.u {
+    text-decoration: underline;
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
+}
 
 // == [ FORMS ] ================================================================
 
@@ -96,6 +113,7 @@ html.placeholder form.placeholders {
     border-top: 3px dotted @input-border-color;
     padding-top: @line-height-computed;
     margin-top: @line-height-computed;
+    text-align: center;
 }
 
 label .required {
@@ -114,6 +132,10 @@ label .required {
 .btn-xl {
     font-size: @font-size-xlarge;
     font-weight: bold;
+}
+
+.btn-wide {
+    min-width: 400px;
 }
 
 .btn-link {

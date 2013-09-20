@@ -2,19 +2,24 @@
 class PagesController extends BaseController
 {
 
-    public function index()
+    public function getIndex()
     {
         $pages = Page::orderBy('updated_at', 'desc')->get();
 
         return View::make('admin.pages.index', array('pages' => $pages));
     }
 
-    public function create()
+    public function getNew()
     {
         return View::make('admin.pages.form', array('page' => new Page));
     }
 
-    public function store()
+    public function getEdit($id)
+    {
+        return View::make('admin.pages.form', array('page' => Page::findOrFail($id)));
+    }
+
+    public function postNew()
     {
         $result = 'error';
 
@@ -32,12 +37,8 @@ class PagesController extends BaseController
         return Response::json(array('result' => $result));
     }
 
-    public function edit($id)
-    {
-        return View::make('admin.pages.form', array('page' => Page::findOrFail($id)));
-    }
 
-    public function update($id)
+    public function putEdit($id)
     {
         $page = Page::find(Input::get('page_id'))->fill(Input::only('name', 'content', 'visible'));
 
@@ -48,7 +49,7 @@ class PagesController extends BaseController
         return Response::json(array('result' => $result));
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $result = 'error';
 

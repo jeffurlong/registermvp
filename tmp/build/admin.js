@@ -3733,7 +3733,7 @@ Copyright 2013 Kevin Sylvestre
   submitPagesForm = function(form) {
     var exists, url;
     exists = $(form).find('[name="_method"]').val() === 'PUT';
-    url = (exists ? "/admin/pages/" + $("#page_id").val() + "/edit" : "/admin/pages/create");
+    url = (exists ? "/admin/pages/edit/" + $("#page_id").val() : "/admin/pages/new");
     return $.post(url, $(form).serialize(), function(data) {
       $(form).find('[type="submit"]').removeAttr('disabled');
       if (data.result === 'success') {

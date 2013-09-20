@@ -1,14 +1,18 @@
 <?php include __DIR__.'/../partials/header.php'; ?>
 
 <div class="page-header">
-
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-cog"></i> General Settings
     </h1>
 
+    <div class="page-header-tools">
+        <button class="btn btn-primary" data-toggle="tooltip" title="Save Settings" data-act="submit" data-target="#settings-form">
+            <i class="glyphicon glyphicon-ok"></i>
+        </button>
+    </div>
 </div>
 
-<div class="page-body page-body-narrow container">
+<div class="page-body container">
 
     <form class="" id="settings-form" method="post">
 
@@ -66,8 +70,8 @@
             <input name="_method" type="hidden" value="PUT" />
         </div>
 
-        <div class="form-group form-group-actions">
-            <button class="btn btn-lg btn-xl btn-block btn-success" type="submit">
+        <div class="form-group form-group-actions text-center">
+            <button class="btn btn-lg btn-xl btn-wide btn-primary" type="submit">
                 <i class="glyphicon glyphicon-ok"></i> Save Settings
             </button>
         </div>

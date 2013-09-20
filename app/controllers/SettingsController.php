@@ -132,15 +132,12 @@ class SettingsController extends BaseController
      */
     public function getAccount()
     {
-        $admin = User::find(1);
-        echo '<pre>';
-        var_dump($admin->person);
-        die();
+
         $admins = Person::with(array('user' => function($query)
         {
-            $query->where('role', '>=', Config::get('auth.role.admin'));
+            $query->where('role_id', '>=', Config::get('auth.role.admin'));
         }))->get();
 
-        return View::make('admin.settings.account', 'admins', $admins);
+        return View::make('admin.settings.account', array('admins' => $admins));
     }
 }

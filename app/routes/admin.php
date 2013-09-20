@@ -13,6 +13,8 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
     });
 
     // == [ PAGES ] ============================================================
+    Route::controller('pages', 'PagesController');
+    /*
     Route::get('pages', 'PagesController@index');
 
     Route::get('pages/create', 'PagesController@create');
@@ -24,7 +26,7 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
     Route::put('pages/{id}/edit', 'PagesController@update');
 
     Route::delete('pages/{id}', 'PagesController@destroy');
-
+*/
     // == [ SETTINGS ] =========================================================
     Route::controller('settings', 'SettingsController');
 
