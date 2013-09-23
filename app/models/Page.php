@@ -2,5 +2,5 @@
 
 class Page extends Eloquent
 {
-    protected $fillable = array('name', 'content');
+    protected $fillable = array('name', 'content', 'visible');
 }

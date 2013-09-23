@@ -21,6 +21,11 @@ class Person extends Eloquent
         return $this->hasOne('user');
     }
 
+    public function orders()
+    {
+        return $this->hasMany('Order');
+    }
+
     public static function insertGetId(array $values, $sequence = null)
     {
         $person = static::create($values);

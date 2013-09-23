@@ -65,6 +65,11 @@
                 <span class="glyphicon glyphicon-dashboard"></span> Dashboard
             </a>
         </li>
+        <li>
+            <a href="/admin/orders">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Orders
+            </a>
+        </li>
         <li><span class="sidebar-text">YOUR WEBSITE</span></li>
         <li>
             <a href="/admin/pages">

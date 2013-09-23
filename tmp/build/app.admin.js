@@ -72,7 +72,7 @@
   };
 
   $('[data-act="delete-page"]').on('click', function(e) {
-    return $.post("/admin/pages/" + $("#page_id").val(), {
+    return $.post("/admin/pages/delete" + $("#page_id").val(), {
       _method: "DELETE"
     }, (function(data) {
       $('#delete-page-modal').modal('hide');

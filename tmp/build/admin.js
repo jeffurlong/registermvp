@@ -3660,6 +3660,10 @@ Copyright 2013 Kevin Sylvestre
     return $($(this).attr('data-mvp-target') || $(this).attr('href')).slideDown();
   });
 
+  $(".make-switch").on("switch-change", function(e, data) {
+    return $(data.el).val((data.value ? 1 : 0));
+  });
+
   $('.alert-danger').animate({
     top: $('.navbar-fixed-top').height()
   });
@@ -3668,7 +3672,7 @@ Copyright 2013 Kevin Sylvestre
     return window.location = $(this).attr('data-href');
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="tooltip"], .tooltipper').tooltip();
 
   $(".wysihtml").wysihtml5({
     "font-styles": true,
@@ -3755,7 +3759,7 @@ Copyright 2013 Kevin Sylvestre
   };
 
   $('[data-act="delete-page"]').on('click', function(e) {
-    return $.post("/admin/pages/" + $("#page_id").val(), {
+    return $.post("/admin/pages/delete" + $("#page_id").val(), {
       _method: "DELETE"
     }, (function(data) {
       $('#delete-page-modal').modal('hide');

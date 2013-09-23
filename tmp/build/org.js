@@ -1516,6 +1516,10 @@ $.format = $.validator.format;
     return $($(this).attr('data-mvp-target') || $(this).attr('href')).slideDown();
   });
 
+  $(".make-switch").on("switch-change", function(e, data) {
+    return $(data.el).val((data.value ? 1 : 0));
+  });
+
   $('.alert-danger').animate({
     top: $('.navbar-fixed-top').height()
   });
@@ -1524,7 +1528,7 @@ $.format = $.validator.format;
     return window.location = $(this).attr('data-href');
   });
 
-  $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="tooltip"], .tooltipper').tooltip();
 
   $(".wysihtml").wysihtml5({
     "font-styles": true,

@@ -17,6 +17,10 @@ $('form').not('.bypass').each ->
 $('[data-mvp-role="confirm-input"]').on 'focus', ->
     $($(@).attr('data-mvp-target') or $(@).attr('href')).slideDown()
 
+# == [ FORM ][ SWITCHES ] ===========
+$(".make-switch").on "switch-change", (e, data) ->
+    $(data.el).val (if data.value then 1 else 0)
+
 # == [ ALERTS ] ================================================================
 $('.alert-danger').animate top: $('.navbar-fixed-top').height()
 
@@ -25,7 +29,7 @@ $('[data-href]').on 'click', ->
     window.location = $(@).attr('data-href');
 
 # == [ TOOLTIPS ] ==============================================================
-$('[data-toggle="tooltip"]').tooltip()
+$('[data-toggle="tooltip"], .tooltipper').tooltip()
 
 # == [ WYSIHTML5 ] =============================================================
 $(".wysihtml").wysihtml5

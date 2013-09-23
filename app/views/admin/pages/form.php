@@ -9,7 +9,7 @@
 
     <div class="page-header-tools pull-right">
         <?php if ($page->exists): ?>
-            <a class="btn btn-default" data-toggle="modal" href="#delete-page-modal"><i class="glyphicon glyphicon-trash"></i></a>
+            <a class="btn btn-default tooltipper" data-toggle="modal" href="#delete-page-modal" title="Delete page"><i class="glyphicon glyphicon-trash"></i></a>
         <?php else: ?>
             <a href="/admin/pages" class="btn btn-default" data-toggle="tooltip" title="Cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
@@ -30,7 +30,6 @@
 </div>
 
 <div class="page-body container">
-
     <form class="bypass" id="pages-form" method="post">
         <div class="row">
             <div class="col-md-10">
@@ -44,7 +43,11 @@
                     <label class="control-label" for="visible">Visibility</label>
                     <div>
                         <div class="make-switch switch-large" data-on="success" data-off="danger">
-                            <input type="checkbox" checked="checked" id="visible" name="visible" value="1" />
+                            <input type="checkbox" id="visible" name="visible" value="<?php echo $page->visible; ?>"
+                            <?php if ($page->visible): ?>
+                                checked="checked"
+                            <?php endif; ?>
+                            />
                         </div>
                     </div>
                 </div>
