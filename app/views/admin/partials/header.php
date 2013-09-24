@@ -70,6 +70,11 @@
                 <span class="glyphicon glyphicon-shopping-cart"></span> Orders
             </a>
         </li>
+         <li>
+            <a href="/admin/customers">
+                <span class="glyphicon glyphicon-user"></span> Customers
+            </a>
+        </li>
         <li><span class="sidebar-text">YOUR WEBSITE</span></li>
         <li>
             <a href="/admin/pages">
