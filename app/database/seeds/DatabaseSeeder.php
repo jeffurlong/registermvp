@@ -24,32 +24,65 @@ class OrgTableSeeder extends Seeder {
     {
         DB::table('org')->delete();
 
-        Org::create(array(
+        DB::table('org')->insert(array(
 			'k' => 'name',
 			'v'	=> 'Demo Sports League',
 		));
 
-
-        Org::create(array(
+        DB::table('org')->insert(array(
 			'k' => 'slug',
 			'v'	=> 'demo',
 		));
 
-        Org::create(array(
+        DB::table('org')->insert(array(
             'k' => 'theme',
             'v' => '',
         ));
 
-        Org::create(array(
-            'k' => 'website',
-            'v' => 'http://demo.com',
-        ));
-
-		Org::create(array(
+		DB::table('org')->insert(array(
 			'k' => 'payment_processor',
 			'v'	=> 'authnet',
 		));
 
+        DB::table('org')->insert(array(
+            'k' => 'authnet_api_login',
+            'v' => 'FAKE',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'authnet_transaction_key',
+            'v' => 'FAKE',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'email',
+            'v' => 'fakeee@faker.com',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'phone',
+            'v' => '555-555-5555',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'street',
+            'v' => '',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'city',
+            'v' => '',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'state',
+            'v' => '',
+        ));
+
+        DB::table('org')->insert(array(
+            'k' => 'zip',
+            'v' => '',
+        ));
     }
 
 }
@@ -65,7 +98,7 @@ class PersonTableSeeder extends Seeder {
 			'master_id'	=> 1,
 			'first_name' => 'Demo',
 			'last_name'	=> 'Admin',
-			'email'	=> 'admin@demo.com',
+			'email'	=> 'jef@mvpreg.com',
 			'phone' => '555-555-5555',
 			'gender' => 'M'
 		));
@@ -99,7 +132,10 @@ class PageTableSeeder extends Seeder {
         Page::create(array(
             'id'        => 1,
             'name'  => 'home',
-            'content'  => '<h1>Home</h1>'
+            'content'  => '<h1>Home</h1>This is the home page!',
+            'slug' =>'home',
+            'description' => 'Home Page  This is the home page. Isn\'t it lovely?...',
+            'visible' => '1',
         ));
     }
 

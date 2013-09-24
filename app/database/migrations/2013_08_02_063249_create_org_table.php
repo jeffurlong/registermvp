@@ -13,6 +13,8 @@ class CreateOrgTable extends Migration {
 	{
 		Schema::create('org', function(Blueprint $table)
 		{
+			$table->engine = 'MyISAM';
+
 			$table->string('k')->unique();
 			$table->text('v')->nullable();
 		});

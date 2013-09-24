@@ -16,4 +16,7 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 
     Route::controller('settings', 'SettingsController');
 
+    Route::controller('orders', 'OrdersController');
+
+    Route::controller('customers', 'CustomersController');
 });

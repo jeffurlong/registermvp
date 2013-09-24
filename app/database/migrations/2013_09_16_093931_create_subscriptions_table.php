@@ -13,11 +13,15 @@ class CreateSubscriptionsTable extends Migration {
 	{
 		Schema::create('subscriptions', function(Blueprint $table)
 		{
+			$table->engine = 'MyISAM';
+
 			$table->increments('id')->unsigned();
 			$table->string('type');
 			$table->string('address');
 			$table->timestamps();
 			$table->softDeletes();
+
+			$table->index('type');
 		});
 	}
 
@@ -28,7 +32,9 @@ class CreateSubscriptionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('subscriptions');
+		if (Schema::hasTable('subscriptions')) {
+			Schema::drop('subscriptions');
+		}
 	}
 
 }

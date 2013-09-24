@@ -14,6 +14,8 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table)
 		{
+			$table->engine = 'MyISAM';
+
 			$table->increments('id')->unsigned();
 			$table->integer('person_id')->unsigned();
 			$table->smallInteger('role_id')->unsigned()->default(1);
@@ -21,6 +23,9 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->timestamps();
 			$table->softDeletes();
+
+			$table->index('person_id');
+			$table->index('role_id');
 		});
 	}
 

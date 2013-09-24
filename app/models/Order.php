@@ -7,4 +7,9 @@ class Order extends Eloquent {
         return $this->belongsTo('person');
     }
 
+    public function payments()
+    {
+        return $this->hasMany('Payment');
+    }
+
 }

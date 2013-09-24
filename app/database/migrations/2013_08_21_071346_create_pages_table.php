@@ -13,11 +13,15 @@ class CreatePagesTable extends Migration {
 	{
 		Schema::create('pages', function(Blueprint $table)
 		{
+			$table->engine = 'MyISAM';
+
 			$table->increments('id')->unsigned();
 			$table->string('name');
 			$table->text('content')->nullable();
 			$table->string('slug');
 			$table->string('description');
+			$table->string('visible', 1);
+
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -30,7 +34,9 @@ class CreatePagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('pages');
+		if (Schema::hasTable('pages')) {
+			Schema::drop('pages');
+		}
 	}
 
 }

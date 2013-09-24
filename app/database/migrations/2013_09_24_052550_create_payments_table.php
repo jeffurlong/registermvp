@@ -2,7 +2,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePeopleTable extends Migration {
+class CreatePaymentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,24 +11,26 @@ class CreatePeopleTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('people', function(Blueprint $table)
+		Schema::create('payments', function(Blueprint $table)
 		{
 			$table->engine = 'MyISAM';
 
 			$table->increments('id')->unsigned();
-			$table->integer('master_id')->unsigned()->nullable();
+			$table->integer('order_id')->unsigned();
+			$table->string('transaction_id');
+			$table->string('authorization_id');
+			$table->decimal('amount', 12, 4);
+			$table->string('method');
+			$table->string('cc_type');
+			$table->string('cc_number');
 			$table->string('first_name');
 			$table->string('last_name');
 			$table->string('email');
-			$table->string('phone');
-			$table->string('gender', 1)->nullable();
-			$table->date('dob')->nullable();
-			$table->string('emergency_name');
-			$table->string('emergency_phone');
+			$table->string('remote_ip');
 			$table->timestamps();
 			$table->softDeletes();
 
-			$table->index('master_id');
+			$table->index('order_id');
 		});
 	}
 
@@ -39,8 +41,8 @@ class CreatePeopleTable extends Migration {
 	 */
 	public function down()
 	{
-		if (Schema::hasTable('people')) {
-			Schema::drop('people');
+		if (Schema::hasTable('payments')) {
+			Schema::drop('payments');
 		}
 	}
 

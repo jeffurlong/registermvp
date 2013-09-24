@@ -18,12 +18,17 @@ class Person extends Eloquent
 
     public function user()
     {
-        return $this->hasOne('user');
+        return $this->hasOne('User');
     }
 
     public function orders()
     {
         return $this->hasMany('Order');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany('Payment');
     }
 
     public static function insertGetId(array $values, $sequence = null)
