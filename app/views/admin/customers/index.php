@@ -4,6 +4,14 @@
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-user"></i> Customers
     </h1>
+    <?php if ( ! $customers->isEmpty()): ?>
+        <div class="page-header-tools">
+            <a class="btn btn-primary" data-toggle="tooltip" title="New customer"
+                href="/admin/customers/new">
+                <i class="glyphicon glyphicon-plus"></i>
+            </a>
+        </div>
+    <?php endif; ?>
 </div>
 
 <div class="page-body">
@@ -12,20 +20,22 @@
             <thead>
                 <tr>
                     <th>Name</ht>
-                    <th>Location</th>
-                    <th>Orders</th>
-                    <th>Last order</th>
-                    <th>Total spent</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th class="th-150"></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($customers as $customer): ?>
                     <tr >
                         <td><a href="/customers/<?php echo $customer->id; ?>"><?php echo $customer->first_name.' '.$customer->last_name; ?></a></td>
-                        <td><?php echo $customer->city.', '.$customer->state; ?></td>
-                        <td><?php echo $customer->orders; ?></td>
-                        <td><?php echo $customer->last_order; ?></td>
-                        <td><?php echo $customer->total_spent; ?></td>
+                        <td><?php echo $customer->phone; ?></td>
+                        <td><?php echo $customer->email; ?></td>
+                        <td>
+                            <?php if($customer->id === $customer->master_id): ?>
+                                <i class="glyphicon glyphicon-star"></i> Account Owner
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -34,15 +44,9 @@
         <div class="blank-slate">
             <h1><i class="glyphicon glyphicon-user"></i></h1>
             <h2>You don't have any customers yet.</h2>
+            <a class="mt btn btn-primary btn-lg" href="/admin/customers/new">Add a customer</a>
         </div>
     <?php endif; ?>
 </div>
-<?php
-$queries = DB::getQueryLog();
-$last_query = end($queries);
-echo '<pre>';
-var_dump($customers);
-var_dump($queries);
-echo '</pre>';
-?>
+
 <?php include __DIR__.'/../partials/footer.php'; ?>

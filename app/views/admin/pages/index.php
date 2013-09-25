@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th>Page</ht>
-                <th class="th-updated-at">Updated</th>
+                <th class="th-150">Updated</th>
             </tr>
         </thead>
         <tbody>
