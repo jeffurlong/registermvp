@@ -6,6 +6,7 @@
         "bootstrap-wysihtml5": "latest",
         "modernizr" : "latest",
         "growl" : "latest",
-        "bootstrap-switch": "latest"
+        "bootstrap-switch": "latest",
+        "bootstrap-datepicker": "latest"
     }
 }

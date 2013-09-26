@@ -10,4 +10,9 @@ class CustomersController extends BaseController
 
         return View::make('admin.customers.index', array('customers' => $customers));
     }
+
+    public function getNew()
+    {
+        return View::make('admin.customers.form', array('customer' => new Person));
+    }
 }
