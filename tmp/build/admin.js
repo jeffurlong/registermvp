@@ -5059,7 +5059,7 @@ Copyright 2013 Kevin Sylvestre
     return $(data.el).val((data.value ? 1 : 0));
   });
 
-  $('.datepicker').datepicker({
+  $('.datepicker, .input-group.date').datepicker({
     autoclose: true
   });
 

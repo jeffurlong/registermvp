@@ -12,11 +12,13 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
         return View::make('admin.dashboard');
     });
 
-    Route::controller('pages', 'PagesController');
-
-    Route::controller('settings', 'SettingsController');
-
     Route::controller('orders', 'OrdersController');
 
     Route::controller('customers', 'CustomersController');
+
+    Route::controller('events', 'EventsController');
+
+    Route::controller('pages', 'PagesController');
+
+    Route::controller('settings', 'SettingsController');
 });

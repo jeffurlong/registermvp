@@ -5,6 +5,7 @@ css:
 
 js:
 	rm -Rf public_html/js/* tmp/build/*
+
 	# == [ COMPILE ] ==================================================
 	coffee -j tmp/build/app.js -c app/assets/coffee/app.coffee
 	coffee -j tmp/build/app.admin.js -c app/assets/coffee/admin.coffee
