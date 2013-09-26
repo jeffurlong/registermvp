@@ -26,6 +26,15 @@
     return $(data.el).val((data.value ? 1 : 0));
   });
 
+  $('.datepicker').datepicker({
+    autoclose: true
+  });
+
+  $('.datepicker-dob').datepicker({
+    autoclose: true,
+    startView: 2
+  });
+
   $('.alert-danger').animate({
     top: $('.navbar-fixed-top').height()
   });

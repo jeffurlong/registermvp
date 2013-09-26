@@ -15,4 +15,13 @@ class CustomersController extends BaseController
     {
         return View::make('admin.customers.form', array('customer' => new Person));
     }
+
+    public function postNew()
+    {
+        $customer = new Person(Input::get());
+        $customer->save();
+        echo '<pre>';
+        var_dump($customer);
+        die();
+    }
 }

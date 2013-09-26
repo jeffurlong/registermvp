@@ -28,7 +28,6 @@
     </div>
 </div>
 
-
 <div class="page-body container">
     <form id="customer-form" method="post">
         <div class="form-group row">
@@ -66,7 +65,7 @@
             </div>
             <div class="col-md-6">
                 <label class="control-label" for="dob">Date of Birth</label>
-                <input class="form-control date required" id="dob" name="dob" type="date"
+                <input class="form-control date required datepicker-dob" id="dob" name="dob" type="text"
                     value="<?php echo $customer->dob; ?>" />
             </div>
         </div>

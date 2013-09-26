@@ -32,6 +32,7 @@ js:
         app/assets/js/bootstrap-wysihtml5-0.0.2.fork.js \
         components/growl/javascripts/jquery.growl.js \
         components/bootstrap-switch/static/js/bootstrap-switch.js \
+        components/bootstrap-datepicker/js/bootstrap-datepicker.js \
 		tmp/build/app.js \
 		tmp/build/app.admin.js \
 		> tmp/build/admin.js
