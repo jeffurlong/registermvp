@@ -28,7 +28,9 @@
             <tbody>
                 <?php foreach ($customers as $customer): ?>
                     <tr >
-                        <td><a href="/customers/<?php echo $customer->id; ?>"><?php echo $customer->first_name.' '.$customer->last_name; ?></a></td>
+                        <td><a href="/customers/<?php echo $customer->id; ?>">
+                            <?php echo $customer->first_name.' '.$customer->last_name; ?></a>
+                        </td>
                         <td><?php echo $customer->phone; ?></td>
                         <td><?php echo $customer->email; ?></td>
                         <td>
@@ -44,7 +46,9 @@
         <div class="blank-slate">
             <h1><i class="glyphicon glyphicon-user"></i></h1>
             <h2>You don't have any customers yet.</h2>
-            <a class="mt btn btn-primary btn-lg" href="/admin/customers/new">Add a customer</a>
+            <a class="mt btn btn-primary btn-lg" href="/admin/customers/new">
+                Create a customer account
+            </a>
         </div>
     <?php endif; ?>
 </div>

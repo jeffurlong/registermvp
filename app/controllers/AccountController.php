@@ -13,27 +13,28 @@ class AccountController extends BaseController
     }
 
     /**
-     * Create the new User and Person records, send the welcome email, and log
-     * the new user in
-     *
-     * @return Redirect
+     * Creates a new user and person record and sends welcome email
+     * @param  array    $data           Person data
+     * @param  int      $role           Role id
+     * @param  string   $email_template Email template
+     * @return bool
      */
-    public function postSignup()
+    public function createAccount($data, $role, $email_template)
     {
-        if ($this->userExists(Input::get('email')))
+        if ($this->userExists($data['email']))
         {
-            return Redirect::to('/account/signup')
-                    ->with('error', true)
-                    ->with('reason', 'alerts.signup_duplicate');
+            return false;
         }
+
+        $password = (isset($data['password'])) ? $data['password'] : Str::random();
 
         try
         {
             $person = $this->createPerson(Input::except(array('password', 'confirm_password', '_token')));
 
-            $user = $this->createUser($person, Input::get('password'), Config::get('auth.role.member'));
+            $user = $this->createUser($person, $password, $role);
 
-            $this->sendSignupEmail($person);
+            $this->sendCreateEmail($person, $password, $email_template);
         }
         catch(\Exception $e)
         {
@@ -48,6 +49,24 @@ class AccountController extends BaseController
             }
 
             throw $e;
+        }
+
+        return true;
+    }
+
+    /**
+     * Create the new User and Person records, send the welcome email, and log
+     * the new user in
+     *
+     * @return Redirect
+     */
+    public function postSignup()
+    {
+        if ( ! $this->createAccount(Input::get(), Config::get('auth.role.member'), Config::get('auth.signup.email')))
+        {
+            return Redirect::to('/account/signup')
+                    ->with('error', true)
+                    ->with('reason', 'alerts.signup_duplicate');
         }
 
         Auth::login($user);
@@ -241,16 +260,17 @@ class AccountController extends BaseController
      * @param  Person $person
      * @return void
      */
-    protected function sendSignupEmail($person)
+    protected function sendCreateEmail($person, $password, $template)
     {
         $params = array(
             'org' => Session::get('org.name'),
             'url' => Request::server('SERVER_NAME'),
             'email' => $person->email,
+            'password' => $password
         );
 
         Mail::send(
-            Config::get('auth.signup.email'),
+            Config::get($template),
             $params,
             function($m)  use ($person, $params)
             {

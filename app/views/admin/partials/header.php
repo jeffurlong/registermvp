@@ -59,7 +59,7 @@
 
 <nav class="sidebar">
     <ul class="nav">
-        <li><span class="sidebar-text">YOUR BUSINESS</span></li>
+        <li><span class="sidebar-text">YOUR LEAGUE</span></li>
         <li>
             <a href="/admin/dashboard">
                 <span class="glyphicon glyphicon-dashboard"></span> Dashboard

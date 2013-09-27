@@ -4,7 +4,7 @@
 
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-user"></i>
-        <a href="/admin/customers" class="text-muted">Customers</a> / <?php echo ($customer->exists) ? 'Edit customer': 'New Customer'; ?>
+        <a href="/admin/customers" class="text-muted">Customers</a> / <?php echo ($customer->exists) ? 'Edit customer': 'New Customer Account'; ?>
     </h1>
 
     <div class="page-header-tools pull-right">
@@ -29,49 +29,93 @@
 </div>
 
 <div class="page-body container">
+
     <form id="customer-form" method="post">
+
         <div class="form-group row">
             <div class="col-md-6">
                 <label class="control-label" for="first_name">First Name</label>
                 <input class="form-control required" id="first_name" name="first_name" type="text"
                     value="<?php echo $customer->first_name; ?>" />
             </div>
+
             <div class="col-md-6">
                  <label class="control-label" for="last_name">Last Name</label>
                 <input class="form-control required" id="last_name" name="last_name" type="text"
                     value="<?php echo $customer->last_name; ?>" />
             </div>
         </div>
+
         <div class="form-group row">
             <div class="col-md-6">
                 <label class="control-label" for="email">Email Address</label>
                 <input class="form-control required email" id="email" name="email" type="email"
-                    value="<?php echo $customer->email; ?>" />
+                    value="<?php echo $customer->email; ?>" <?php if (Session::has('error')) echo 'autofocus'; ?>/>
             </div>
+
             <div class="col-md-6">
                  <label class="control-label" for="phone">Phone Number</label>
                 <input class="form-control required" id="phone" name="phone" type="tel"
                     value="<?php echo $customer->phone; ?>" />
             </div>
         </div>
-        <div class="form-group row">
-            <div class="col-md-6">
-                <label class="control-label" for="gender">Gender</label>
-                <select class="form-control required" id="gender" name="gender">
-                    <option value=""></option>
-                    <option vlaue="M" <?php if($customer->gender === "M") echo "selected"; ?>>Male</option>
-                    <option vlaue="F" <?php if($customer->gender === "F") echo "selected"; ?>>Female</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label class="control-label" for="dob">Date of Birth</label>
-                <input class="form-control date required datepicker-dob" id="dob" name="dob" type="text"
-                    value="<?php echo $customer->dob; ?>" />
+
+        <div class="form-group">
+            <label class="control-label" for="street">Street Address</label>
+            <input class="form-control required" id="street" name="street"
+                type="text" value="<?php echo $customer->street; ?>" />
+
+            <div class="row">
+                <div class="col-md-5">
+                    <label class="control-label" for="city">City</label>
+                    <input class="form-control required" id="city" name="city"
+                        type="text" value="<?php echo $customer->city; ?>" />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="control-label" for="state">State</label>
+                    <select class="form-control required" id="state" name="state">
+                        <option value=""></option>
+                        <?php foreach(form_states() as $k => $v): ?>
+                            <option value="<?php echo $k; ?>"
+                                <?php if($customer->state === $k) echo 'selected'; ?>>
+                                <?php echo $v; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="control-label" for="zip">Zip Code</label>
+                    <input class="form-control required" id="zip" name="zip"
+                        type="text" value="<?php echo $customer->zip; ?>" />
+                </div>
             </div>
         </div>
+<!--
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label" for="gender">Gender</label>
+                    <select class="form-control required" id="gender" name="gender">
+                        <option value=""></option>
+                        <option vlaue="M" <?php if($customer->gender === "M") echo "selected"; ?>>Male</option>
+                        <option vlaue="F" <?php if($customer->gender === "F") echo "selected"; ?>>Female</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="control-label" for="dob">Date of Birth</label>
+                    <input class="form-control date required datepicker-dob" id="dob" name="dob" type="text"
+                        value="<?php echo $customer->dob; ?>" />
+                </div>
+            </div>
+        </div>
+ -->
         <input name="id" id="record_id" type="hidden" value="<?php echo $customer->id; ?>" />
         <input name="_method" type="hidden" value="<?php echo ($customer->exists) ? 'PUT' : 'POST'; ?>" />
         <?php echo Form::token(); ?>
+
         <div class="form-group form-group-actions">
             <button class="btn-wide btn btn-lg btn-xl btn-primary" type="submit">
                 <i class="glyphicon glyphicon-ok"></i> Save Customer
@@ -105,5 +149,5 @@
     </div>
 <?php endif; ?>
 
-
+<?php echo '<pre>'; var_dump(Session::all()); ?>
 <?php include __DIR__.'/../partials/footer.php'; ?>

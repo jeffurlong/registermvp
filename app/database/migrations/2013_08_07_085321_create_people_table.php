@@ -21,6 +21,10 @@ class CreatePeopleTable extends Migration {
 			$table->string('last_name');
 			$table->string('email');
 			$table->string('phone');
+			$table->string('street');
+			$table->string('city');
+			$table->string('state', 2);
+			$table->string('zip', 10);
 			$table->string('gender', 1)->nullable();
 			$table->date('dob')->nullable();
 			$table->string('emergency_name');
