@@ -50,3 +50,8 @@
             'WA'=>'Washington', 'WV'=>'West Virginia', 'WI'=>'Wisconsin', 'WY'=>'Wyoming'
         );
     }
+
+    function age($dob)
+    {
+        return ( ! $dob) ? 'N/A' : date_diff(date_create(), date_create($dob))->y;
+    }

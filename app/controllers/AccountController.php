@@ -19,7 +19,7 @@ class AccountController extends BaseController
      * @param  string   $email_template Email template
      * @return bool
      */
-    public function createAccount($data, $role, $email_template)
+    public function create($data, $role, $email_template)
     {
         if ($this->userExists($data['email']))
         {
@@ -62,7 +62,7 @@ class AccountController extends BaseController
      */
     public function postSignup()
     {
-        if ( ! $this->createAccount(Input::get(), Config::get('auth.role.member'), Config::get('auth.signup.email')))
+        if ( ! $this->create(Input::get(), Config::get('auth.role.member'), Config::get('auth.signup.email')))
         {
             return Redirect::to('/account/signup')
                     ->with('error', true)
@@ -270,7 +270,7 @@ class AccountController extends BaseController
         );
 
         Mail::send(
-            Config::get($template),
+            $template,
             $params,
             function($m)  use ($person, $params)
             {

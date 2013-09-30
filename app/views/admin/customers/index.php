@@ -28,7 +28,7 @@
             <tbody>
                 <?php foreach ($customers as $customer): ?>
                     <tr >
-                        <td><a href="/customers/<?php echo $customer->id; ?>">
+                        <td><a href="/admin/customers/show/<?php echo $customer->id; ?>">
                             <?php echo $customer->first_name.' '.$customer->last_name; ?></a>
                         </td>
                         <td><?php echo $customer->phone; ?></td>

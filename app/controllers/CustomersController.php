@@ -1,14 +1,37 @@
 <?php
 class CustomersController extends BaseController
 {
+    protected $account;
+
+    public function __construct()
+    {
+        $this->account = new AccountController;
+    }
 
     public function getIndex()
     {
         $customers = Person::join('users', 'users.person_id', '=', 'people.id')
             ->where('users.role_id', '=', 1)
+            ->select('people.*')
             ->get();
 
         return View::make('admin.customers.index', array('customers' => $customers));
+    }
+
+    public function getShow($id)
+    {
+        $customer = Person::findOrFail($id);
+
+        if ( ! $customer->isMaster())
+        {
+            App::abort(404);
+        }
+
+        return View::make('admin.customers.view', array(
+            'customer' => $customer,
+            'history' => null,
+            'members' => Person::where('master_id', $customer->master_id)->orderBy('dob')->get(),
+        ));
     }
 
     public function getNew()
@@ -25,10 +48,10 @@ class CustomersController extends BaseController
 
     public function postNew()
     {
-        if ( ! AccountController::createAccount(
+        if ( ! $this->account->create(
             Input::get(),
             Config::get('auth.role.member'),
-            Config::get('auth.newcustomer.email')
+            Config::get('auth.created.email')
         ))
         {
             return Redirect::to('/admin/customers/new')

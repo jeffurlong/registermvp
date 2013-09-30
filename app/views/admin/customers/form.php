@@ -149,5 +149,4 @@
     </div>
 <?php endif; ?>
 
-<?php echo '<pre>'; var_dump(Session::all()); ?>
 <?php include __DIR__.'/../partials/footer.php'; ?>

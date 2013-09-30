@@ -31,9 +31,9 @@ class Person extends Eloquent
         return $this->hasMany('Payment');
     }
 
-    public static function insertGetId(array $values, $sequence = null)
+    public static function create(array $values)
     {
-        $person = static::create($values);
+        $person = parent::create($values);
 
         if ( ! array_get($values, 'master_id'))
         {
@@ -51,6 +51,19 @@ class Person extends Eloquent
             }
         }
 
+        return $person;
+
+    }
+
+    public static function insertGetId(array $values, $sequence = null)
+    {
+        $person = static::create($values);
+
         return $person->id;
+    }
+
+    public function isMaster()
+    {
+        return $this->id === $this->master_id;
     }
 }
