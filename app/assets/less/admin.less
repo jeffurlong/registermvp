@@ -31,18 +31,6 @@ a {
     border: 0;
 }
 
-// == [ BUTTONS ] ==============================================================
-.btn-trans {
-    background: transparent;
-    border-color: @link-color;
-    color: @link-color;
-    &:hover, &:focus {
-        border-color: @link-hover-color;
-        background-color: @link-hover-color;
-        color: #fff;
-    }
-}
-
 // == [ FORMS ] ================================================================
 .has-switch span.switch-large, .has-switch label.switch-large {
     padding-bottom: 11px;
@@ -56,8 +44,7 @@ a {
 
 // == [ NAVBARS ] ==============================================================
 .navbar {
-    background-color: #F5F5F5;
-    border-color: @border-color-base;
+    background-color: @gray-darker;
     height: 60px;
     .container {
         margin: 5px 0 0;
@@ -66,18 +53,19 @@ a {
         max-width: 100%;
     }
     a {
-        color: @text-color;
+        color: @gray-light;
         &:hover, &:focus {
-            color: darken(@text-color, 25%);
+            color: #fff;
         }
     }
 }
 
+.nav>li>a:hover, .nav>li>a:focus {
+    background:inherit;
+}
+
 .navbar-brand  {
     margin-left: 0 !important;
-    &:hover, &:focus {
-        background-color: @gray-lighter;
-    }
 }
 
 .navbar-nav.navbar-right:last-child {
@@ -157,7 +145,9 @@ a {
     top: 60px;
     bottom: 0px;
     border-right: 1px solid #CDEEEB;
+    border-right: 1px solid #DDE2EB;
     background: #DDEEFB;
+    background: #F2F7FA;
     overflow: hidden;
     width: 200px;
 
@@ -167,6 +157,7 @@ a {
         &:hover {
             color: @gray-darker;
             background-color: #CAE8FB;
+            background-color: #DFEAF0;
         }
 
     }
@@ -174,6 +165,7 @@ a {
         display: inline-block;
         padding: 20px 0 0 20px;
         color: #9DBECB;
+        color: #AAB6BD;
     }
 }
 .content {

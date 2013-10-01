@@ -6,7 +6,7 @@
     </h1>
     <?php if ( ! $customers->isEmpty()): ?>
         <div class="page-header-tools">
-            <a class="btn btn-primary" data-toggle="tooltip" title="New customer"
+            <a class="btn btn-primary" data-toggle="tooltip" title="New customer account"
                 href="/admin/customers/new">
                 <i class="glyphicon glyphicon-plus"></i>
             </a>

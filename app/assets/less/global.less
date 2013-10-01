@@ -35,6 +35,9 @@
 @border-radius-large:            0px;
 @border-radius-small:            0px;
 
+@panel-default-border:        #DDE2EB;
+@panel-default-heading-bg:    #F2F7FA;
+
 // == [ SCAFFOLDING ] ==========================================================
 body {
     padding: 90px 0 0 0;
@@ -149,7 +152,8 @@ label .required {
 
 // == [ PANELS ] ===============================================================
 .panel-title {
-    font-size: @font-size-xlarge;
+    font-size: @font-size-large;
+    line-height: 1.667;
 }
 
 .panel-subtitle {
@@ -178,6 +182,14 @@ label .required {
 
 .mt {
     margin-top: @line-height-computed;
+}
+
+.pl {
+    padding-left: 1em;
+}
+
+.pr {
+    padding-right: 1em;
 }
 
 .hider {

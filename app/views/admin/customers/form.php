@@ -4,7 +4,7 @@
 
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-user"></i>
-        <a href="/admin/customers" class="text-muted">Customers</a> / <?php echo ($customer->exists) ? 'Edit customer': 'New Customer Account'; ?>
+        <a href="/admin/customers" class="text-muted">Customers</a> / <?php echo ($customer->exists) ? 'Edit customer': 'New customer account'; ?>
     </h1>
 
     <div class="page-header-tools pull-right">
