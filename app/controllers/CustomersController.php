@@ -34,6 +34,20 @@ class CustomersController extends BaseController
         ));
     }
 
+    public function getEdit($id)
+    {
+        $customer = Person::findOrFail($id);
+
+        return View::make('admin.customers.form', array('customer' => $customer, 'is_master' => $customer->isMaster()));
+    }
+
+    public function putEdit($id)
+    {
+        Person::findOrFail(Input::get('id'))->fill(Input::get())->save();
+
+        return Redirect::to('/admin/customers/show/'.Input::get('master_id'))->with('message', Lang::get('alerts.success'));
+    }
+
     public function getNew()
     {
         $customer = new Person;
@@ -43,7 +57,7 @@ class CustomersController extends BaseController
             $customer->fill(Session::get('_old_input'));
         }
 
-        return View::make('admin.customers.form', array('customer' => $customer));
+        return View::make('admin.customers.form', array('customer' => $customer, 'is_master' => true));
     }
 
     public function postNew()
@@ -61,5 +75,29 @@ class CustomersController extends BaseController
 
         return Redirect::to('/admin/customers')
             ->with('message', 'Your customer has been saved');
+    }
+
+    public function getAdd($id)
+    {
+        $master = Person::findOrFail($id);
+
+        if ( ! $master->isMaster())
+        {
+            App::abort(404);
+        }
+
+        $member = new Person;
+
+        $member->master_id = $id;
+
+        return View::make('admin.customers.form', array('customer' => $member, 'is_master' => false, 'master' => $master));
+    }
+
+    public function postAdd($id)
+    {
+        Person::create(Input::get());
+
+        return Redirect::to('/admin/customers/show/'.$id)
+            ->with('message', trans('alerts.success'));
     }
 }

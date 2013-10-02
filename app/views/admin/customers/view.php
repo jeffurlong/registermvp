@@ -9,8 +9,8 @@
     </h1>
 
     <div class="page-header-tools pull-right">
-        <a class="btn btn-default tooltipper" data-toggle="modal" href="#deactivate-customer-modal"
-            title="Deactivate customer account">
+        <a class="btn btn-default tooltipper" data-toggle="modal" href="#disable-account-modal"
+            title="Disable customer account">
             <i class="glyphicon glyphicon-remove"></i>
         </a>
         <a class="btn btn-default" data-toggle="tooltip"
@@ -71,26 +71,27 @@
     </div>
 </div>
 
-<div class="modal fade" id="deactivate-customer-modal">
+<div class="modal fade" id="disable-account-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">Deactivate Customer</h3>
+                <h3 class="modal-title">Disable Account</h3>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to deactivate the account for this customer? Deactivated
-                    customers are not able to log in to their account.</p>
+                <p>Are you sure you want to disable the account for this customer? Customers are
+                    not able to log in to disabled account.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     Cancel
                 </button>
-                <button type="button" class="btn btn-danger" data-act="deactivate-customer">
-                    Deactivate customer
+                <button type="button" class="btn btn-danger" data-act="disable-account">
+                    Disable account
                 </button>
             </div>
         </div>
     </div>
 </div>
+
 <?php include __DIR__.'/../partials/footer.php'; ?>

@@ -31,24 +31,40 @@ class Person extends Eloquent
         return $this->hasMany('Payment');
     }
 
+    public function fill(array $data)
+    {
+        if(isset($data['dob']))
+        {
+            if (empty($data['dob']))
+            {
+                unset($data['dob']);
+            }
+            else
+            {
+                $data['dob'] = date_formatted($data['dob'], 'Y-m-d');
+            }
+        }
+
+        return parent::fill($data);
+    }
+
     public static function create(array $values)
     {
         $person = parent::create($values);
 
-        if ( ! array_get($values, 'master_id'))
+        // master_id are not mass assignable is not mass assignable
+        try
         {
-            try
-            {
-                $person->master_id = $person->id;
+            // If there is no master_id in values, then this is a master record
+            $person->master_id = array_get($values, 'master_id') ?: $person->id;
 
-                $person->save();
-            }
-            catch (\Exception $e)
-            {
-                $person->forceDelete();
+            $person->save();
+        }
+        catch (\Exception $e)
+        {
+            $person->forceDelete();
 
-                throw $e;
-            }
+            throw $e;
         }
 
         return $person;

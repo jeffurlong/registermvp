@@ -55,3 +55,20 @@
     {
         return ( ! $dob) ? 'N/A' : date_diff(date_create(), date_create($dob))->y;
     }
+
+    function possessive($string)
+    {
+        return ends_with($string, 's') ? $string."'" : $string."'s";
+    }
+
+    function date_formatted($date, $format ='M d Y')
+    {
+        $dt = date_create($date);
+
+        if ( ! $dt)
+        {
+            $dt = date_create();
+        }
+
+        return date_format($dt, $format);
+    }
