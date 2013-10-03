@@ -112,4 +112,5 @@
                         message: ""
             ), 'json'
 
+    $('.chosen-select').chosen()
 

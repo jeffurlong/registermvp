@@ -10,6 +10,7 @@ js:
 	coffee -j tmp/build/app.js -c app/assets/coffee/app.coffee
 	coffee -j tmp/build/app.admin.js -c app/assets/coffee/admin.coffee
 
+
 	# == [ ORG ] ======================================================
 	cat app/assets/js/jquery.validate.js \
 		components/twitter/js/transition.js \
@@ -30,10 +31,12 @@ js:
         components/twitter/js/modal.js \
         components/twitter/js/tooltip.js \
         components/twitter/js/popover.js \
+        components/twitter/js/tab.js \
         app/assets/js/bootstrap-wysihtml5-0.0.2.fork.js \
         components/growl/javascripts/jquery.growl.js \
         components/bootstrap-switch/static/js/bootstrap-switch.js \
         components/bootstrap-datepicker/js/bootstrap-datepicker.js \
+        app/assets/js/chosen.jquery.js \
 		tmp/build/app.js \
 		tmp/build/app.admin.js \
 		> tmp/build/admin.js

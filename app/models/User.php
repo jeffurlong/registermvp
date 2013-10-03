@@ -26,21 +26,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $guarded = array('*');
 
+
+
 	public function person()
 	{
 		return $this->belongsTo('person');
 	}
-
-	/*
-	class Phone extends Eloquent {
-
-    public function user()
-    {
-        return $this->belongsTo('User', 'custom_key');
-    }
-
-}
-	 */
 
 	/**
 	 * Get the unique identifier for the user.

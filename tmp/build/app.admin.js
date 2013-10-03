@@ -137,4 +137,6 @@
     }), 'json');
   });
 
+  $('.chosen-select').chosen();
+
 }).call(this);

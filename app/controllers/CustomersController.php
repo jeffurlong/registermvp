@@ -15,6 +15,8 @@ class CustomersController extends BaseController
             ->select('people.*')
             ->get();
 
+        $customers = Person::orderBy('last_name')->orderBy('first_name')->get();
+
         return View::make('admin.customers.index', array('customers' => $customers));
     }
 

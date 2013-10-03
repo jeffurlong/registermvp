@@ -76,8 +76,8 @@
             </a>
         </li>
         <li>
-            <a href="/admin/events">
-                <span class="glyphicon glyphicon-calendar"></span> Events
+            <a href="/admin/seasons">
+                <span class="glyphicon glyphicon-calendar"></span> Seasons
             </a>
         </li>
         <li><span class="sidebar-text">YOUR WEBSITE</span></li>

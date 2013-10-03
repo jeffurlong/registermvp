@@ -7,6 +7,7 @@
         "modernizr" : "latest",
         "growl" : "latest",
         "bootstrap-switch": "latest",
-        "bootstrap-datepicker": "latest"
+        "bootstrap-datepicker": "latest",
+        "chosen":"latest"
     }
 }

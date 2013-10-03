@@ -16,6 +16,8 @@ Route::group(array('prefix' => 'admin', 'before'=>'auth'), function()
 
     Route::controller('customers', 'CustomersController');
 
+    Route::controller('seasons', 'SeasonsController');
+
     Route::controller('events', 'EventsController');
 
     Route::controller('pages', 'PagesController');

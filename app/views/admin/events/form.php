@@ -4,12 +4,12 @@
 
     <h1 class="page-header-title">
         <i class="glyphicon glyphicon-calendar"></i>
-        <a href="/admin/events" class="text-muted">Events</a> / <?php echo ($event->exists) ? 'Edit event': 'New event'; ?>
+        <a href="/admin/events" class="text-muted">Sessions</a> / <?php echo ($event->exists) ? 'Edit session': 'New session'; ?>
     </h1>
 
     <div class="page-header-tools pull-right">
         <?php if ($event->exists): ?>
-            <a class="btn btn-default tooltipper" data-toggle="modal" href="#delete-event-modal" title="Delete event">
+            <a class="btn btn-default tooltipper" data-toggle="modal" href="#delete-event-modal" title="Delete session">
                 <i class="glyphicon glyphicon-trash"></i>
             </a>
         <?php else: ?>
@@ -20,8 +20,8 @@
 
 
 
-       <button class="btn btn-primary" data-toggle="tooltip" title="Save event"
-            data-act="submit" data-target="#customer-form">
+       <button class="btn btn-primary" data-toggle="tooltip" title="Save session"
+            data-act="submit" data-target="#event-form">
             <i class="glyphicon glyphicon-ok"></i>
         </button>
 
@@ -33,7 +33,7 @@
     <form id="event-form" method="post">
         <div class="form-group row">
             <div class="col-md-10">
-                <label class="control-label" for="name">Event Name</label>
+                <label class="control-label" for="name">Session Name</label>
                 <input class="form-control required" id="name" name="name" type="text"
                     value="<?php echo $event->name; ?>" />
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="form-group row">
             <div class="col-md-6">
-                <label class="control-label" for="start_dt">Event Starts</label>
+                <label class="control-label" for="start_dt">Session Starts</label>
                 <div class="input-group date">
                     <input class="form-control required" id="start_dt" name="start_dt"
                         type="text" value="<?php echo $event->start_dt; ?>" />
@@ -63,7 +63,7 @@
               </div>
             </div>
             <div class="col-md-6">
-                <label class="control-label" for="end_dt">Event Ends</label>
+                <label class="control-label" for="end_dt">Session Ends</label>
                 <div class="input-group date">
                     <input class="form-control required datepicker" id="end_dt" name="end_dt" type="text"
                         value="<?php echo $event->end_dt; ?>" />
@@ -106,7 +106,7 @@
         <?php echo Form::token(); ?>
         <div class="form-group form-group-actions">
             <button class="btn-wide btn btn-lg btn-xl btn-primary" type="submit">
-                <i class="glyphicon glyphicon-ok"></i> Save Event
+                <i class="glyphicon glyphicon-ok"></i> Save Session
             </button>
         </div>
     </form>
