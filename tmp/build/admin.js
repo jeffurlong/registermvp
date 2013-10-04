@@ -6529,6 +6529,10 @@ Copyright 2013 Kevin Sylvestre
     }), 'json');
   });
 
-  $('.chosen-select').chosen();
+  if ($(".chosen-select").length) {
+    $(".chosen-select").chosen({
+      disable_search_threshold: 10
+    });
+  }
 
 }).call(this);

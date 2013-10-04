@@ -112,5 +112,8 @@
                         message: ""
             ), 'json'
 
-    $('.chosen-select').chosen()
+    # == [ FORM ][ SELECTS ] ===============================================================================================
+    if $(".chosen-select").length
+        $(".chosen-select").chosen
+            disable_search_threshold : 10
 

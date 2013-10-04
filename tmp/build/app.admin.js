@@ -137,6 +137,10 @@
     }), 'json');
   });
 
-  $('.chosen-select').chosen();
+  if ($(".chosen-select").length) {
+    $(".chosen-select").chosen({
+      disable_search_threshold: 10
+    });
+  }
 
 }).call(this);
