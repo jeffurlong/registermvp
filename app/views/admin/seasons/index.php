@@ -27,7 +27,7 @@
                 <?php foreach ($seasons as $season): ?>
                     <tr >
                         <td>
-                            <a href="/admin/seasons/<?php echo $season->id; ?>">
+                            <a href="/admin/seasons/edit/<?php echo $season->id; ?>">
                                 <?php echo $season->name; ?>
                             </a>
                         </td>

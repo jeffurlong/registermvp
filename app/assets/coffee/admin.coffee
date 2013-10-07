@@ -112,8 +112,40 @@
                         message: ""
             ), 'json'
 
-    # == [ FORM ][ SELECTS ] ===============================================================================================
-    if $(".chosen-select").length
-        $(".chosen-select").chosen
-            disable_search_threshold : 10
+
+    # == [ PROGRAM ][ Trigger Modal ] ==============================================================================
+    $('#program-id').change ->
+        if $(@).val() is 'new'
+            $('#add-program-modal').modal 'show'
+
+    # == [ PROGRAM ][ Validate Form ] ==============================================================================
+    $('#add-program-form').validate
+        ignoreTitle: true,
+        errorElement: 'small'
+        errorClass: 'invalid'
+        ignore: '[type="hidden"], .hide'
+        errorPlacement:  (err, ele) ->
+            err.insertAfter ele
+        submitHandler: (form) ->
+            $(form).find('[type="submit"]').attr 'disabled', true
+            submitAddProgramForm(form)
+            return false
+
+    # == [ PROGRAM ][ Submit Form Callback ] =======================================================================
+    submitAddProgramForm = (form) ->
+        $.post(
+            '/admin/seasons/program'
+            $(form).serialize()
+            (data) ->
+                $('#add-program-modal').modal 'hide'
+                if data.result is 'success'
+                    opt = '<option value="'+data.id+'">'+$('#program-name').val()+' ('+$('#program-gender').val()+')</option>'
+                    $('#new-program-option').before opt
+                    $('#program-id').val(data.id).change()
+                else
+                    $.growl
+                        title: "An error has occured"
+                        message: ""
+            'json'
+        )
 

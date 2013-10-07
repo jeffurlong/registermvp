@@ -9,14 +9,10 @@
 </div>
 
 <div class="page-body container">
-   <!--  <div class="panel panel-default">
-        <div class="panel-heading"> -->
             <h2 class="panel-title">Staff Members</h2>
             <h3 class="panel-subtitle">
                 You can give other people admin access to your application.
             </h3>
-       <!--  </div>
-        <div class="panel-body"> -->
             <table class="table">
                 <thead>
                     <tr>
@@ -42,15 +38,10 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-<!--
-        </div>
-        <div class="panel-footer clearfix"> -->
             <button class="btn btn-default pull-right" data-toggle="modal"
                 data-target="#add-admin-modal">
                 Add a Staff Member
             </button>
-   <!--      </div>
-    </div> -->
 </div>
 
 <?php  include __DIR__.'/../partials/footer.php'; ?>

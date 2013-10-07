@@ -36,13 +36,13 @@ js:
         components/growl/javascripts/jquery.growl.js \
         components/bootstrap-switch/static/js/bootstrap-switch.js \
         components/bootstrap-datepicker/js/bootstrap-datepicker.js \
-        app/assets/js/chosen.jquery.js \
 		tmp/build/app.js \
 		tmp/build/app.admin.js \
 		> tmp/build/admin.js
 
 	uglifyjs -nc tmp/build/admin.js > public_html/js/admin.min.js
 
+ 	# app/assets/js/chosen.jquery.js \
 	# == [ wysihtml5 ] ================================================
 	cp components/wysihtml5/dist/wysihtml5-0.3.0.min.js public_html/js/wysihtml5-0.3.0.min.js
 

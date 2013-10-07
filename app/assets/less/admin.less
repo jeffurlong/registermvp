@@ -2,7 +2,7 @@
 @import 'bootstrap-wysihtml5-0.0.2.less';
 @import 'bootstrap-switch.custom.less';
 @import 'datepicker.custom.less';
-@import 'chosen.custom.less';
+// @import 'chosen.custom.less';
 
 // == [ VARIABLES ] ============================================================
 @link-hover-color:       darken(@link-color, 15%);
@@ -42,6 +42,16 @@ a {
     padding: 10px;
 }
 
+
+.section-heading {
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid @border-color-base;
+    border-width: 1px 0;
+    padding: @padding-large-vertical 0;
+    margin-bottom: 1.5em;
+    color: @gray-light;
+}
 // == [ NAVBARS ] ==============================================================
 .navbar {
     background-color: @gray-darker;
@@ -233,6 +243,16 @@ a {
     h2 {
         font-size: @font-size-large;
         font-weight: 300;
+    }
+    &.blank-slate-sm {
+        margin-top: 30px;
+        h1 i {
+            font-size: ceil(@font-size-base * 3);
+        }
+        h2 {
+            font-size: @font-size-base;
+            margin: 10px 0;
+        }
     }
 }
 
