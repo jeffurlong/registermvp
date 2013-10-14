@@ -30,32 +30,48 @@
     <form id="customer-form" method="post">
 
         <div class="form-group row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label class="control-label" for="first_name">First Name <span class="required">(required)</span></label>
                 <input class="form-control required" id="first_name" name="first_name" type="text"
                     value="<?php echo $customer->first_name; ?>" />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                  <label class="control-label" for="last_name">Last Name <span class="required">(required)</span></label>
                 <input class="form-control required" id="last_name" name="last_name" type="text"
                     value="<?php echo $customer->last_name; ?>" />
             </div>
+
+            <div class="col-md-4">
+                <label class="control-label" for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option value=""></option>
+                    <option vlaue="M" <?php if($customer->gender === "M") echo "selected"; ?>>Male</option>
+                    <option vlaue="F" <?php if($customer->gender === "F") echo "selected"; ?>>Female</option>
+                </select>
+            </div>
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label class="control-label" for="email">Email Address <?php if($is_master) echo '<span class="required">(required)</span>'; ?></label>
                 <input class="form-control email <?php if($is_master) echo 'required'; ?>" id="email" name="email" type="email"
                     value="<?php echo $customer->email; ?>" <?php if (Session::has('error')) echo 'autofocus'; ?>/>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                  <label class="control-label" for="phone">Phone Number <?php if($is_master) echo '<span class="required">(required)</span>'; ?></label>
                 <input class="form-control <?php if($is_master) echo 'required'; ?>" id="phone" name="phone" type="tel"
                     value="<?php echo $customer->phone; ?>" />
             </div>
+
+             <div class="col-md-4">
+                    <label class="control-label" for="dob">Date of Birth</label>
+                    <input class="form-control date datepicker-dob" id="dob" name="dob" type="text"
+                        value="<?php echo $customer->dob; ?>" />
+                </div>
         </div>
+
 
         <div class="form-group">
             <label class="control-label" for="street">Street Address <?php if($is_master) echo '<span class="required">(required)</span>'; ?></label>
@@ -86,25 +102,6 @@
                     <label class="control-label" for="zip">Zip Code <?php if($is_master) echo '<span class="required">(required)</span>'; ?></label>
                     <input class="form-control <?php if($is_master) echo 'required'; ?>" id="zip" name="zip"
                         type="text" value="<?php echo $customer->zip; ?>" />
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6">
-                    <label class="control-label" for="gender">Gender</label>
-                    <select class="form-control" id="gender" name="gender">
-                        <option value=""></option>
-                        <option vlaue="M" <?php if($customer->gender === "M") echo "selected"; ?>>Male</option>
-                        <option vlaue="F" <?php if($customer->gender === "F") echo "selected"; ?>>Female</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6">
-                    <label class="control-label" for="dob">Date of Birth</label>
-                    <input class="form-control date datepicker-dob" id="dob" name="dob" type="text"
-                        value="<?php echo $customer->dob; ?>" />
                 </div>
             </div>
         </div>
