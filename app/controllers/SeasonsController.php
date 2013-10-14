@@ -55,4 +55,23 @@ class SeasonsController extends BaseController
 
         return Response::json(array('result' => $result, 'id' => $id));
     }
+
+    public function postDivision()
+    {
+        $result = 'error';
+        $id = null;
+
+        $division = new Division(Input::get());
+
+        if ($division->save())
+        {
+            $result = 'success';
+            $name = $division->name;
+            $id = $division->id;
+        }
+
+        return Response::json(array('result' => $result, 'name' => $name, 'id' => $id));
+    }
+
+
 }
