@@ -36,6 +36,7 @@ js:
         components/growl/javascripts/jquery.growl.js \
         components/bootstrap-switch/static/js/bootstrap-switch.js \
         components/bootstrap-datepicker/js/bootstrap-datepicker.js \
+        components/html5sortable/jquery.sortable.js \
 		tmp/build/app.js \
 		tmp/build/app.admin.js \
 		> tmp/build/admin.js

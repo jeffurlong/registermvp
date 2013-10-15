@@ -42,7 +42,7 @@
                         <th>Name</ht>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th class="th-150"></th>
+                        <th class="cell-width-md"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,7 +70,7 @@
                         <th>Name</ht>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th class="th-150"></th>
+                        <th class="cell-width-md"></th>
                     </tr>
                 </thead>
                 <tbody>

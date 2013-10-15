@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th>Name</ht>
-                    <th class="th-150"></th>
+                    <th class="cell-width-md"></th>
                 </tr>
             </thead>
             <tbody>

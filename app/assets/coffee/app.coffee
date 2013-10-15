@@ -1,5 +1,5 @@
 
-# == [ FORM ][ VALIDATION ] ====================================================
+# == [ FORMS ] =================================================================
 $('form').not('.bypass').each ->
     $(@).validate
         ignoreTitle: true,
@@ -13,15 +13,15 @@ $('form').not('.bypass').each ->
             form.submit()
             return false
 
-# == [ FORM ][ CONFIRM INPUT ] =================================================
+$('[data-act="submit"]').on 'click', (e) ->
+    $($(@).attr('data-target')).submit()
+
 $('[data-mvp-role="confirm-input"]').on 'focus', ->
     $($(@).attr('data-mvp-target') or $(@).attr('href')).slideDown()
 
-# == [ FORM ][ SWITCHES ] ======================================================
 $(".make-switch").on "switch-change", (e, data) ->
     $(data.el).val (if data.value then 1 else 0)
 
-# == [ FORM ][ DATEPICKER ] ====================================================
 $('.datepicker, .input-group.date').datepicker
     autoclose: true
 

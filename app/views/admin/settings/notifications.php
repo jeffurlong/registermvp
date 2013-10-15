@@ -35,7 +35,7 @@
                                     Send email to <b><?php echo $subscription->address; ?></b>
                                 </div>
                             </td>
-                            <td class="button-cell">
+                            <td class="cell-width-sm">
                                 <button class="btn btn-default delete-notification-toggle"
                                     data-target="#delete-notification-modal" data-notification="<?php echo $subscription->id; ?>">
                                     <i class="glyphicon glyphicon-trash"></i> Delete
@@ -77,7 +77,7 @@
                     <tr>
                         <td>Order confirmation</td>
                         <td>Sent to the customer when an order is placed</td>
-                        <td class="button-cell">
+                        <td class="cell-width-sm">
                             <button class="btn btn-default edit-email-toggle"
                                 data-target="#edit-email-modal">
                                 <i class="glyphicon glyphicon-pencil"></i> Edit
@@ -87,7 +87,7 @@
                     <tr>
                         <td>Order notification</td>
                         <td>Sent to email addresses added to order notifications</td>
-                        <td class="button-cell">
+                        <td class="cell-width-sm">
                             <button class="btn btn-default edit-email-toggle"
                                 data-target="#edit-email-modal">
                                 <i class="glyphicon glyphicon-pencil"></i> Edit

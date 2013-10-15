@@ -8,6 +8,6 @@
         "growl" : "latest",
         "bootstrap-switch": "latest",
         "bootstrap-datepicker": "latest",
-        "chosen":"latest"
+        "html5sortable": "latest"
     }
 }

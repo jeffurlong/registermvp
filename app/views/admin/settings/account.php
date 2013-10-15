@@ -28,7 +28,7 @@
                            <?php echo $admin->first_name.' '.$admin->last_name; ?>
                         </td>
                         <td><?php echo $admin->email; ?></td>
-                        <td class="button-cell">
+                        <td class="cell-width-sm">
                             <button class="btn btn-default delete-admin-toggle"
                                 data-target="#delete-admin-modal" data-admin-id="<?php echo $admin->id; ?>">
                                 <i class="glyphicon glyphicon-trash"></i> Delete

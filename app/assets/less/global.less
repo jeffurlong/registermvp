@@ -4,12 +4,8 @@
 // == [ VARIABLES ] ============================================================
 @font-family-base:          'Raleway', @font-family-sans-serif;
 
-// @font-size-base:            16px;
-// @line-height-base:          1.5;
-
 @font-size-xlarge:          ceil(@font-size-base * 1.5); // ~24px
 @font-size-huge:            ceil(@font-size-base * 2); // ~32px
-
 
 @text-color:                @gray-dark;
 @border-color-base:         #DDD;
@@ -143,6 +139,11 @@ label .required {
     border: none;
 }
 
+.has-switch span.switch-large, .has-switch label.switch-large {
+    padding-bottom: 11px;
+    padding-top: 12px;
+}
+
 // == [ BUTTONS ] ==============================================================
 .btn, .btn-lg, .btn-sm, .btn-xs {
     border-radius: 0;
@@ -174,8 +175,78 @@ label .required {
 }
 
 // == [ TABLES ] ===============================================================
-.button-cell {
+.table thead>tr>th {
+    border: 0;
+}
+
+.cell-width-sm {
     width: 100px;
+}
+
+.cell-width-md {
+    width: 150px;
+}
+
+// == [ TOOLTIPS ] =============================================================
+.tooltip-inner  {
+    padding: 10px;
+}
+
+
+// == [ WYSIHTML5 ] =============================================================
+.wysihtml-toolbar {
+    padding: 6px 6px 3px;
+    background-color: @input-border-color;
+}
+
+// == [ GROWLER ] ==============================================================
+#growls {
+    z-index: 1060;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.growl {
+    position: relative;
+    .opacity(0.8);
+    .transition(all .2s ease-in-out);
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background: #000;
+
+    &.growl-incoming, &.growl-outgoing {
+        .opacity(0);
+    }
+}
+
+.growl-error {
+    background: @brand-danger;
+}
+
+.growl-close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: @font-size-huge;
+    color: #FFF;
+    .opacity(0.8);
+    &:hover, &:focus {
+        color: #FFF;
+        .opacity(1);
+    }
+}
+
+.growl-title {
+    font-size: @font-size-huge;
+    vertical-align: top;
+}
+
+.growl-message {
+    font-size: @font-size-xlarge
 }
 
 // == [ UTLILITIES ] ===========================================================

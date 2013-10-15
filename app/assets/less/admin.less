@@ -26,32 +26,6 @@ a {
     margin:0;
 }
 
-// == [ TABLES ] ===============================================================
-.table thead>tr>th {
-    border: 0;
-}
-
-// == [ FORMS ] ================================================================
-.has-switch span.switch-large, .has-switch label.switch-large {
-    padding-bottom: 11px;
-    padding-top: 12px;
-}
-
-// == [ TOOLTIPS ] =============================================================
-.tooltip-inner  {
-    padding: 10px;
-}
-
-
-.section-heading {
-    font-weight: 300;
-    text-align: center;
-    border: 1px solid @border-color-base;
-    border-width: 1px 0;
-    padding: @padding-large-vertical 0;
-    margin-bottom: 1.5em;
-    color: @gray-light;
-}
 // == [ NAVBARS ] ==============================================================
 .navbar {
     background-color: @gray-darker;
@@ -81,64 +55,86 @@ a {
     margin-right: 0 !important;
 }
 
-// == [ WYSIHTML5 ] =============================================================
-.wysihtml-toolbar {
-    padding: 6px 6px 3px;
-    background-color: @input-border-color;
-}
 
-// == [ GROWLER ] ==============================================================
-#growls {
-    z-index: 1060;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-.growl {
-    position: relative;
-    .opacity(0.8);
-    .transition(all .2s ease-in-out);
-    width: 100%;
-    padding: 10px;
+// == [ COMPONENTS ] ===========================================================
+.section-heading {
+    font-weight: 300;
     text-align: center;
-    color: #fff;
-    background: #000;
+    border: 1px solid @border-color-base;
+    border-width: 1px 0;
+    padding: @padding-large-vertical 0;
+    margin-bottom: 1.5em;
+    color: @gray-light;
+}
 
-    &.growl-incoming, &.growl-outgoing {
-        .opacity(0);
+.blank-slate {
+    margin-top: 50px;
+    text-align: center;
+    h1 {
+        margin: 0;
+        i {
+            font-size: ceil(@font-size-base * 4.57);
+            color: #DDD;
+        }
+    }
+    h2 {
+        font-size: @font-size-large;
+        font-weight: 300;
+    }
+    &.blank-slate-sm {
+        margin-top: 30px;
+        h1 i {
+            font-size: ceil(@font-size-base * 3);
+        }
+        h2 {
+            font-size: @font-size-base;
+            margin: 10px 0;
+        }
     }
 }
 
-.growl-error {
-    background: @brand-danger;
-}
-
-.growl-close {
-    position: absolute;
-    right: 10px;
-    top: 0;
-    font-size: @font-size-huge;
-    color: #FFF;
-    .opacity(0.8);
-    &:hover, &:focus {
-        color: #FFF;
-        .opacity(1);
+.page-header {
+    position: relative;
+    height: 60px;
+    margin: 0;
+    padding: 0 0 0 20px;
+    border-color: @gray-lighter;
+    .page-header-title, .page-header-tools {
+        position: absolute;
+        bottom: 12px;
+    }
+    .page-header-title {
+        margin: 0;
+        line-height: 34px;
+        height: 34px;
+        font-size: @font-size-xlarge;
+        padding: 0;
+        max-width: 600px;
+        .text-overflow();
+    }
+    .page-header-tools {
+        right: 20px;
     }
 }
 
-.growl-title {
-    font-size: @font-size-huge;
-    vertical-align: top;
+.page-subheader {
+    background: #fafafa;
+    border-bottom: 1px solid @gray-lighter;
+    padding: 10px 0 0 20px;
+    .nav-tabs {
+        border: 0;
+    }
+    .nav > li >a {
+        padding: 5px 15px;
+    }
 }
 
-.growl-message {
-    font-size: @font-size-xlarge
+.reorder-handle {
+    font-size: ceil(@font-size-base * 2);
+    color: @border-color-base;
 }
 
-
-// == [ APP ] ==================================================================
+// == [ APP SCAFFOLDING ] ======================================================
 .page-container {
     height: 100%;
     margin: 0;
@@ -175,6 +171,7 @@ a {
         color: #AAB6BD;
     }
 }
+
 .content {
     background: #FFF;
     padding: 60px 0 0 200px;
@@ -182,45 +179,6 @@ a {
     height: 100%;
 }
 
-.page-header {
-    position: relative;
-    height: 60px;
-    margin: 0;
-    padding: 0 0 0 20px;
-    // border-color: #BAD0DF;
-    border-color: @gray-lighter;
-
-    .page-header-title, .page-header-tools {
-        position: absolute;
-        bottom: 12px;
-    }
-    .page-header-title {
-        margin: 0;
-        line-height: 34px;
-        height: 34px;
-        // display: inline-block;
-        font-size: @font-size-xlarge;
-        // margin: 0 20px 0 0;
-        padding: 0;
-        max-width: 600px;
-        .text-overflow();
-    }
-    .page-header-tools {
-        right: 20px;
-    }
-}
-
-.page-subheader {
-    background: #fafafa;
-    border-bottom: 1px solid @gray-lighter;
-    padding: 10px 0 0 20px;
-    .nav-tabs {
-        border: 0;
-    }
-    .nav > li >a {
-        padding: 5px 15px;
-    }
-}
 
 .page-body {
     padding: 20px 50px;
@@ -230,36 +188,7 @@ a {
     width: 50%;
 }
 
-.blank-slate {
-    margin-top: 50px;
-    text-align: center;
-    h1 {
-        margin: 0;
-        i {
-            font-size: ceil(@font-size-base * 4.57);
-            color: #DDD;
-        }
-    }
-    h2 {
-        font-size: @font-size-large;
-        font-weight: 300;
-    }
-    &.blank-slate-sm {
-        margin-top: 30px;
-        h1 i {
-            font-size: ceil(@font-size-base * 3);
-        }
-        h2 {
-            font-size: @font-size-base;
-            margin: 10px 0;
-        }
-    }
-}
-
-.th-150 {
-    width: 150px;
-}
-
+// == [ APP SPECIFIC ] =========================================================
 .stripe-payments-well, .authorizenet-payments-well {
     padding-left: 200px;
 }

@@ -88,16 +88,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Name</ht>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th class="th-150"></th>
+                                <th class="text-center cell-width-sm">Reorder</th>
+                                <th>Name</th>
                             </tr>
                         </thead>
                         <tbody id="divisions">
                             <?php foreach($season->divisions as $division): ?>
                                 <tr>
-                                    <td>
+                                    <td class="text-center"><i class="glyphicon glyphicon-align-justify reorder-handle"></i></td>
+                                    <td class="text-lg">
                                         <a data-toggle="modal" data-target="#add-division-modal">
                                             <?php echo $division->name; ?>
                                         </a>

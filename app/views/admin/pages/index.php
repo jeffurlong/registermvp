@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th>Page</ht>
-                <th class="th-150">Updated</th>
+                <th class="cell-width-md">Updated</th>
             </tr>
         </thead>
         <tbody>
