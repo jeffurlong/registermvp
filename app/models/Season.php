@@ -14,4 +14,9 @@ class Season extends Eloquent
     {
         return $this->hasMany('Question');
     }
+
+    public function program()
+    {
+        return $this->belongsTo('Program');
+    }
 }

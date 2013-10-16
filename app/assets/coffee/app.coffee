@@ -48,3 +48,15 @@ $(".wysihtml").wysihtml5
     link: true
     image: true
     color: false
+
+# == [ SORTABLE ] ==============================================================
+$(".sortable").sortable().bind "sortupdate", (e, ui) ->
+    ids = $(@).children().map(->
+        $(@).attr "data-mvp-id"
+    ).get()
+    $.post $(@).attr("data-mvp-url"),
+        "ids[]": ids
+    , ((data) ->
+        $.mvp.onAjaxCallback data
+    ), "json"
+

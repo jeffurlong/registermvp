@@ -2,10 +2,6 @@
 (function() {
   var submitAddDivisionForm, submitAddNotificationForm, submitAddProgramForm, submitPagesForm;
 
-  $('[data-act="submit"]').on('click', function(e) {
-    return $($(this).attr('data-target')).submit();
-  });
-
   $('#flash-message').fadeIn(500).delay(3000).fadeOut(500, function() {
     return $(this).remove();
   });

@@ -92,9 +92,9 @@
                                 <th>Name</th>
                             </tr>
                         </thead>
-                        <tbody id="divisions">
+                        <tbody id="divisions" class="sortable" data-mvp-url="/admin/seasons/sort-division">
                             <?php foreach($season->divisions as $division): ?>
-                                <tr>
+                                <tr data-mvp-id="<?php echo $division->id; ?>">
                                     <td class="text-center"><i class="glyphicon glyphicon-align-justify reorder-handle"></i></td>
                                     <td class="text-lg">
                                         <a data-toggle="modal" data-target="#add-division-modal">

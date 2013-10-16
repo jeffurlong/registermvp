@@ -18,6 +18,10 @@
     });
   });
 
+  $('[data-act="submit"]').on('click', function(e) {
+    return $($(this).attr('data-target')).submit();
+  });
+
   $('[data-mvp-role="confirm-input"]').on('focus', function() {
     return $($(this).attr('data-mvp-target') || $(this).attr('href')).slideDown();
   });
@@ -53,6 +57,18 @@
     link: true,
     image: true,
     color: false
+  });
+
+  $(".sortable").sortable().bind("sortupdate", function(e, ui) {
+    var ids;
+    ids = $(this).children().map(function() {
+      return $(this).attr("data-mvp-id");
+    }).get();
+    return $.post($(this).attr("data-mvp-url"), {
+      "ids[]": ids
+    }, (function(data) {
+      return $.mvp.onAjaxCallback(data);
+    }), "json");
   });
 
 }).call(this);

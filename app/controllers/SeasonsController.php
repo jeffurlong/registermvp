@@ -9,6 +9,11 @@ class SeasonsController extends BaseController
         ));
     }
 
+    public function getShow($id)
+    {
+        return View::make('admin.seasons.view', array('season' => Season::findOrFail($id)));
+    }
+
     public function getNew()
     {
         return View::make('admin.seasons.form', array(
