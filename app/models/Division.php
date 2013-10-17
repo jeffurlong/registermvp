@@ -23,4 +23,18 @@ class Division extends Eloquent
         return parent::fill($data);
     }
 
+    public static function saveOrder($ids)
+    {
+        $result = false;
+
+        foreach($ids as $k => $v)
+        {
+            $div = static::find($v);
+            $div->display_order = $k + 1;
+            $result = $div->save();
+        }
+
+        return $result;
+    }
+
 }

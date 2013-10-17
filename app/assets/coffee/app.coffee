@@ -50,13 +50,15 @@ $(".wysihtml").wysihtml5
     color: false
 
 # == [ SORTABLE ] ==============================================================
-$(".sortable").sortable().bind "sortupdate", (e, ui) ->
+$(".sortable").sortable({handle: '.sortable-handle'}).bind "sortupdate", (e, ui) ->
     ids = $(@).children().map(->
-        $(@).attr "data-mvp-id"
+        $(@).attr "data-key"
     ).get()
-    $.post $(@).attr("data-mvp-url"),
+    $.post $(@).attr("data-target"),
         "ids[]": ids
     , ((data) ->
-        $.mvp.onAjaxCallback data
+        $.growl
+            title: data.message
+            message: ""
     ), "json"
 

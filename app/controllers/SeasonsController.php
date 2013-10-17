@@ -78,5 +78,19 @@ class SeasonsController extends BaseController
         return Response::json(array('result' => $result, 'name' => $name, 'id' => $id));
     }
 
+    public function postSortDivisions()
+    {
+        $result = 'error';
+        $message = Lang::get('alerts.error');
+
+        if (Division::saveOrder(Input::get('ids')))
+        {
+            $result = "success";
+            $message = Lang::get('alerts.sort_success');
+        }
+
+        return Response::json(array('result' => $result, 'message' => $message));
+    }
+
 
 }

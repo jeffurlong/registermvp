@@ -2,12 +2,14 @@
 
 return array(
 
-    "success" => "Success! The record has been saved.",
+    "success"           => "Success! The record has been saved.",
 
-    "error"     => "Oops! An error has occured. Please try again later.",
+    "sort_success"      => "Success! The order has been saved.",
 
-    'invalid_login' => 'Please check your email and password and try again.',
+    "error"             => "Oops! An error has occured. Please try again later.",
 
-    'signup_duplicate' => 'That email is already registered. <a href="/account/forgot">Forgot your password?</a>',
+    'invalid_login'     => 'Please check your email and password and try again.',
+
+    'signup_duplicate'  => 'That email is already registered. <a href="/account/forgot">Forgot your password?</a>',
 
 );

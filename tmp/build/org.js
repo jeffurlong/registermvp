@@ -1553,15 +1553,20 @@ $.format = $.validator.format;
     color: false
   });
 
-  $(".sortable").sortable().bind("sortupdate", function(e, ui) {
+  $(".sortable").sortable({
+    handle: '.sortable-handle'
+  }).bind("sortupdate", function(e, ui) {
     var ids;
     ids = $(this).children().map(function() {
-      return $(this).attr("data-mvp-id");
+      return $(this).attr("data-key");
     }).get();
-    return $.post($(this).attr("data-mvp-url"), {
+    return $.post($(this).attr("data-target"), {
       "ids[]": ids
     }, (function(data) {
-      return $.mvp.onAjaxCallback(data);
+      return $.growl({
+        title: data.message,
+        message: ""
+      });
     }), "json");
   });
 
